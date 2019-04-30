@@ -98,12 +98,12 @@ public class PantallaJuego implements Screen {
      */
 
     // Constantes
-    private final int SPEED = 5; //mps
-    private final int JUMPING_FORCE = 300;
+    private final int SPEED = 3; //mps
+    private final int JUMPING_FORCE = 450;
     private final float SCALE = 2.0f;
 
     // fisicas
-    private float gravity = -9.8f;
+    private float gravity = -10f;
 
     // Atributos
     private SpriteBatch batch;
@@ -130,11 +130,12 @@ public class PantallaJuego implements Screen {
         camera.setToOrtho(false, width / SCALE, height / SCALE);
 
         // world
-        world = new World(new Vector2(0, gravity), false);
+        world = new World(new Vector2(0, gravity), true);
         b2ddr = new Box2DDebugRenderer();
 
         // bodies
         player = createBox(40, 100, 32, 32, false);
+
         platform = createBox(0, 0, 64, 32, true);
 
         // map
@@ -153,6 +154,10 @@ public class PantallaJuego implements Screen {
         batch.begin();
         batch.draw(R.getRegion("idle"), player.getPosition().x, player.getPosition().y);
         batch.end();
+
+        if(player.getPosition().y >= 4){
+            console
+        }
 
         tmr.render();
 
@@ -201,24 +206,32 @@ public class PantallaJuego implements Screen {
 
     private Body createBox(int x, int y, float width, float height, boolean isStatic) {
         Body playerBody;
-        // properties and physics of the player's body
-        BodyDef def = new BodyDef();
+        // properties of the player's body
+        BodyDef bdef = new BodyDef();
 
         if(isStatic)
-            def.type = BodyDef.BodyType.StaticBody;
+            bdef.type = BodyDef.BodyType.StaticBody;
         else
-            def.type = BodyDef.BodyType.DynamicBody;
+            bdef.type = BodyDef.BodyType.DynamicBody;
 
-        def.position.set(x / PPM, y / PPM);
-        def.fixedRotation = true;
+        bdef.position.set(x / PPM, y / PPM);
+        bdef.fixedRotation = true;
+
         // initialize body
-        playerBody = world.createBody(def);
+        playerBody = world.createBody(bdef);
 
         PolygonShape shape = new PolygonShape();
         // this method creates a box from the center, in this case a 32x32 box
         shape.setAsBox(width / 2 / PPM, height / 2 / PPM); // giving variables to world
 
-        playerBody.createFixture(shape, 1.0f); // density
+        // physics
+        FixtureDef fdef = new FixtureDef();
+        fdef.density = 1.0f;
+        fdef.friction = 1.0f;
+        fdef.shape = shape;
+
+                //playerBody.createFixture(shape, 1.0f); // density
+        playerBody.createFixture(fdef);
         shape.dispose();
 
         return playerBody;
@@ -239,13 +252,14 @@ public class PantallaJuego implements Screen {
     public void manageInput(float dt){
 
         int horizontalForce = 0;
-
         if(Gdx.input.isKeyPressed(Input.Keys.LEFT))
-            horizontalForce -= 1;
+            horizontalForce -= SPEED;
         if(Gdx.input.isKeyPressed(Input.Keys.RIGHT))
-            horizontalForce += 1;
-        if(Gdx.input.isKeyJustPressed(Input.Keys.UP))
+            horizontalForce += SPEED;
+        if(Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
+            //player.applyLinearImpulse(new Vector2(0, 6f), player.getWorldCenter(), true);
             player.applyForceToCenter(0, JUMPING_FORCE, false); // apply this force tu the body, forceX, forceY, wake
+        }
 
         player.setLinearVelocity(horizontalForce * SPEED, player.getLinearVelocity().y);
     }
