@@ -1,67 +1,67 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\libgdx_projects\PruebaTiles\android\AndroidManifest.xml:2:1-23:12
-INJECTED from C:\libgdx_projects\PruebaTiles\android\AndroidManifest.xml:2:1-23:12
-INJECTED from C:\libgdx_projects\PruebaTiles\android\AndroidManifest.xml:2:1-23:12
-INJECTED from C:\libgdx_projects\PruebaTiles\android\AndroidManifest.xml:2:1-23:12
-INJECTED from C:\libgdx_projects\PruebaTiles\android\AndroidManifest.xml:2:1-23:12
-INJECTED from C:\libgdx_projects\PruebaTiles\android\AndroidManifest.xml:2:1-23:12
-INJECTED from C:\libgdx_projects\PruebaTiles\android\AndroidManifest.xml:2:1-23:12
+ADDED from C:\libgdx_projects\GameProject\android\AndroidManifest.xml:2:1-23:12
+INJECTED from C:\libgdx_projects\GameProject\android\AndroidManifest.xml:2:1-23:12
+INJECTED from C:\libgdx_projects\GameProject\android\AndroidManifest.xml:2:1-23:12
+INJECTED from C:\libgdx_projects\GameProject\android\AndroidManifest.xml:2:1-23:12
+INJECTED from C:\libgdx_projects\GameProject\android\AndroidManifest.xml:2:1-23:12
+INJECTED from C:\libgdx_projects\GameProject\android\AndroidManifest.xml:2:1-23:12
+INJECTED from C:\libgdx_projects\GameProject\android\AndroidManifest.xml:2:1-23:12
 	package
-		ADDED from C:\libgdx_projects\PruebaTiles\android\AndroidManifest.xml:3:5-34
-		INJECTED from C:\libgdx_projects\PruebaTiles\android\AndroidManifest.xml
-		INJECTED from C:\libgdx_projects\PruebaTiles\android\AndroidManifest.xml
+		ADDED from C:\libgdx_projects\GameProject\android\AndroidManifest.xml:3:5-34
+		INJECTED from C:\libgdx_projects\GameProject\android\AndroidManifest.xml
+		INJECTED from C:\libgdx_projects\GameProject\android\AndroidManifest.xml
 	android:versionName
-		INJECTED from C:\libgdx_projects\PruebaTiles\android\AndroidManifest.xml
-		ADDED from C:\libgdx_projects\PruebaTiles\android\AndroidManifest.xml:2:1-23:12
-		INJECTED from C:\libgdx_projects\PruebaTiles\android\AndroidManifest.xml
+		INJECTED from C:\libgdx_projects\GameProject\android\AndroidManifest.xml
+		ADDED from C:\libgdx_projects\GameProject\android\AndroidManifest.xml:2:1-23:12
+		INJECTED from C:\libgdx_projects\GameProject\android\AndroidManifest.xml
 	android:versionCode
-		INJECTED from C:\libgdx_projects\PruebaTiles\android\AndroidManifest.xml
-		ADDED from C:\libgdx_projects\PruebaTiles\android\AndroidManifest.xml:2:1-23:12
-		INJECTED from C:\libgdx_projects\PruebaTiles\android\AndroidManifest.xml
+		INJECTED from C:\libgdx_projects\GameProject\android\AndroidManifest.xml
+		ADDED from C:\libgdx_projects\GameProject\android\AndroidManifest.xml:2:1-23:12
+		INJECTED from C:\libgdx_projects\GameProject\android\AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\libgdx_projects\PruebaTiles\android\AndroidManifest.xml:2:11-69
+		ADDED from C:\libgdx_projects\GameProject\android\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\libgdx_projects\PruebaTiles\android\AndroidManifest.xml:6:5-21:19
+ADDED from C:\libgdx_projects\GameProject\android\AndroidManifest.xml:6:5-21:19
 	android:label
-		ADDED from C:\libgdx_projects\PruebaTiles\android\AndroidManifest.xml:9:9-41
+		ADDED from C:\libgdx_projects\GameProject\android\AndroidManifest.xml:9:9-41
 	android:icon
-		ADDED from C:\libgdx_projects\PruebaTiles\android\AndroidManifest.xml:8:9-45
+		ADDED from C:\libgdx_projects\GameProject\android\AndroidManifest.xml:8:9-45
 	android:allowBackup
-		ADDED from C:\libgdx_projects\PruebaTiles\android\AndroidManifest.xml:7:9-35
+		ADDED from C:\libgdx_projects\GameProject\android\AndroidManifest.xml:7:9-35
 	android:theme
-		ADDED from C:\libgdx_projects\PruebaTiles\android\AndroidManifest.xml:10:9-40
+		ADDED from C:\libgdx_projects\GameProject\android\AndroidManifest.xml:10:9-40
 activity#com.vpr.pruebatiles.AndroidLauncher
-ADDED from C:\libgdx_projects\PruebaTiles\android\AndroidManifest.xml:11:9-20:20
+ADDED from C:\libgdx_projects\GameProject\android\AndroidManifest.xml:11:9-20:20
 	android:screenOrientation
-		ADDED from C:\libgdx_projects\PruebaTiles\android\AndroidManifest.xml:14:13-50
+		ADDED from C:\libgdx_projects\GameProject\android\AndroidManifest.xml:14:13-50
 	android:label
-		ADDED from C:\libgdx_projects\PruebaTiles\android\AndroidManifest.xml:13:13-45
+		ADDED from C:\libgdx_projects\GameProject\android\AndroidManifest.xml:13:13-45
 	android:configChanges
-		ADDED from C:\libgdx_projects\PruebaTiles\android\AndroidManifest.xml:15:13-107
+		ADDED from C:\libgdx_projects\GameProject\android\AndroidManifest.xml:15:13-107
 	android:name
-		ADDED from C:\libgdx_projects\PruebaTiles\android\AndroidManifest.xml:12:13-63
+		ADDED from C:\libgdx_projects\GameProject\android\AndroidManifest.xml:12:13-63
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\libgdx_projects\PruebaTiles\android\AndroidManifest.xml:16:13-19:29
+ADDED from C:\libgdx_projects\GameProject\android\AndroidManifest.xml:16:13-19:29
 action#android.intent.action.MAIN
-ADDED from C:\libgdx_projects\PruebaTiles\android\AndroidManifest.xml:17:17-69
+ADDED from C:\libgdx_projects\GameProject\android\AndroidManifest.xml:17:17-69
 	android:name
-		ADDED from C:\libgdx_projects\PruebaTiles\android\AndroidManifest.xml:17:25-66
+		ADDED from C:\libgdx_projects\GameProject\android\AndroidManifest.xml:17:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\libgdx_projects\PruebaTiles\android\AndroidManifest.xml:18:17-77
+ADDED from C:\libgdx_projects\GameProject\android\AndroidManifest.xml:18:17-77
 	android:name
-		ADDED from C:\libgdx_projects\PruebaTiles\android\AndroidManifest.xml:18:27-74
+		ADDED from C:\libgdx_projects\GameProject\android\AndroidManifest.xml:18:27-74
 uses-sdk
-INJECTED from C:\libgdx_projects\PruebaTiles\android\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from C:\libgdx_projects\PruebaTiles\android\AndroidManifest.xml
-INJECTED from C:\libgdx_projects\PruebaTiles\android\AndroidManifest.xml
-INJECTED from C:\libgdx_projects\PruebaTiles\android\AndroidManifest.xml
-INJECTED from C:\libgdx_projects\PruebaTiles\android\AndroidManifest.xml
+INJECTED from C:\libgdx_projects\GameProject\android\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\libgdx_projects\GameProject\android\AndroidManifest.xml
+INJECTED from C:\libgdx_projects\GameProject\android\AndroidManifest.xml
+INJECTED from C:\libgdx_projects\GameProject\android\AndroidManifest.xml
+INJECTED from C:\libgdx_projects\GameProject\android\AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from C:\libgdx_projects\PruebaTiles\android\AndroidManifest.xml
-		ADDED from C:\libgdx_projects\PruebaTiles\android\AndroidManifest.xml
-		INJECTED from C:\libgdx_projects\PruebaTiles\android\AndroidManifest.xml
+		INJECTED from C:\libgdx_projects\GameProject\android\AndroidManifest.xml
+		ADDED from C:\libgdx_projects\GameProject\android\AndroidManifest.xml
+		INJECTED from C:\libgdx_projects\GameProject\android\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from C:\libgdx_projects\PruebaTiles\android\AndroidManifest.xml
-		ADDED from C:\libgdx_projects\PruebaTiles\android\AndroidManifest.xml
-		INJECTED from C:\libgdx_projects\PruebaTiles\android\AndroidManifest.xml
+		INJECTED from C:\libgdx_projects\GameProject\android\AndroidManifest.xml
+		ADDED from C:\libgdx_projects\GameProject\android\AndroidManifest.xml
+		INJECTED from C:\libgdx_projects\GameProject\android\AndroidManifest.xml

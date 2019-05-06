@@ -6,7 +6,6 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.MathUtils;
-import com.vpr.pruebatiles.Tiles;
 import com.vpr.pruebatiles.managers.R;
 
 public class PantallaCarga implements Screen {

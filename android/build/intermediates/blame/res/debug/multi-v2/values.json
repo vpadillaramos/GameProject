@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\libgdx_projects\\PruebaTiles\\android\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "outputFile": "C:\\libgdx_projects\\GameProject\\android\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
-                    "source": "C:\\libgdx_projects\\PruebaTiles\\android\\res\\values\\strings.xml",
+                    "source": "C:\\libgdx_projects\\GameProject\\android\\res\\values\\strings.xml",
                     "from": {
                         "startLines": "3",
                         "startColumns": "4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\libgdx_projects\\PruebaTiles\\android\\res\\values\\styles.xml",
+                    "source": "C:\\libgdx_projects\\GameProject\\android\\res\\values\\styles.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
