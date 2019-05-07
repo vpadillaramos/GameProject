@@ -3,14 +3,15 @@ package com.vpr.pruebatiles.states;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.box2d.*;
 import com.vpr.pruebatiles.managers.GameStateManager;
 import com.vpr.pruebatiles.managers.R;
+import com.vpr.pruebatiles.util.CameraMethods;
 import com.vpr.pruebatiles.util.TiledObjectUtil;
 
 import static com.vpr.pruebatiles.util.Constantes.PPM;
@@ -44,7 +45,7 @@ public class PlayState extends GameState {
         float height = Gdx.graphics.getHeight();
 
         // world
-        world = new World(new Vector2(0, gravity), true);
+        world = new World(new Vector2(0, gravity), false);
         b2dr = new Box2DDebugRenderer();
 
         // TODO bodies
@@ -124,15 +125,12 @@ public class PlayState extends GameState {
     }
 
     public void cameraUpdate(){
-        Vector3 position = camera.position;
+        CameraMethods.lerpToTarget(camera, player.getPosition());
+        //CameraMethods.lockToTarget(camera, player.getPosition().scl(PPM));
+        viewport.update(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        camera.zoom = .6f;
+        tmr.setView((OrthographicCamera) viewport.getCamera());
 
-        // camera interpolation formula -> a + (b - a) * lerp
-        // a = camera position, b = target position
-        position.x = camera.position.x + (player.getPosition().x * PPM - camera.position.x) * .1f; // getting variable from world
-        position.y = camera.position.y + (player.getPosition().y * PPM - camera.position.y) * .1f;
-        camera.position.set(position);
-
-        camera.update();
     }
 
     public void manageInput(float dt){
