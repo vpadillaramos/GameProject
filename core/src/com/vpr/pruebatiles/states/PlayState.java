@@ -3,14 +3,17 @@ package com.vpr.pruebatiles.states;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.physics.box2d.*;
+import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
+import com.badlogic.gdx.physics.box2d.World;
 import com.vpr.pruebatiles.managers.GameStateManager;
 import com.vpr.pruebatiles.managers.R;
+import com.vpr.pruebatiles.util.BodyCreator;
 import com.vpr.pruebatiles.util.CameraMethods;
 import com.vpr.pruebatiles.util.TiledObjectUtil;
 
@@ -35,6 +38,8 @@ public class PlayState extends GameState {
     // Map
     private OrthogonalTiledMapRenderer tmr;
     private TiledMap map;
+    private float mapWidth, mapHeight;
+    private Vector3 startOfMap, endOfMap;
 
 
     public PlayState(GameStateManager gsm) {
@@ -47,14 +52,32 @@ public class PlayState extends GameState {
         // world
         world = new World(new Vector2(0, gravity), false);
         b2dr = new Box2DDebugRenderer();
+        b2dr.SHAPE_STATIC.set(1, 1, 1, 0); // static bodies' color white
+        b2dr.SHAPE_AWAKE.set(1, 0, 0, 0); // dynamic bodie's color red
 
         // TODO bodies
-        player = createBox(40, 100, 32, 32, false);
+        player = BodyCreator.createBox(world, 40, 100, 32, 32, false);
 
         // TODO map
         map = new TmxMapLoader().load("levels/level1.tmx");
         tmr = new OrthogonalTiledMapRenderer(map);
         TiledObjectUtil.parseTiledObjectLayer(world, map.getLayers().get("collisions").getObjects());
+
+        // getting dimensions of the map
+        int mapTilesWidth, mapTilesHeight; // amount of tiles (width/height)
+        int tilePixelWidth, tilePixelHeight; // pixels of a tile
+        mapTilesWidth = map.getProperties().get("width", Integer.class);
+        mapTilesHeight = map.getProperties().get("height", Integer.class);
+        tilePixelWidth = map.getProperties().get("tilewidth", Integer.class);
+        tilePixelHeight = map.getProperties().get("tileheight", Integer.class);
+
+        mapWidth = mapTilesWidth * tilePixelWidth;
+        mapHeight = mapTilesHeight * tilePixelHeight;
+        startOfMap = new Vector3(camera.viewportWidth / SCALE, camera.viewportHeight / SCALE, 0);
+        endOfMap = new Vector3(startOfMap.x + mapWidth, startOfMap.y + mapHeight, 0);
+
+        //camera.position.set(endOfMap.x - camera.viewportWidth, endOfMap.y - mapHeight, endOfMap.z);
+        //camera.position.set(startOfMap);
 
     }
 
@@ -81,6 +104,7 @@ public class PlayState extends GameState {
         tmr.render();
 
         b2dr.render(world, camera.combined.scl(PPM));
+
     }
 
     @Override
@@ -91,45 +115,15 @@ public class PlayState extends GameState {
         map.dispose();
     }
 
-    private Body createBox(int x, int y, float width, float height, boolean isStatic) {
-        Body playerBody;
-        // properties of the player's body
-        BodyDef bdef = new BodyDef();
-
-        if(isStatic)
-            bdef.type = BodyDef.BodyType.StaticBody;
-        else
-            bdef.type = BodyDef.BodyType.DynamicBody;
-
-        bdef.position.set(x / PPM, y / PPM);
-        bdef.fixedRotation = true;
-
-        // initialize body
-        playerBody = world.createBody(bdef);
-
-        PolygonShape shape = new PolygonShape();
-        // this method creates a box from the center, in this case a 32x32 box
-        shape.setAsBox(width / 2 / PPM, height / 2 / PPM); // giving variables to world
-
-        // TODO physics
-        FixtureDef fdef = new FixtureDef();
-        fdef.density = 1.0f;
-        fdef.friction = 1.0f;
-        fdef.shape = shape;
-
-        //playerBody.createFixture(shape, 1.0f); // density
-        playerBody.createFixture(fdef);
-        shape.dispose();
-
-        return playerBody;
-    }
-
     public void cameraUpdate(){
+
         CameraMethods.lerpToTarget(camera, player.getPosition());
+        CameraMethods.setCameraBounds(camera, startOfMap.x, startOfMap.y,
+                mapWidth - startOfMap.x * 2, mapHeight - startOfMap.y * 2);
         //CameraMethods.lockToTarget(camera, player.getPosition().scl(PPM));
-        viewport.update(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        camera.zoom = .6f;
-        tmr.setView((OrthographicCamera) viewport.getCamera());
+        //viewport.update(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        //camera.zoom = 1f;
+        //tmr.setView((OrthographicCamera) viewport.getCamera());
 
     }
 
@@ -144,6 +138,21 @@ public class PlayState extends GameState {
             //player.applyLinearImpulse(new Vector2(0, 6f), player.getWorldCenter(), true);
             player.applyForceToCenter(0, JUMPING_FORCE, false); // apply this force tu the body, forceX, forceY, wake
         }
+
+        if(Gdx.input.isKeyPressed(Input.Keys.A))
+            camera.position.x -= 5;
+        if(Gdx.input.isKeyPressed(Input.Keys.D))
+            camera.position.x += 5;
+        if(Gdx.input.isKeyPressed(Input.Keys.W))
+            camera.position.y += 5;
+        if(Gdx.input.isKeyPressed(Input.Keys.S))
+            camera.position.y -= 5;
+
+        if(Gdx.input.isKeyPressed(Input.Keys.Z))
+            camera.zoom -= .1f;
+        if(Gdx.input.isKeyPressed(Input.Keys.X))
+            camera.zoom += .1f;
+
 
         player.setLinearVelocity(horizontalForce * SPEED, player.getLinearVelocity().y);
     }

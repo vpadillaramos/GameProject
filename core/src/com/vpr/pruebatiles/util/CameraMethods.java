@@ -2,6 +2,7 @@ package com.vpr.pruebatiles.util;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Camera;
+import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 
@@ -10,8 +11,8 @@ import static com.vpr.pruebatiles.util.Constantes.PPM;
 public class CameraMethods {
 
     // Constants
-    private static final float LERP = .1f;
-    private static final float CAMERA_ADJUST = Gdx.graphics.getHeight() / 6;
+    private static final float LERP = .2f;
+    private static final float CAMERA_ADJUST = Gdx.graphics.getHeight() / 7;
 
     /*
     camera interpolation formula -> a + (b - a) * lerp
@@ -39,11 +40,12 @@ public class CameraMethods {
      */
     public static void lerpToTarget(Camera camera, Vector2 targetPosition){
         Vector3 position = camera.position;
+
         position.x = camera.position.x + (targetPosition.x * PPM - camera.position.x) * LERP;
         position.y = camera.position.y + (targetPosition.y * PPM - camera.position.y + CAMERA_ADJUST) * LERP;
         camera.position.set(position);
 
-        //camera.update();
+        camera.update();
     }
 
     /**
@@ -82,6 +84,22 @@ public class CameraMethods {
     public static boolean searchFocalPoints(Camera camera, Vector2[] points, Vector2 targetPosition, float dst){
 
         return false;
+    }
+
+    public static void setCameraBounds(Camera camera, float startX, float startY, float width, float height){
+        Vector3 position = camera.position;
+
+        if(position.x < startX)
+            position.x = startX;
+        if(position.y < startY)
+            position.y = startY;
+        if(position.x > startX + width)
+            position.x = startX + width;
+        if(position.y > startY + height)
+            position.y = startY + height;
+
+        camera.position.set(position);
+        camera.update();
     }
 
 }
