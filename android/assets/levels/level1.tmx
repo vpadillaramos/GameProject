@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="13" height="7" tilewidth="64" tileheight="64" infinite="0" nextlayerid="13" nextobjectid="7">
+<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="13" height="7" tilewidth="64" tileheight="64" infinite="0" nextlayerid="13" nextobjectid="13">
  <tileset firstgid="1" source="tiles_terrain.tsx"/>
  <tileset firstgid="101" source="Arana Hombre.tsx"/>
  <layer id="11" name="background_terrain" width="13" height="7">
@@ -16,6 +16,9 @@
  <objectgroup id="6" name="collisions">
   <object id="6" x="0" y="384">
    <polyline points="0,0 832,0 832,64 0,64 0,0"/>
+  </object>
+  <object id="12" x="0" y="384">
+   <polyline points="0,0 0,-384 832,-384 832,0"/>
   </object>
  </objectgroup>
  <layer id="12" name="foreground_terrain" width="13" height="7">

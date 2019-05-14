@@ -30,7 +30,7 @@ public abstract class GameState {
     }
 
     public abstract void update(float dt);
-    public abstract void render();
+    public abstract void render(float dt);
     public abstract void dispose();
 }
 

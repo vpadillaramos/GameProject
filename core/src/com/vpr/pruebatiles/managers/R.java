@@ -21,6 +21,7 @@ public class R {
     public static void cargarRecursos(){
         // Cargo el atlas de texturas
         assets.load(ATLAS, TextureAtlas.class);
+        assets.load("ui/uiskin.atlas", TextureAtlas.class);
 
         // Cargo sonidos y musica
         /*assets.load("sounds" + File.separator + "nombre", Sound.class);
@@ -69,6 +70,10 @@ public class R {
 
     public static Sprite getSprite(String nombre){
         return assets.get(ATLAS, TextureAtlas.class).createSprite(nombre);
+    }
+
+    public static TextureAtlas getTextureAtlas(String nombre){
+        return assets.get(nombre, TextureAtlas.class);
     }
 
 }

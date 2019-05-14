@@ -2,6 +2,7 @@ package com.vpr.pruebatiles.managers;
 
 import com.vpr.pruebatiles.Application;
 import com.vpr.pruebatiles.states.GameState;
+import com.vpr.pruebatiles.states.LoadingState;
 import com.vpr.pruebatiles.states.PlayState;
 import com.vpr.pruebatiles.states.SplashState;
 
@@ -13,14 +14,14 @@ public class GameStateManager {
     private final Application app;
     private Stack<GameState> states;
     public enum State {
-        SPLASH, MAIN_MENU, PLAY
+        LOADING_RES, SPLASH, MAIN_MENU, PLAY
     }
 
     // Constructor
     public GameStateManager(final Application app){
         this.app = app;
         this.states = new Stack<GameState>();
-        this.setState(State.SPLASH);
+        this.setState(State.LOADING_RES);
     }
 
     // Methods
@@ -28,8 +29,8 @@ public class GameStateManager {
         states.peek().update(dt);
     }
 
-    public void render(){
-        states.peek().render();
+    public void render(float dt){
+        states.peek().render(dt);
     }
 
     public void resize(int w, int h){
@@ -53,6 +54,8 @@ public class GameStateManager {
 
     public GameState getState(State state){
         switch (state){
+            case LOADING_RES:
+                return new LoadingState(this);
             case SPLASH:
                 return new SplashState(this);
             case PLAY:

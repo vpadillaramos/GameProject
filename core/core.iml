@@ -36,5 +36,6 @@
     <orderEntry type="library" exported="" name="Gradle: box2dlights-1.4" level="project" />
     <orderEntry type="library" exported="" name="Gradle: gdx-box2d-1.9.8" level="project" />
     <orderEntry type="library" exported="" name="Gradle: gdx-1.9.8" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: typing-label-1.0.4" level="project" />
   </component>
 </module>
