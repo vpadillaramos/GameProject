@@ -5,33 +5,44 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+import com.badlogic.gdx.maps.MapLayer;
+import com.badlogic.gdx.maps.MapObjects;
+import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.badlogic.gdx.math.Intersector;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
+import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.rafaskoberg.gdx.typinglabel.TypingLabel;
 import com.vpr.pruebatiles.entities.Player;
+import com.vpr.pruebatiles.handlers.GameKeys;
+import com.vpr.pruebatiles.handlers.MyContactListener;
 import com.vpr.pruebatiles.managers.GameStateManager;
+import com.vpr.pruebatiles.handlers.MyGameInputProcessor;
 import com.vpr.pruebatiles.managers.R;
+import com.vpr.pruebatiles.util.BodyCreator;
 import com.vpr.pruebatiles.util.CameraMethods;
 import com.vpr.pruebatiles.util.TiledObjectUtil;
+
+import java.util.Iterator;
 
 import static com.vpr.pruebatiles.util.Constantes.PPM;
 
 public class PlayState extends GameState {
 
     // Constants
-    private final int SPEED = 3; //mps
-    private final int JUMPING_FORCE = 450;
     private final float SCALE = 2.0f;
 
     // Physics
-    private float gravity = -10f;
+    private float gravity = -9.8f;
 
 
     // World
@@ -44,6 +55,7 @@ public class PlayState extends GameState {
     // Map
     private OrthogonalTiledMapRenderer tmr;
     private TiledMap map;
+    private MapObjects collisionTiles;
     private int mapTilesWidth, mapTilesHeight; // amount of tiles
     private float mapWidth, mapHeight, tileWidth, tileHeight; // pixels
     private Vector3 startOfMap, endOfMap;
@@ -58,6 +70,7 @@ public class PlayState extends GameState {
 
     public PlayState(GameStateManager gsm) {
         super(gsm);
+        Gdx.input.setInputProcessor(new MyGameInputProcessor());
 
         // Initialization
         float width = Gdx.graphics.getWidth();
@@ -92,6 +105,8 @@ public class PlayState extends GameState {
         world.step(1 / 60f, 6, 2); // 60fps, 6, 2 normalized values
 
         manageInput(dt);
+
+
         cameraUpdate();
         tmr.setView(camera);
         batch.setProjectionMatrix(camera.combined);
@@ -126,27 +141,24 @@ public class PlayState extends GameState {
     public void cameraUpdate(){
 
         CameraMethods.lerpToTarget(camera, player.getPosition());
-        CameraMethods.setCameraBounds(camera, startOfMap.x, startOfMap.y,
-                mapWidth - startOfMap.x * 2, mapHeight - startOfMap.y * 2);
-        //CameraMethods.lockToTarget(camera, player.getPosition().scl(PPM));
-        //viewport.update(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        //camera.zoom = 1f;
-        //tmr.setView((OrthographicCamera) viewport.getCamera());
 
+        float startX = camera.viewportWidth / 2;
+        float startY = camera.viewportHeight / 2;
+        CameraMethods.setCameraBounds(camera, startX, startY, mapWidth - camera.viewportWidth, mapHeight - camera.viewportHeight);
     }
 
     public void manageInput(float dt){
+        managePlayerInput();
+        manageCameraInput();
+    }
 
-        int horizontalForce = 0;
-        if(Gdx.input.isKeyPressed(Input.Keys.LEFT))
-            horizontalForce -= SPEED;
-        if(Gdx.input.isKeyPressed(Input.Keys.RIGHT))
-            horizontalForce += SPEED;
-        if(Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
-            //player.applyLinearImpulse(new Vector2(0, 6f), player.getWorldCenter(), true);
-            player.body.applyForceToCenter(0, JUMPING_FORCE, false); // apply this force tu the body, forceX, forceY, wake
-        }
 
+    private void managePlayerInput(){
+        player.checkKeys();
+        GameKeys.update();
+    }
+
+    private void manageCameraInput(){
         if(Gdx.input.isKeyPressed(Input.Keys.A))
             camera.position.x -= 5;
         if(Gdx.input.isKeyPressed(Input.Keys.D))
@@ -160,14 +172,14 @@ public class PlayState extends GameState {
             camera.zoom -= .1f;
         if(Gdx.input.isKeyPressed(Input.Keys.X))
             camera.zoom += .1f;
-
-
-        player.body.setLinearVelocity(horizontalForce * SPEED, player.body.getLinearVelocity().y);
     }
 
     public void initBox2d(){
         // world
         world = new World(new Vector2(0, gravity), false);
+
+        // Contact listener
+        world.setContactListener(new MyContactListener());
 
         // Box2 renderer
         b2dr = new Box2DDebugRenderer();
@@ -181,7 +193,20 @@ public class PlayState extends GameState {
         tmr = new OrthogonalTiledMapRenderer(map); // map renderer
 
         // load collisions
-        TiledObjectUtil.parseTiledObjectLayer(world, map.getLayers().get("collisions").getObjects());
+        MapLayer collisionLayer = map.getLayers().get("collisions");
+        collisionTiles = collisionLayer.getObjects(); // obtain collision tiles to detect collisions
+
+        /*Iterator<String> itr = collisionTiles.get(0).getProperties().getKeys();
+        while(itr.hasNext()){
+            System.out.println(itr.next());
+        }
+
+        System.out.println(collisionTiles.get(0).getProperties().get("x"));
+        System.out.println(collisionTiles.get(0).getProperties().get("y"));*/
+
+
+
+        TiledObjectUtil.parseTiledObjectLayer(world, collisionLayer.getObjects());
     }
 
     private void loadLevel(String level){
@@ -196,7 +221,9 @@ public class PlayState extends GameState {
 
         mapWidth = mapTilesWidth * tileWidth;
         mapHeight = mapTilesHeight * tileHeight;
-        startOfMap = new Vector3(camera.viewportWidth / SCALE, camera.viewportHeight / SCALE, 0);
+        //startOfMap = new Vector3(camera.viewportWidth / SCALE, camera.viewportHeight / SCALE, 0);
+        //endOfMap = new Vector3(startOfMap.x + mapWidth, startOfMap.y + mapHeight, 0);
+        startOfMap = new Vector3(0, 0, 0);
         endOfMap = new Vector3(startOfMap.x + mapWidth, startOfMap.y + mapHeight, 0);
     }
 

@@ -32,7 +32,7 @@ public class LoadingState extends GameState {
 
         if(R.update() && progress >= R.assets.getProgress() - .01f){
             if(acc >= 3){
-                gsm.setState(GameStateManager.State.SPLASH);
+                gsm.setState(GameStateManager.State.PLAY);
             }
         }
     }

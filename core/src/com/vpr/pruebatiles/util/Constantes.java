@@ -12,6 +12,6 @@ public final class Constantes {
 
 
     // Box2D
-    public static final float PPM = 32; // pixels per meter
+    public static final float PPM = 100; // pixels per meter
 
 }

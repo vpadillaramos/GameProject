@@ -6,6 +6,8 @@ import static com.vpr.pruebatiles.util.Constantes.PPM;
 
 public class BodyCreator {
 
+    // Attributes
+    public static FixtureDef fdef;
 
     public static Body createBox(World world, int x, int y, float width, float height, BodyDef.BodyType bType) {
 
@@ -21,10 +23,11 @@ public class BodyCreator {
         // this method creates a box from the center, in this case a 32x32 box
         shape.setAsBox(width / 2 / PPM, height / 2 / PPM); // divide by PPM cause giving variables to world
 
+
         // TODO physics
-        FixtureDef fdef = new FixtureDef();
+        fdef = new FixtureDef();
         fdef.shape = shape;
-        fdef.density = 1.0f;
+        fdef.density = 4.0f;
         fdef.friction = 1.0f;
 
 

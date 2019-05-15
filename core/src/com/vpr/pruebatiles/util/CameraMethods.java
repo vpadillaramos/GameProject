@@ -6,6 +6,7 @@ import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 
+import static com.sun.webkit.graphics.GraphicsDecoder.SCALE;
 import static com.vpr.pruebatiles.util.Constantes.PPM;
 
 public class CameraMethods {
