@@ -1,5 +1,7 @@
 package com.vpr.pruebatiles.entities;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
@@ -22,13 +24,17 @@ public class Player {
     public Body body;
     private TextureRegion texture;
     public float width, height;
+    public Vector2 spawnPoint;
 
     // Constructor
-    public Player(World world){
+    public Player(World world, Vector2 spawnPoint){
+        this.spawnPoint = new Vector2();
+        this.spawnPoint.set(spawnPoint);
+
         texture = R.getRegion("idle");
         width = texture.getRegionWidth();
         height = texture.getRegionHeight();
-        body = BodyCreator.createBox(world, 40, 100, width, height, BodyDef.BodyType.DynamicBody);
+        body = BodyCreator.createBox(world, spawnPoint.x, spawnPoint.y, width, height, BodyDef.BodyType.DynamicBody);
         body.getFixtureList().get(0).setUserData("player");
     }
 
@@ -39,8 +45,9 @@ public class Player {
 
     public void draw(SpriteBatch batch) {
         // centers texture respect the body
-        batch.draw(texture, (body.getPosition().x * PPM) - (texture.getRegionWidth() / 2),
-                (body.getPosition().y * PPM) - (texture.getRegionHeight() / 2));
+        batch.draw(texture, (body.getPosition().x * PPM) - (width / 2),
+                (body.getPosition().y * PPM) - (height / 2));
+
     }
 
     public void checkKeys(){

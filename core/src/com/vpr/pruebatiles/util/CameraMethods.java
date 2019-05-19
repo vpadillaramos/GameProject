@@ -2,11 +2,9 @@ package com.vpr.pruebatiles.util;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Camera;
-import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 
-import static com.sun.webkit.graphics.GraphicsDecoder.SCALE;
 import static com.vpr.pruebatiles.util.Constantes.PPM;
 
 public class CameraMethods {
@@ -94,10 +92,10 @@ public class CameraMethods {
             position.x = startX;
         if(position.y < startY)
             position.y = startY;
-        if(position.x > startX + width)
-            position.x = startX + width;
-        if(position.y > startY + height)
-            position.y = startY + height;
+        if(position.x > width - startX)
+            position.x = width - startX;
+        if(position.y > height - startY)
+            position.y = height - startY;
 
         camera.position.set(position);
         camera.update();

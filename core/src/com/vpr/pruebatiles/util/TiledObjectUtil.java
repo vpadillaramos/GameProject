@@ -1,8 +1,8 @@
 package com.vpr.pruebatiles.util;
 
-import com.badlogic.gdx.graphics.g2d.PolygonRegionLoader;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.MapObjects;
+import com.badlogic.gdx.maps.objects.PolygonMapObject;
 import com.badlogic.gdx.maps.objects.PolylineMapObject;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
@@ -11,13 +11,25 @@ import static com.vpr.pruebatiles.util.Constantes.PPM;
 
 public class TiledObjectUtil {
 
+    /**
+     * Creates a body on the passed World based in a MapObjects. These objects can be PolylineMapObject or
+     * PolygonMapObject, if not it doesn't create a body
+     * @param world
+     * @param objects
+     */
     public static void parseTiledObjectLayer(World world, MapObjects objects){
         for(MapObject object : objects){
             Shape shape;
             if(object instanceof PolylineMapObject){
-                shape = createPolyline((PolylineMapObject) object);
+                shape = getChainShape((PolylineMapObject) object);
             }
-            else continue;
+            else if(object instanceof  PolygonMapObject){
+                shape = getPolygonShape((PolygonMapObject) object);
+            }
+            else {
+                System.out.println(object.getClass());
+                continue;
+            }
 
             // Creates the static body
             Body body;
@@ -29,7 +41,7 @@ public class TiledObjectUtil {
         }
     }
 
-    private static ChainShape createPolyline(PolylineMapObject polyline){
+    private static ChainShape getChainShape(PolylineMapObject polyline){
         // because each line have 2 vertices, this manage a chain of vertices to not repeat vertices
         float[] vertices = polyline.getPolyline().getTransformedVertices();
         Vector2[] worldVertices = new Vector2[vertices.length / 2];
@@ -41,4 +53,18 @@ public class TiledObjectUtil {
         chainShape.createChain(worldVertices);
         return chainShape;
     }
+
+    public static PolygonShape getPolygonShape(PolygonMapObject polygonMapObject){
+
+        float[] vertices = polygonMapObject.getPolygon().getTransformedVertices();
+        float[] worldVertices = new float[vertices.length];
+
+        for(int i = 0; i < vertices.length; i++)
+            worldVertices[i] = vertices[i] / PPM;
+
+        PolygonShape polygon = new PolygonShape();
+        polygon.set(worldVertices);
+        return polygon;
+    }
+
 }

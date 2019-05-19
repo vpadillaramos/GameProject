@@ -11,6 +11,9 @@ import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.vpr.pruebatiles.managers.GameStateManager;
 
+import static com.vpr.pruebatiles.util.Constantes.SCALE;
+
+
 public class Application extends ApplicationAdapter {
 
     /**
@@ -22,7 +25,7 @@ public class Application extends ApplicationAdapter {
     // Constantes
     private final int SPEED = 3; //mps
     private final int JUMPING_FORCE = 450;
-    private final float SCALE = 2.0f;
+
 
     // fisicas
     private float gravity = -10f;
