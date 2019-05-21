@@ -1,20 +1,31 @@
 package com.vpr.pruebatiles.handlers;
 
+import java.util.HashMap;
+import java.util.Iterator;
+
 public class GameKeys {
 
     // Constants
-    public static final int NUM_KEYS = 3;
+    private static int NUM_KEYS;
 
     // Variables
     public static boolean[] keys;
-    public static boolean[] pKeys; // preview keys
+    public static boolean[] pKeys; // previous keys
 
-    public static final int JUMP = 0;
+    /*public static final int JUMP = 0;
     public static final int WALK_LEFT = 1;
     public static final int WALK_RIGHT = 2;
+    public static final int SHOP_INTERACTION = 3;*/
+    public static String[] keyNames = {"JUMP","WALK_LEFT","WALK_RIGHT","OPEN_WINDOW","CLOSE_WINDOW"};
+    public static final HashMap<String, Integer> keyBindings = new HashMap<String, Integer>();
 
 
     static {
+        NUM_KEYS = keyNames.length;
+        for(int i = 0; i < NUM_KEYS; i++){
+            keyBindings.put(keyNames[i], i);
+        }
+
         keys = new boolean[NUM_KEYS];
         pKeys = new boolean[NUM_KEYS];
     }

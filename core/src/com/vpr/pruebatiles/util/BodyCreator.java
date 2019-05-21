@@ -1,6 +1,5 @@
 package com.vpr.pruebatiles.util;
 
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.physics.box2d.*;
 
 import static com.vpr.pruebatiles.util.Constantes.PPM;
@@ -8,14 +7,14 @@ import static com.vpr.pruebatiles.util.Constantes.PPM;
 public class BodyCreator {
 
     // Attributes
-    public static FixtureDef fdef;
 
-    public static Body createBox(World world, float x, float y, float width, float height, BodyDef.BodyType bType) {
+    public static Body createBox(World world, float x, float y, float width, float height, boolean fixedRotation, BodyDef.BodyType bType) {
 
         // body definition
         BodyDef bDef = new BodyDef();
         bDef.type = bType;
         bDef.position.set(x / PPM, y / PPM);
+        bDef.fixedRotation = fixedRotation;
 
         // initialize body
         Body body = world.createBody(bDef);
@@ -25,7 +24,7 @@ public class BodyCreator {
         shape.setAsBox(width / 2 / PPM, height / 2 / PPM); // divide by PPM cause giving variables to world
 
         // TODO physics
-        fdef = new FixtureDef();
+        FixtureDef fdef = new FixtureDef();
         fdef.shape = shape;
         fdef.density = 4.0f;
         fdef.friction = 1.0f;
@@ -38,22 +37,22 @@ public class BodyCreator {
         return body;
     }
 
-    public static Body createCollisionBody(World world, Rectangle rectangle){
-        // body definition
+    public static Body createSensor(World world, String userData, float x, float y, float width, float height){
+
         BodyDef bDef = new BodyDef();
-        bDef.type = BodyDef.BodyType.StaticBody;
-        bDef.position.set((rectangle.x + rectangle.width / 2) / PPM, (rectangle.y + rectangle.height / 2) / PPM);
-        Body body = world.createBody(bDef);
+        bDef.position.set(x / PPM, y / PPM);
 
         PolygonShape shape = new PolygonShape();
-        shape.setAsBox(rectangle.width / 2 / PPM, rectangle.height / 2 / PPM);
+        shape.setAsBox(width / 2 / PPM, height / 2 / PPM);
 
-        fdef = new FixtureDef();
+        FixtureDef fdef = new FixtureDef();
         fdef.shape = shape;
+        fdef.isSensor = true;
 
-        body.createFixture(fdef);
-        shape.dispose();
+        Body body = world.createBody(bDef);
+        body.createFixture(fdef).setUserData(userData);
 
         return body;
+
     }
 }

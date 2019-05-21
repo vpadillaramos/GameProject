@@ -4,6 +4,8 @@ import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.maps.objects.PolygonMapObject;
 import com.badlogic.gdx.maps.objects.PolylineMapObject;
+import com.badlogic.gdx.maps.objects.RectangleMapObject;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 
@@ -36,7 +38,30 @@ public class TiledObjectUtil {
             BodyDef bodyDef = new BodyDef();
             bodyDef.type = BodyDef.BodyType.StaticBody;
             body = world.createBody(bodyDef);
-            body.createFixture(shape, 1.0f);
+
+            body.createFixture(shape, 1.0f).setUserData(object.getName());
+            shape.dispose();
+        }
+    }
+
+    public static void loadShops(World world, MapObjects objects){
+        for(MapObject object : objects){
+            Shape shape = null;
+
+            if(object instanceof RectangleMapObject){
+                System.out.println("PolygonShape");
+                shape = getRectangle((RectangleMapObject) object);
+            }
+
+
+            BodyDef bodyDef = new BodyDef();
+
+            FixtureDef fdef = new FixtureDef();
+            fdef.shape = shape;
+            fdef.isSensor = true;
+
+            Body body = world.createBody(bodyDef);
+            body.createFixture(fdef).setUserData(object.getName());
             shape.dispose();
         }
     }
@@ -64,6 +89,19 @@ public class TiledObjectUtil {
 
         PolygonShape polygon = new PolygonShape();
         polygon.set(worldVertices);
+        return polygon;
+    }
+
+    private static PolygonShape getRectangle(RectangleMapObject rectangleObject) {
+        Rectangle rectangle = rectangleObject.getRectangle();
+        PolygonShape polygon = new PolygonShape();
+
+        Vector2 size = new Vector2((rectangle.x + rectangle.width / 2) / PPM,
+                (rectangle.y + rectangle.height / 2 ) / PPM);
+        polygon.setAsBox(rectangle.width / 2 / PPM,
+                rectangle.height / 2 / PPM,
+                size,
+                0);
         return polygon;
     }
 
