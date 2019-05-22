@@ -11,7 +11,7 @@ public final class Constantes {
     public static final float SCALE = 2.0f;
 
     // Box2D
-    public static final float PPM = 8; // pixels per meter
+    public static final float PPM = 1; // pixels per meter
 
     // Tiles
     public static final int TILE_WIDTH = 64;

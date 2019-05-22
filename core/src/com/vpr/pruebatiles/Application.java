@@ -26,31 +26,14 @@ public class Application extends ApplicationAdapter {
     // Atributos
     private SpriteBatch batch;
 
-    //private OrthographicCamera camera;
-
-    private Box2DDebugRenderer b2ddr;
-    private World world;
-    private Body player;
-    private Body platform;
-
-    // Map
-    private OrthogonalTiledMapRenderer tmr;
-    private TiledMap map;
-
     public CameraManager cameraManager;
     public GameStateManager gsm;
 
 
     @Override
     public void create() {
-        float width = Gdx.graphics.getWidth();
-        float height = Gdx.graphics.getHeight();
 
         batch = new SpriteBatch();
-
-        // camera
-        /*camera = new OrthographicCamera();
-        camera.setToOrtho(false, width / SCALE, height / SCALE);*/
         cameraManager = new CameraManager();
         gsm = new GameStateManager(this);
     }
@@ -63,6 +46,7 @@ public class Application extends ApplicationAdapter {
 
     @Override
     public void resize(int width, int height) {
+
         gsm.resize((int) (width / SCALE), (int) (height / SCALE));
     }
 

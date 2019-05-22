@@ -3,8 +3,8 @@ package com.vpr.pruebatiles.managers;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.math.Vector2;
 import com.vpr.pruebatiles.entities.Player;
-import com.vpr.pruebatiles.states.PlayState;
 import com.vpr.pruebatiles.util.CameraMethods;
 
 import static com.vpr.pruebatiles.util.Constantes.SCALE;
@@ -14,12 +14,34 @@ public class CameraManager {
     // Attributes
     public OrthographicCamera camera;
 
+
     // Constructor
     public CameraManager(){
         // camera
         camera = new OrthographicCamera();
-        camera.setToOrtho(false, Gdx.graphics.getWidth() / SCALE, Gdx.graphics.getHeight() / SCALE);
+        //camera.setToOrtho(false, Gdx.graphics.getWidth() / SCALE, Gdx.graphics.getHeight() / SCALE);
         camera.position.set(0, 0, 0);
+    }
+
+    public void update(){
+        camera.update();
+        //camera.position.set(0, 0, 0);
+    }
+
+    public void lockToTarget(Vector2 targetAPosition){
+        CameraMethods.lockToTarget(camera, targetAPosition);
+    }
+
+    public void lerpToTarget(Vector2 targetPosition){
+        CameraMethods.lerpToTarget(camera, targetPosition);
+    }
+
+    public void lockBetweenTargets(Vector2 targetAPosition, Vector2 targetBPosition){
+        CameraMethods.lockBetweenTargets(camera, targetAPosition, targetBPosition);
+    }
+
+    public void lerpBetweenTargets(Vector2 targetAPosition, Vector2 targetBPosition){
+        CameraMethods.lerpBetweenTargets(camera, targetAPosition, targetBPosition);
     }
 
     public void manageInput(Player player){

@@ -55,13 +55,13 @@ public class ShopWindow {
 
         // Add scrollpane perks
         HorizontalGroup perkGroup = new HorizontalGroup();
-        perkGroup.addActor(new ImageButton(new TextureRegionDrawable(R.getRegion("idle")),
-                new TextureRegionDrawable(R.getRegion("Slima"))));
-        perkGroup.addActor(new ImageButton(new TextureRegionDrawable(R.getRegion("idle"))));
-        perkGroup.addActor(new ImageButton(new TextureRegionDrawable(R.getRegion("idle"))));
-        perkGroup.addActor(new ImageButton(new TextureRegionDrawable(R.getRegion("idle"))));
-        perkGroup.addActor(new ImageButton(new TextureRegionDrawable(R.getRegion("idle"))));
-        perkGroup.addActor(new ImageButton(new TextureRegionDrawable(R.getRegion("idle"))));
+        perkGroup.addActor(new ImageButton(new TextureRegionDrawable(R.getRegion("ninjaIdle")),
+                new TextureRegionDrawable(R.getRegion("ninjaIdle"))));
+        perkGroup.addActor(new ImageButton(new TextureRegionDrawable(R.getRegion("ninjaIdle"))));
+        perkGroup.addActor(new ImageButton(new TextureRegionDrawable(R.getRegion("ninjaIdle"))));
+        perkGroup.addActor(new ImageButton(new TextureRegionDrawable(R.getRegion("ninjaIdle"))));
+        perkGroup.addActor(new ImageButton(new TextureRegionDrawable(R.getRegion("ninjaIdle"))));
+        perkGroup.addActor(new ImageButton(new TextureRegionDrawable(R.getRegion("ninjaIdle"))));
         perkGroup.wrap(true);
         perkGroup.align(Align.center);
         layout.add(perkGroup);

@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -17,6 +18,7 @@ import com.vpr.pruebatiles.handlers.GameKeys;
 import com.vpr.pruebatiles.handlers.MyContactListener;
 import com.vpr.pruebatiles.handlers.MyGameInputProcessor;
 import com.vpr.pruebatiles.managers.*;
+import com.vpr.pruebatiles.util.BodyCreator;
 import com.vpr.pruebatiles.util.CameraMethods;
 import com.vpr.pruebatiles.util.Constantes;
 import com.vpr.pruebatiles.windows.ShopWindow;
@@ -35,13 +37,6 @@ public class PlayState extends GameState {
 
     private float cameraZoom = .3f;
 
-    // Physics
-    private float gravity = -9.8f;
-
-    // World
-    /*private Box2DDebugRenderer b2dr;
-    private World world;*/
-
     // Player
     public Player player;
 
@@ -59,7 +54,6 @@ public class PlayState extends GameState {
     private TypingLabel typingLabel;
 
     // Shop Test
-    //private Body shop;
     private ShopWindow shopWindow;
 
 
@@ -81,7 +75,7 @@ public class PlayState extends GameState {
         // player initialization
         player = new Player(b2dManager.world, levelManager.getPlayerSpawnPoint(), contactListener, inputProcessor);
 
-        
+
         // Text test
         String text = "{SPEED=0.5}Hola, que tal, {COLOR=RED}esto{WAIT} es una prueba de {SHAKE}Typing label";
         typingLabel = new TypingLabel(text, skinManager.skin);
@@ -100,11 +94,12 @@ public class PlayState extends GameState {
         multiplexer.addProcessor(inputProcessor);
         multiplexer.addProcessor(skinManager.stage);
         Gdx.input.setInputProcessor(multiplexer);
+
     }
 
     @Override
     public void update(float dt) {
-
+        System.out.println("Player:" + player.getPosition().x + " - " + player.getPosition().y);
 
         if(player.openShop()) {
             shopWindow.show(true);
@@ -136,16 +131,16 @@ public class PlayState extends GameState {
 
     @Override
     public void render(float dt) {
-        Gdx.gl.glClearColor(1, 1, 1, 1);
+        Gdx.gl.glClearColor(1, 0, 1, 0);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         levelManager.render();
+        b2dManager.render(cameraManager.camera);
 
         batch.begin();
         player.draw(batch);
         batch.end();
 
-        b2dManager.render(cameraManager.camera);
         skinManager.render(dt);
     }
 
@@ -166,7 +161,9 @@ public class PlayState extends GameState {
 
     public void cameraUpdate(){
         System.out.println(cameraManager.camera.position.x + " - " + cameraManager.camera.position.y);
-        CameraMethods.lerpToTarget(cameraManager.camera, player.getPosition());
+        //CameraMethods.lerpToTarget(cameraManager.camera, player.getPosition());
+        //cameraManager.lerpToTarget(player.getPosition());
+        cameraManager.update();
         //camera.zoom = cameraZoom;
         float startX = cameraManager.camera.viewportWidth * 3; // TODO hardcoded
         float startY = cameraManager.camera.viewportHeight * 3;
