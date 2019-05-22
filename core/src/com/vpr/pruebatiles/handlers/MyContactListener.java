@@ -34,7 +34,7 @@ public class MyContactListener implements ContactListener {
 
         // null control
         if(areFixturesNull(fa, fb)) return;
-        System.out.println("BEGIN");
+       //System.out.println("BEGIN:"+fa.getUserData().toString()+" - "+fb.getUserData().toString());
         updateFixtures(fa, fb, true);
     }
 
@@ -43,7 +43,7 @@ public class MyContactListener implements ContactListener {
      * @param c
      */
     public void endContact(Contact c){
-        System.out.println("END");
+        //System.out.println("END:"+c.getFixtureA().getUserData().toString()+" - "+c.getFixtureB().getUserData().toString());
         updateFixtures(c.getFixtureA(), c.getFixtureB(), false);
     }
 
@@ -87,8 +87,8 @@ public class MyContactListener implements ContactListener {
 
         fixtures.put("player", true); // player always true
 
-        for(String name : fixtureNames)
-            System.out.println(name + " - " + fixtures.get(name));
+        /*for(String name : fixtureNames)
+            System.out.println(name + " - " + fixtures.get(name));*/
     }
 
     private boolean areFixturesNull(Fixture fa, Fixture fb){

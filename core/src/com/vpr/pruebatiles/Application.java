@@ -9,6 +9,7 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
+import com.vpr.pruebatiles.managers.CameraManager;
 import com.vpr.pruebatiles.managers.GameStateManager;
 
 import static com.vpr.pruebatiles.util.Constantes.SCALE;
@@ -22,17 +23,11 @@ public class Application extends ApplicationAdapter {
      * but if you are getting the variable, you have tu multiply
      */
 
-    // Constantes
-    private final int SPEED = 3; //mps
-    private final int JUMPING_FORCE = 450;
-
-
-    // fisicas
-    private float gravity = -10f;
-
     // Atributos
     private SpriteBatch batch;
-    private OrthographicCamera camera;
+
+    //private OrthographicCamera camera;
+
     private Box2DDebugRenderer b2ddr;
     private World world;
     private Body player;
@@ -42,7 +37,8 @@ public class Application extends ApplicationAdapter {
     private OrthogonalTiledMapRenderer tmr;
     private TiledMap map;
 
-    private GameStateManager gsm;
+    public CameraManager cameraManager;
+    public GameStateManager gsm;
 
 
     @Override
@@ -53,9 +49,9 @@ public class Application extends ApplicationAdapter {
         batch = new SpriteBatch();
 
         // camera
-        camera = new OrthographicCamera();
-        camera.setToOrtho(false, width / SCALE, height / SCALE);
-
+        /*camera = new OrthographicCamera();
+        camera.setToOrtho(false, width / SCALE, height / SCALE);*/
+        cameraManager = new CameraManager();
         gsm = new GameStateManager(this);
     }
 
@@ -90,7 +86,7 @@ public class Application extends ApplicationAdapter {
         return batch;
     }
 
-    public OrthographicCamera getCamera(){
+    /*public OrthographicCamera getCamera(){
         return camera;
-    }
+    }*/
 }

@@ -16,9 +16,8 @@ import static com.vpr.pruebatiles.util.Constantes.PPM;
 public class Player {
 
     // Constants
-    private final int SPEED = 2; //mps
-    private final int JUMPING_FORCE = 100;
-
+    private final int SPEED = 5; //mps
+    private final int JUMPING_FORCE = 150;
     // Atributos
     public Body body;
     private TextureRegion texture;
@@ -38,7 +37,7 @@ public class Player {
         this.contactListener = contactListener;
         this.inputProcessor = inputProcessor;
 
-        texture = R.getRegion("idle");
+        texture = R.getRegion("ninjaIdle");
         width = texture.getRegionWidth();
         height = texture.getRegionHeight();
 
@@ -83,7 +82,7 @@ public class Player {
 
         if(isJumping){
             if(body.getPosition().y < lastPosition){ // if body is falling
-                forceAcc -= 1f;
+                forceAcc -= 0.8f;
                 body.applyForceToCenter(new Vector2(0, forceAcc), false);
             }
             else

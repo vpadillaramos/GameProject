@@ -45,6 +45,8 @@ public class TiledObjectUtil {
     }
 
     public static void loadShops(World world, MapObjects objects){
+        if(objects == null)
+            return;
         for(MapObject object : objects){
             Shape shape = null;
 

@@ -26,9 +26,8 @@ public class BodyCreator {
         // TODO physics
         FixtureDef fdef = new FixtureDef();
         fdef.shape = shape;
-        fdef.density = 4.0f;
+        fdef.density = .4f;
         fdef.friction = 1.0f;
-
 
         //playerBody.createFixture(shape, 1.0f); // density
         body.createFixture(fdef);

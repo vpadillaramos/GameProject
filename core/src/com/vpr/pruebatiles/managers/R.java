@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Json;
+import com.vpr.pruebatiles.util.Constantes;
 
 import static com.vpr.pruebatiles.util.Constantes.ATLAS;
 
@@ -22,7 +23,7 @@ public class R {
     public static void cargarRecursos(){
         // Cargo el atlas de texturas
         assets.load(ATLAS, TextureAtlas.class);
-        assets.load("ui/uiskin.atlas", TextureAtlas.class);
+        assets.load(Constantes.skinAtlas, TextureAtlas.class);
 
         // Cargo sonidos y musica
         /*assets.load("sounds" + File.separator + "nombre", Sound.class);
