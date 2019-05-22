@@ -16,10 +16,7 @@ import com.vpr.pruebatiles.entities.Player;
 import com.vpr.pruebatiles.handlers.GameKeys;
 import com.vpr.pruebatiles.handlers.MyContactListener;
 import com.vpr.pruebatiles.handlers.MyGameInputProcessor;
-import com.vpr.pruebatiles.managers.GameStateManager;
-import com.vpr.pruebatiles.managers.LevelManager;
-import com.vpr.pruebatiles.managers.R;
-import com.vpr.pruebatiles.managers.SkinManager;
+import com.vpr.pruebatiles.managers.*;
 import com.vpr.pruebatiles.util.CameraMethods;
 import com.vpr.pruebatiles.util.Constantes;
 import com.vpr.pruebatiles.windows.ShopWindow;
@@ -42,26 +39,23 @@ public class PlayState extends GameState {
     private float gravity = -9.8f;
 
     // World
-    private Box2DDebugRenderer b2dr;
-    private World world;
+    /*private Box2DDebugRenderer b2dr;
+    private World world;*/
 
     // Player
     public Player player;
-    private Vector2 spawnPoint;
 
     // Managers
     private MyGameInputProcessor inputProcessor;
     private LevelManager levelManager;
     private SkinManager skinManager;
+    private Box2dManager b2dManager;
 
     // Listeners, managers
     private InputMultiplexer multiplexer;
     private MyContactListener contactListener;
 
     // Text printing
-    /*private Stage stage;
-    private Skin skin;
-    private BitmapFont font;*/
     private TypingLabel typingLabel;
 
     // Shop Test
@@ -72,22 +66,22 @@ public class PlayState extends GameState {
     public PlayState(GameStateManager gsm) {
         super(gsm);
 
+        // Initial state
+        state = State.PLAYING;
+
+        // Listeners
+        contactListener = new MyContactListener();
+
         // Managers
         inputProcessor = new MyGameInputProcessor();
         skinManager = new SkinManager();
-
-
-        // Initialization
-        state = State.PLAYING;
-
-        // box2d initialization
-        initBox2d();
-
-        levelManager = new LevelManager(world, Constantes.hubMap);
+        b2dManager = new Box2dManager(contactListener);
+        levelManager = new LevelManager(b2dManager.world, Constantes.hubMap);
 
         // player initialization
-        player = new Player(world, levelManager.getPlayerSpawnPoint(), contactListener, inputProcessor);
+        player = new Player(b2dManager.world, levelManager.getPlayerSpawnPoint(), contactListener, inputProcessor);
 
+        
         // Text test
         String text = "{SPEED=0.5}Hola, que tal, {COLOR=RED}esto{WAIT} es una prueba de {SHAKE}Typing label";
         typingLabel = new TypingLabel(text, skinManager.skin);
@@ -125,12 +119,13 @@ public class PlayState extends GameState {
                 }
                 break;
             case PLAYING:
-                // stepping updates objects through the time
-                world.step(1 / 60f, 6, 2); // 60fps, 6, 2 normalized values
-                cameraUpdate();
-                levelManager.update(cameraManager.camera);
                 batch.setProjectionMatrix(cameraManager.camera.combined);
                 manageInput(dt);
+
+                b2dManager.upddate();
+                cameraUpdate();
+                levelManager.update(cameraManager.camera);
+
                 break;
 
             default:
@@ -150,15 +145,13 @@ public class PlayState extends GameState {
         player.draw(batch);
         batch.end();
 
-
-        b2dr.render(world, cameraManager.camera.combined.scl(PPM));
+        b2dManager.render(cameraManager.camera);
         skinManager.render(dt);
     }
 
     @Override
     public void dispose() {
-        b2dr.dispose();
-        world.dispose();
+        b2dManager.dispose();
         levelManager.dispose();
         skinManager.dispose();
     }
@@ -194,19 +187,5 @@ public class PlayState extends GameState {
             shopWindow.show(true);
             state = State.PAUSE;
         }*/
-    }
-
-    public void initBox2d(){
-        // world
-        world = new World(new Vector2(0, gravity), false);
-
-        // Contact listener
-        contactListener = new MyContactListener();
-        world.setContactListener(contactListener);
-
-        // Box2 renderer
-        b2dr = new Box2DDebugRenderer();
-        b2dr.SHAPE_STATIC.set(0, 0, 1, 0); // set static bodies' color blue
-        b2dr.SHAPE_AWAKE.set(1, 0, 0, 0); // set dynamic bodie's color red
     }
 }
