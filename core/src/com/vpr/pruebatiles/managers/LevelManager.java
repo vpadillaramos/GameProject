@@ -1,6 +1,7 @@
 package com.vpr.pruebatiles.managers;
 
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.maps.MapLayer;
 import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
@@ -32,7 +33,10 @@ public class LevelManager {
 
     // Layers
     private MapLayer collisionLayer;
+
+    // shop layers
     private MapLayer shopLayer;
+    private MapLayer dungeonEntryLayer;
 
     // Constructor
     public LevelManager(World world, String initialMap){
@@ -42,12 +46,15 @@ public class LevelManager {
 
         // load the first level/map
         map = new TmxMapLoader().load(initialMap);
+
         // init renderer
         tmr = new OrthogonalTiledMapRenderer(map);
+
         //init TileMap layers
         initCollisionLayer();
-        initShopLayer();
-
+        if(initialMap.equals(Constantes.shops_layer)){
+            initShopLayer();
+        }
     }
 
     // Methods
@@ -73,7 +80,11 @@ public class LevelManager {
     private void initShopLayer(){
         shopLayer = map.getLayers().get(Constantes.shops_layer);
         MapObjects shopTiles = shopLayer.getObjects();
-        TiledObjectUtil.loadShops(world, shopTiles);
+        TiledObjectUtil.loadSensors(world, shopTiles);
+
+        dungeonEntryLayer = map.getLayers().get(Constantes.dungeon_entry_layer);
+        MapObjects dungeonEntryTiles = dungeonEntryLayer.getObjects();
+        TiledObjectUtil.loadSensors(world, dungeonEntryTiles);
     }
 
     private void initMapMeasures(){

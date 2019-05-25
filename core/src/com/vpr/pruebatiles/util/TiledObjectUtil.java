@@ -44,7 +44,7 @@ public class TiledObjectUtil {
         }
     }
 
-    public static void loadShops(World world, MapObjects objects){
+    public static void loadSensors(World world, MapObjects objects){
         if(objects == null)
             return;
         for(MapObject object : objects){
@@ -67,6 +67,7 @@ public class TiledObjectUtil {
             shape.dispose();
         }
     }
+
 
     private static ChainShape getChainShape(PolylineMapObject polyline){
         // because each line have 2 vertices, this manage a chain of vertices to not repeat vertices

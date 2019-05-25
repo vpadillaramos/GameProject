@@ -1,7 +1,8 @@
 package com.vpr.pruebatiles.handlers;
 
+import com.vpr.pruebatiles.util.Constantes;
+
 import java.util.HashMap;
-import java.util.Iterator;
 
 public class GameKeys {
 
@@ -16,14 +17,19 @@ public class GameKeys {
     public static final int WALK_LEFT = 1;
     public static final int WALK_RIGHT = 2;
     public static final int SHOP_INTERACTION = 3;*/
-    public static String[] keyNames = {"JUMP","WALK_LEFT","WALK_RIGHT","OPEN_WINDOW","CLOSE_WINDOW"};
-    public static final HashMap<String, Integer> keyBindings = new HashMap<String, Integer>();
+    public static String[] keyNames = {"JUMP", "FALLING", "WALK_LEFT","WALK_RIGHT","OPEN_WINDOW","CLOSE_WINDOW"};
+    public static final HashMap<Constantes.Actions, Integer> keyBindings = new HashMap<Constantes.Actions, Integer>();
 
 
     static {
-        NUM_KEYS = keyNames.length;
-        for(int i = 0; i < NUM_KEYS; i++){
+        NUM_KEYS = Constantes.Actions.values().length;
+        /*for(int i = 0; i < NUM_KEYS; i++){
             keyBindings.put(keyNames[i], i);
+        }*/
+        int cont = 0;
+        for(Constantes.Actions action : Constantes.Actions.values()){
+            keyBindings.put(action, cont);
+            cont++;
         }
 
         keys = new boolean[NUM_KEYS];

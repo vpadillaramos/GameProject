@@ -29,13 +29,20 @@ public class MyContactListener implements ContactListener {
      * @param c
      */
     public void beginContact(Contact c){
-        Fixture fa = c.getFixtureA();
-        Fixture fb = c.getFixtureB();
 
         // null control
-        if(areFixturesNull(fa, fb)) return;
-       //System.out.println("BEGIN:"+fa.getUserData().toString()+" - "+fb.getUserData().toString());
-        updateFixtures(fa, fb, true);
+        if(areFixturesNull(c)) return;
+        disableAllContact(c, "player");
+
+        if(c.isEnabled()){
+
+            updateFixtures(c, true);
+            //System.out.println("BEGIN:"+fa.getUserData().toString()+" - "+fb.getUserData().toString());
+            /*System.out.println("BEGIN");
+            for(String k : fixtures.keySet()){
+                System.out.println(k + " - " + fixtures.get(k));
+            }*/
+        }
     }
 
     /**
@@ -43,8 +50,16 @@ public class MyContactListener implements ContactListener {
      * @param c
      */
     public void endContact(Contact c){
-        //System.out.println("END:"+c.getFixtureA().getUserData().toString()+" - "+c.getFixtureB().getUserData().toString());
-        updateFixtures(c.getFixtureA(), c.getFixtureB(), false);
+        disableAllContact(c, "player");
+        if(c.isEnabled()) {
+
+            updateFixtures(c, false);
+            //System.out.println("END:" + c.getFixtureA().getUserData().toString() + " - " + c.getFixtureB().getUserData().toString());
+            /*System.out.println("END");
+            for(String k : fixtures.keySet()){
+                System.out.println(k + " - " + fixtures.get(k));
+            }*/
+        }
     }
 
     /**
@@ -65,7 +80,7 @@ public class MyContactListener implements ContactListener {
 
     }
 
-    private void updateFixtures(Fixture fa, Fixture fb, boolean isContactStarted){
+    private void updateFixtures(Contact c, boolean isContactStarted){
 
         /*if(fa.getUserData().equals("player_foot") || fb.getUserData().equals("player_foot") &&
         fa.getUserData().equals("shop") || fb.getUserData().equals("shop")){
@@ -75,25 +90,24 @@ public class MyContactListener implements ContactListener {
         boolean isContactA = isContactStarted;
         boolean isContactB = isContactStarted;
 
-        if(fixturesDetected(fa, fb, "player_foot", "shop")){
-            if(assignFixture(fa, fb, "player_foot") == FixtureId.A)
+        if(fixturesDetected(c, "player_foot", "shop")){
+            if(assignFixture(c, "player_foot") == FixtureId.A)
                 isContactA = fixtures.get("player_foot");
-            else if(assignFixture(fa, fb, "player_foot") == FixtureId.B)
+            else if(assignFixture(c, "player_foot") == FixtureId.B)
                 isContactB = fixtures.get("player_foot");
         }
 
-        fixtures.put(fa.getUserData().toString(), isContactA);
-        fixtures.put(fb.getUserData().toString(), isContactB);
+        fixtures.put(c.getFixtureA().getUserData().toString(), isContactA);
+        fixtures.put(c.getFixtureB().getUserData().toString(), isContactB);
 
-        fixtures.put("player", true); // player always true
 
         /*for(String name : fixtureNames)
             System.out.println(name + " - " + fixtures.get(name));*/
     }
 
-    private boolean areFixturesNull(Fixture fa, Fixture fb){
-        if(fa == null || fb == null) return true;
-        if(fa.getUserData() == null || fb.getUserData() == null) return true;
+    private boolean areFixturesNull(Contact c){
+        if(c.getFixtureA() == null || c.getFixtureB() == null) return true;
+        if(c.getFixtureA().getUserData() == null || c.getFixtureB().getUserData() == null) return true;
 
         return false;
     }
@@ -101,14 +115,13 @@ public class MyContactListener implements ContactListener {
     /**
      * Checks if that user data equals to some of the 2 fixures passed, and returns if it's the fixture A, B or NULL
      * in case that user data is none of them
-     * @param fa
-     * @param fb
+     * @param c
      * @param userData
      * @return
      */
-    private FixtureId assignFixture(Fixture fa, Fixture fb, String userData){
-        if(fa.getUserData().equals(userData) || fb.getUserData().equals(userData)) {
-            if(fa.getUserData().equals(userData))
+    private FixtureId assignFixture(Contact c, String userData){
+        if(c.getFixtureA().getUserData().equals(userData) || c.getFixtureB().getUserData().equals(userData)) {
+            if(c.getFixtureA().getUserData().equals(userData))
                 return FixtureId.A;
             else
                 return FixtureId.B;
@@ -117,21 +130,56 @@ public class MyContactListener implements ContactListener {
         return FixtureId.NULL;
     }
 
-    private boolean fixturesDetected(Fixture fa, Fixture fb, String userDataA, String userDataB){
-        if(fa.getUserData().equals(userDataA) || fb.getUserData().equals(userDataA) &&
-                fa.getUserData().equals(userDataB) || fb.getUserData().equals(userDataB))
+    /**
+     * Check if the passed 2 userData are detected in the contact
+     * @param c Contact between userDataA fixture and userDataB fixture
+     * @param userDataA
+     * @param userDataB
+     * @return
+     */
+    private boolean fixturesDetected(Contact c, String userDataA, String userDataB){
+        if(fixtureDetected(c, userDataA) && fixtureDetected(c, userDataB))
             return true;
 
         return false;
     }
 
-    private boolean ignoreContact(Fixture fa, Fixture fb, String userDataIgnoring, String userDataIgnored){
-        if(fa.getUserData().equals(userDataIgnoring) || fb.getUserData().equals(userDataIgnoring) &&
-                fa.getUserData().equals(userDataIgnored) || fb.getUserData().equals(userDataIgnored)){
-            return fixtures.get(userDataIgnoring);
-        }
+    /**
+     * Check if the passed userData is detected, no matter the other contact
+     * @param c Contact
+     * @param userData
+     * @return
+     */
+    private boolean fixtureDetected(Contact c, String userData){
+        if(c.getFixtureA().getUserData().equals(userData) || c.getFixtureB().getUserData().equals(userData))
+            return true;
 
-        return fixtures.get(userDataIgnoring);
+        return false;
+    }
+
+    /**
+     * Set the contact enable to false (only in this current time step) if the passed 2 userData
+     * are detected
+     * @param c
+     * @param userDataA
+     * @param userDataB
+     */
+    private void disableContactBetween(Contact c, String userDataA, String userDataB){
+
+        if(fixturesDetected(c, userDataA, userDataB)){
+            c.setEnabled(false);
+        }
+    }
+
+    /**
+     * Set the contact enable to false (only in this current time step) if the passed userData
+     * is detected, no matter the other contact
+     * @param c
+     * @param userData
+     */
+    private void disableAllContact(Contact c, String userData){
+        if(fixtureDetected(c, userData))
+            c.setEnabled(false);
     }
 
     private void resetFixtures(){

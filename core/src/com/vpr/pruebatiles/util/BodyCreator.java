@@ -8,7 +8,8 @@ public class BodyCreator {
 
     // Attributes
 
-    public static Body createBox(World world, float x, float y, float width, float height, boolean fixedRotation, BodyDef.BodyType bType) {
+    public static Body createBody(World world, float x, float y, float width, float height, float density,
+                                        float friction, boolean fixedRotation, BodyDef.BodyType bType) {
 
         // body definition
         BodyDef bDef = new BodyDef();
@@ -26,8 +27,8 @@ public class BodyCreator {
         // TODO physics
         FixtureDef fdef = new FixtureDef();
         fdef.shape = shape;
-        fdef.density = .4f;
-        fdef.friction = 1.0f;
+        fdef.density = density;
+        fdef.friction = friction;
 
         //playerBody.createFixture(shape, 1.0f); // density
         body.createFixture(fdef);

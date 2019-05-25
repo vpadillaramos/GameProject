@@ -1,29 +1,30 @@
 package com.vpr.pruebatiles.windows;
 
 import com.badlogic.gdx.scenes.scene2d.Action;
-import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.actions.MoveToAction;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Align;
 import com.vpr.pruebatiles.managers.R;
-import com.vpr.pruebatiles.states.PlayState;
+import com.vpr.pruebatiles.managers.SkinManager;
+import com.vpr.pruebatiles.states.HubState;
+import com.vpr.pruebatiles.util.Constantes;
 
 public class ShopWindow {
 
     // Attributes
-    public PlayState playState;
-    public Stage stage;
+    public HubState hubState;
+    public SkinManager skinManager;
     public Skin skin;
     public String title;
     public Window window;
     public Action action;
 
     // Constructor
-    public ShopWindow(PlayState playState, Stage stage, Skin skin, String title){
-        this.playState = playState;
-        this.stage = stage;
+    public ShopWindow(HubState hubState, SkinManager skinManager, Skin skin, String title){
+        this.hubState = hubState;
+        this.skinManager = skinManager;
         this.skin = skin;
         this.title = title;
         action = new MoveToAction();
@@ -55,33 +56,34 @@ public class ShopWindow {
 
         // Add scrollpane perks
         HorizontalGroup perkGroup = new HorizontalGroup();
-        perkGroup.addActor(new ImageButton(new TextureRegionDrawable(R.getRegion("ninjaIdle")),
-                new TextureRegionDrawable(R.getRegion("ninjaIdle"))));
-        perkGroup.addActor(new ImageButton(new TextureRegionDrawable(R.getRegion("ninjaIdle"))));
-        perkGroup.addActor(new ImageButton(new TextureRegionDrawable(R.getRegion("ninjaIdle"))));
-        perkGroup.addActor(new ImageButton(new TextureRegionDrawable(R.getRegion("ninjaIdle"))));
-        perkGroup.addActor(new ImageButton(new TextureRegionDrawable(R.getRegion("ninjaIdle"))));
-        perkGroup.addActor(new ImageButton(new TextureRegionDrawable(R.getRegion("ninjaIdle"))));
+        perkGroup.addActor(new ImageButton(new TextureRegionDrawable(R.getRegion(Constantes.ninjaIdle)),
+                new TextureRegionDrawable(R.getRegion(Constantes.ninjaIdle))));
+        perkGroup.addActor(new ImageButton(new TextureRegionDrawable(R.getRegion(Constantes.ninjaIdle))));
+        perkGroup.addActor(new ImageButton(new TextureRegionDrawable(R.getRegion(Constantes.ninjaIdle))));
+        perkGroup.addActor(new ImageButton(new TextureRegionDrawable(R.getRegion(Constantes.ninjaIdle))));
+        perkGroup.addActor(new ImageButton(new TextureRegionDrawable(R.getRegion(Constantes.ninjaIdle))));
+        perkGroup.addActor(new ImageButton(new TextureRegionDrawable(R.getRegion(Constantes.ninjaIdle))));
         perkGroup.wrap(true);
         perkGroup.align(Align.center);
         layout.add(perkGroup);
 
 
         window.addActor(layout);
-        stage.addActor(window);
+        skinManager.stage.addActor(window);
+
     }
 
     public void show(boolean b){
 
         if(b){
             window.setVisible(true);
-            window.setPosition((stage.getWidth() / 2) - (window.getWidth() / 2),
-                    stage.getHeight());
+            window.setPosition((skinManager.stage.getWidth() / 2) - (window.getWidth() / 2),
+                    skinManager.stage.getHeight());
 
             /*window.addAction(Actions.moveTo((stage.getWidth() / 2) - (window.getWidth() / 2),
                     (stage.getHeight() / 2) - (window.getHeight() / 2), .1f));*/
-            action = Actions.moveTo((stage.getWidth() / 2) - (window.getWidth() / 2),
-                    (stage.getHeight() / 2) - (window.getHeight() / 2), .1f);
+            action = Actions.moveTo((skinManager.stage.getWidth() / 2) - (window.getWidth() / 2),
+                    (skinManager.stage.getHeight() / 2) - (window.getHeight() / 2), .1f);
             window.addAction(action);
         }
         else {
@@ -92,7 +94,8 @@ public class ShopWindow {
                 }
             };
 
-            action = Actions.sequence(Actions.moveTo((stage.getWidth() / 2) - (window.getWidth() / 2), stage.getHeight(), .1f),
+            action = Actions.sequence(Actions.moveTo((skinManager.stage.getWidth() / 2) - (window.getWidth() / 2),
+                    skinManager.stage.getHeight(), .1f),
                     completeAction);
             window.addAction(action);
 

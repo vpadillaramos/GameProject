@@ -2,8 +2,11 @@ package com.vpr.pruebatiles.managers;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.kotcrab.vis.ui.VisUI;
@@ -20,13 +23,14 @@ public class SkinManager {
     // font
     private BitmapFont font;
     private int fontSize;
-    private FileHandle mainFont = Gdx.files.internal(Constantes.alterebroFont);
+    private FileHandle mainFont;
 
 
     // Constructor
     public SkinManager(){
         stage = new Stage();
         fontSize = 30;
+        mainFont = Gdx.files.internal(Constantes.alterebroFont);
 
         initFonts();
         initSkin();
@@ -42,6 +46,11 @@ public class SkinManager {
     }
 
     public void render(float dt){
+        /*System.out.println("Size:" + stage.getActors().size);
+        for(Actor actor : stage.getActors()){
+            System.out.println(actor.getClass());
+        }*/
+
         stage.act(dt);
         stage.draw();
     }

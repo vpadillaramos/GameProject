@@ -2,6 +2,7 @@ package com.vpr.pruebatiles.handlers;
 
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.InputAdapter;
+import com.vpr.pruebatiles.util.Constantes;
 
 public class MyGameInputProcessor extends InputAdapter {
 
@@ -15,19 +16,19 @@ public class MyGameInputProcessor extends InputAdapter {
 
         switch (k){
             case Keys.UP:
-                GameKeys.setKey(GameKeys.keyBindings.get("JUMP"), true);
+                GameKeys.setKey(GameKeys.keyBindings.get(Constantes.Actions.JUMP), true);
                 break;
             case Keys.LEFT:
-                GameKeys.setKey(GameKeys.keyBindings.get("WALK_LEFT"), true);
+                GameKeys.setKey(GameKeys.keyBindings.get(Constantes.Actions.WALK_LEFT), true);
                 break;
             case Keys.RIGHT:
-                GameKeys.setKey(GameKeys.keyBindings.get("WALK_RIGHT"), true);
+                GameKeys.setKey(GameKeys.keyBindings.get(Constantes.Actions.WALK_RIGHT), true);
                 break;
             case Keys.E:
-                GameKeys.setKey(GameKeys.keyBindings.get("OPEN_WINDOW"), true);
+                GameKeys.setKey(GameKeys.keyBindings.get(Constantes.Actions.OPEN_WINDOW), true);
                 break;
             case Keys.ESCAPE:
-                GameKeys.setKey(GameKeys.keyBindings.get("CLOSE_WINDOW"), true);
+                GameKeys.setKey(GameKeys.keyBindings.get(Constantes.Actions.CLOSE_WINDOW), true);
                 break;
             default:
                     break;
@@ -46,19 +47,19 @@ public class MyGameInputProcessor extends InputAdapter {
 
         switch (k){
             case Keys.UP:
-                GameKeys.setKey(GameKeys.keyBindings.get("JUMP"), false);
+                GameKeys.setKey(GameKeys.keyBindings.get(Constantes.Actions.JUMP), false);
                 break;
             case Keys.LEFT:
-                GameKeys.setKey(GameKeys.keyBindings.get("WALK_LEFT"), false);
+                GameKeys.setKey(GameKeys.keyBindings.get(Constantes.Actions.WALK_LEFT), false);
                 break;
             case Keys.RIGHT:
-                GameKeys.setKey(GameKeys.keyBindings.get("WALK_RIGHT"), false);
+                GameKeys.setKey(GameKeys.keyBindings.get(Constantes.Actions.WALK_RIGHT), false);
                 break;
             case Keys.E:
-                GameKeys.setKey(GameKeys.keyBindings.get("OPEN_WINDOW"), false);
+                GameKeys.setKey(GameKeys.keyBindings.get(Constantes.Actions.OPEN_WINDOW), false);
                 break;
             case Keys.ESCAPE:
-                GameKeys.setKey(GameKeys.keyBindings.get("CLOSE_WINDOW"), false);
+                GameKeys.setKey(GameKeys.keyBindings.get(Constantes.Actions.CLOSE_WINDOW), false);
                 break;
             default:
                 break;
