@@ -12,6 +12,9 @@ import static com.vpr.pruebatiles.util.Constantes.PPM;
 
 public class Box2dManager {
 
+    // Constantes
+    public final float GRAVITY = 9.9f;
+
     // Attributes
     private Box2DDebugRenderer b2dr;
     public World world;
@@ -23,7 +26,7 @@ public class Box2dManager {
 
     // Constructor
     public Box2dManager(ContactListener contactListener){
-        gravity = -9.9f;
+        gravity = -GRAVITY;
         this.contactListener = contactListener;
 
         world = new World(new Vector2(0, gravity), false);

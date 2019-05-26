@@ -13,11 +13,6 @@ public final class Constantes {
     // Box2D
     public static final float PPM = 8; // pixels per meter
 
-    // Tiles
-    public static final int TILE_WIDTH = 64;
-    public static final int TILE_HEIGHT = 64;
-    public static final int CAMERA_TILES = 10;
-
     //////////////////////////////////////////////
     //////////////Internal folders////////////////
     //////////////////////////////////////////////
@@ -35,11 +30,14 @@ public final class Constantes {
 
 
     //////////////////////////////////////////////
-    ///////////////TileMap references/////////////
+    ////////////////////TileMap///////////////////
     //////////////////////////////////////////////
 
-    // levels, maps
+    // tiles
+    public static final int TILE_WIDTH = 16;
+    public static final int TILE_HEIGHT = 16;
 
+    // levels, maps
     public static final String hubMap = levelsFolder + "hub.tmx";
     public static final String dungeonMap = levelsFolder + "dungeonType1.tmx";
 

@@ -19,12 +19,16 @@ public class CameraManager {
     public CameraManager(){
         // camera
         camera = new OrthographicCamera();
-        camera.zoom = zoom;
+        //camera.zoom = zoom;
+
         //camera.setToOrtho(false, Gdx.graphics.getWidth() / SCALE, Gdx.graphics.getHeight() / SCALE);
         camera.position.set(0, 0, 0);
     }
 
-    public void update(){
+    public void update(float mapPixelWidth, float mapPixelHeight){
+        float startX = camera.viewportWidth / 2;
+        float startY = camera.viewportHeight / 2;
+        setCameraBounds(startX, startY, mapPixelWidth - camera.viewportWidth, mapPixelHeight + camera.viewportHeight / 2);
         camera.update();
     }
 

@@ -1,9 +1,9 @@
 package com.vpr.pruebatiles.managers;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.maps.MapLayer;
 import com.badlogic.gdx.maps.MapObjects;
+import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
@@ -11,9 +11,7 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
-import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
-import com.badlogic.gdx.utils.Array;
 import com.vpr.pruebatiles.handlers.MyInputManager;
 import com.vpr.pruebatiles.util.Constantes;
 import com.vpr.pruebatiles.util.TiledObjectUtil;
@@ -29,9 +27,9 @@ public class LevelManager {
     private OrthogonalTiledMapRenderer tmr;
     public TiledMap map;
 
-    private int mapTilesWidth, mapTilesHeight; // amount of tiles
-    private float mapWidth, mapHeight, tileWidth, tileHeight; // pixels
-    private Vector3 startOfMap, endOfMap;
+    public int mapTilesWidth, mapTilesHeight; // amount of tiles
+    public float mapPixelWidth, mapPixelHeight; // pixels
+    public Vector3 startOfMap, endOfMap;
 
     // Layers
     private MapLayer collisionLayer;
@@ -45,13 +43,11 @@ public class LevelManager {
 
         // load the first level/map
         map = new TmxMapLoader().load(initialMap);
-
+        initMapMeasures();
         // init renderer
         tmr = new OrthogonalTiledMapRenderer(map);
 
         loadMapLayers(initialMap);
-
-        MyInputManager manager = new MyInputManager();
     }
 
     // Methods
@@ -96,7 +92,13 @@ public class LevelManager {
     }
 
     private void initMapMeasures(){
+        MapProperties props = map.getProperties();
 
+        mapTilesWidth = props.get("width", Integer.class);
+        mapTilesHeight = props.get("height", Integer.class);
+        mapPixelWidth = mapTilesWidth * Constantes.TILE_WIDTH;
+        mapPixelHeight = mapPixelHeight * Constantes.TILE_HEIGHT;
+        startOfMap = new Vector3(0, 0, 0);
     }
 
     public Vector2 getPlayerSpawnPoint(){

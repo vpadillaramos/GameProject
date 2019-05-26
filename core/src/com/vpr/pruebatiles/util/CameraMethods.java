@@ -92,10 +92,10 @@ public class CameraMethods {
             position.x = startX;
         if(position.y < startY)
             position.y = startY;
-        if(position.x > width - startX)
-            position.x = width - startX;
-        if(position.y > height - startY)
-            position.y = height - startY;
+        if(position.x > startX + width)
+            position.x = startX + width;
+        if(position.y > startY + height)
+            position.y = startY + height;
 
         camera.position.set(position);
         camera.update();

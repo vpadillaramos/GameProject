@@ -205,16 +205,9 @@ public class HubState extends GameState {
     }
 
     public void cameraUpdate(){
-        //System.out.println(cameraManager.camera.position.x + " - " + cameraManager.camera.position.y);
-        //CameraMethods.lerpToTarget(cameraManager.camera, player.getPosition());
+
         cameraManager.lerpToTarget(player.getPosition());
-        cameraManager.setCameraBounds(0, 0, 1000, 1000);
-        cameraManager.update();
-        //camera.zoom = cameraZoom;
-        float startX = cameraManager.camera.viewportWidth * 3; // TODO hardcoded
-        float startY = cameraManager.camera.viewportHeight * 3;
-        //CameraMethods.setCameraBounds(camera, startX, startY, mapWidth - camera.viewportWidth, mapHeight - camera.viewportHeight);
-        //CameraMethods.setCameraBounds(camera, startX, startY, mapWidth, mapHeight);
+        cameraManager.update(levelManager.mapPixelWidth, levelManager.mapPixelHeight);
     }
 
     public void manageInput(float dt){
