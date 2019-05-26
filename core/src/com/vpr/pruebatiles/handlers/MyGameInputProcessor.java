@@ -25,7 +25,7 @@ public class MyGameInputProcessor extends InputAdapter {
                 GameKeys.setKey(GameKeys.keyBindings.get(Constantes.Actions.WALK_RIGHT), true);
                 break;
             case Keys.E:
-                GameKeys.setKey(GameKeys.keyBindings.get(Constantes.Actions.OPEN_WINDOW), true);
+                GameKeys.setKey(GameKeys.keyBindings.get(Constantes.Actions.INTERACT), true);
                 break;
             case Keys.ESCAPE:
                 GameKeys.setKey(GameKeys.keyBindings.get(Constantes.Actions.CLOSE_WINDOW), true);
@@ -56,7 +56,7 @@ public class MyGameInputProcessor extends InputAdapter {
                 GameKeys.setKey(GameKeys.keyBindings.get(Constantes.Actions.WALK_RIGHT), false);
                 break;
             case Keys.E:
-                GameKeys.setKey(GameKeys.keyBindings.get(Constantes.Actions.OPEN_WINDOW), false);
+                GameKeys.setKey(GameKeys.keyBindings.get(Constantes.Actions.INTERACT), false);
                 break;
             case Keys.ESCAPE:
                 GameKeys.setKey(GameKeys.keyBindings.get(Constantes.Actions.CLOSE_WINDOW), false);

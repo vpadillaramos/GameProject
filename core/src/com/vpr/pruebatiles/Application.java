@@ -2,13 +2,7 @@ package com.vpr.pruebatiles;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.maps.tiled.TiledMap;
-import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
-import com.badlogic.gdx.physics.box2d.Body;
-import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
-import com.badlogic.gdx.physics.box2d.World;
 import com.vpr.pruebatiles.managers.CameraManager;
 import com.vpr.pruebatiles.managers.GameStateManager;
 
@@ -34,6 +28,7 @@ public class Application extends ApplicationAdapter {
     public void create() {
 
         batch = new SpriteBatch();
+        // Managers
         cameraManager = new CameraManager();
         gsm = new GameStateManager(this);
     }

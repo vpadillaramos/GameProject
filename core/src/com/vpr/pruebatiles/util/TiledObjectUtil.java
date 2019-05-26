@@ -51,7 +51,6 @@ public class TiledObjectUtil {
             Shape shape = null;
 
             if(object instanceof RectangleMapObject){
-                System.out.println("PolygonShape");
                 shape = getRectangle((RectangleMapObject) object);
             }
 

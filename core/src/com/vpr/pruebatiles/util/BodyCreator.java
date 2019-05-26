@@ -51,7 +51,7 @@ public class BodyCreator {
 
         Body body = world.createBody(bDef);
         body.createFixture(fdef).setUserData(userData);
-
+        shape.dispose();
         return body;
 
     }

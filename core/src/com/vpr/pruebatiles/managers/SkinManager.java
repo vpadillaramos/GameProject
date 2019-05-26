@@ -2,11 +2,8 @@ package com.vpr.pruebatiles.managers;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
-import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.kotcrab.vis.ui.VisUI;
@@ -56,8 +53,10 @@ public class SkinManager {
     }
 
     public void dispose(){
-        stage.dispose();
+        System.out.println("[SKIN MANAGER] - dispose");
         font.dispose();
+        stage.dispose();
+        skin.dispose();
         VisUI.dispose();
     }
 

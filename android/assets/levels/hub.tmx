@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="60" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="6" nextobjectid="18">
+<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="60" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="6" nextobjectid="19">
  <tileset firstgid="1" source="tiles.tsx"/>
  <layer id="1" name="ground" width="60" height="30">
   <data encoding="csv">
@@ -35,7 +35,7 @@
 13,13,9,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,11,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4
 </data>
  </layer>
- <objectgroup id="5" name="dungeon_entry">
+ <objectgroup id="5" name="doors">
   <object id="17" name="dungeon_entry" x="284" y="389.333" width="20" height="41.3333"/>
  </objectgroup>
  <objectgroup id="4" name="shops">
@@ -51,9 +51,12 @@
   <object id="12" name="wall" x="304" y="432">
    <polyline points="0,0 0,48"/>
   </object>
+  <object id="18" name="ceil" x="160" y="384">
+   <polyline points="0,0 80,0"/>
+  </object>
  </objectgroup>
- <objectgroup id="3" name="player_spawn">
-  <object id="5" name="spawn_point" x="52.75" y="421.5">
+ <objectgroup id="3" name="spawn">
+  <object id="5" name="player_spawn" x="52.75" y="421.5">
    <point/>
   </object>
  </objectgroup>

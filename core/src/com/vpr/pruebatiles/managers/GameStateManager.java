@@ -2,6 +2,7 @@ package com.vpr.pruebatiles.managers;
 
 import com.vpr.pruebatiles.Application;
 import com.vpr.pruebatiles.states.*;
+import com.vpr.pruebatiles.util.Constantes;
 
 import java.util.Stack;
 
@@ -11,7 +12,7 @@ public class GameStateManager {
     private final Application app;
     private Stack<GameState> states;
     public enum State {
-        LOADING_RES, SPLASH, MAIN_MENU, PLAY, LOADING_DUNGEON, PLAYING_DUNGEON
+        LOADING_RES, SPLASH, MAIN_MENU, PLAYING_HUB, LOADING_DUNGEON, PLAYING_DUNGEON,
     }
 
     // Constructor
@@ -38,7 +39,6 @@ public class GameStateManager {
         for(GameState gs : states){
             gs.dispose();
         }
-
         states.clear();
     }
 
@@ -52,15 +52,15 @@ public class GameStateManager {
     public GameState getState(State state){
         switch (state){
             case LOADING_RES:
-                return new LoadingState(this);
+                return new LoadingState(this, State.PLAYING_HUB);
             case SPLASH:
-                return new SplashState(this);
-            case PLAY:
-                return new HubState(this);
+                return new SplashState(this, State.PLAYING_HUB);
+            case PLAYING_HUB:
+                return new HubState(this, Constantes.hubMap);
             case LOADING_DUNGEON:
-                return new LoadingDungeonState(this);
+                return new LoadingDungeonState(this, State.PLAYING_DUNGEON);
             case PLAYING_DUNGEON:
-                return new DungeonState(this);
+                return new DungeonState(this, Constantes.dungeonMap);
         }
 
         return null;

@@ -6,9 +6,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.vpr.pruebatiles.handlers.MyContactListener;
-import com.vpr.pruebatiles.handlers.MyGameInputProcessor;
 import com.vpr.pruebatiles.managers.R;
-import com.vpr.pruebatiles.util.BodyCreator;
 
 import static com.vpr.pruebatiles.util.Constantes.PPM;
 
@@ -27,7 +25,6 @@ public class BasicEntity {
         this.texture = R.getRegion(textureName);
         this.spawnPoint = new Vector2(spawnPoint);
         this.contactListener = contactListener;
-        this.contactListener = contactListener;
 
         width = texture.getRegionWidth();
         height = texture.getRegionHeight();
@@ -45,6 +42,10 @@ public class BasicEntity {
     public void draw(SpriteBatch batch){
         batch.draw(texture, (body.getPosition().x - width / 2 / PPM),
                 (body.getPosition().y - height / 2 / PPM), width / PPM, height / PPM);
+    }
+
+    public void dispose(){
+        texture.getTexture().dispose();
     }
 
 }

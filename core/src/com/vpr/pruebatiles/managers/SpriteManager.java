@@ -1,6 +1,5 @@
 package com.vpr.pruebatiles.managers;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.vpr.pruebatiles.entities.Player;

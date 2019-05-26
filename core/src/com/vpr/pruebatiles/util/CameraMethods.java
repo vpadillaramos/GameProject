@@ -11,7 +11,7 @@ public class CameraMethods {
 
     // Constants
     private static final float LERP = .2f;
-    private static final float CAMERA_ADJUST = Gdx.graphics.getHeight() / 7;
+    private static final float CAMERA_ADJUST = Gdx.graphics.getHeight() / 9;
 
     /*
     camera interpolation formula -> a + (b - a) * lerp

@@ -6,11 +6,9 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.badlogic.gdx.utils.Align;
 import com.vpr.pruebatiles.managers.GameStateManager;
 
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.*;
-import static com.vpr.pruebatiles.util.Constantes.PPM;
 
 public class LoadingDungeonState extends GameState {
 
@@ -19,15 +17,17 @@ public class LoadingDungeonState extends GameState {
     private Image splashImage;
 
 
-    public LoadingDungeonState(final GameStateManager gsm) {
-        super(gsm);
+    public LoadingDungeonState(final GameStateManager gsm, final GameStateManager.State nextState) {
+        super(gsm, nextState);
         stage = new Stage();
-        splashImage = new Image(new Texture(Gdx.files.internal("splash/loadingDungeon.png")));
+        Texture imageTexture = new Texture(Gdx.files.internal("splash/loadingDungeon.png"));
+        splashImage = new Image(imageTexture);
+        //imageTexture.dispose(); TODO don't dispose this!!!!!!!!!
 
         Runnable transitionRunnable = new Runnable() {
             @Override
             public void run() {
-                gsm.setState(GameStateManager.State.PLAYING_DUNGEON);
+                gsm.setState(nextState);
             }
         };
 

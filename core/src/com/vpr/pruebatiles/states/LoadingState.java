@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.MathUtils;
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import com.vpr.pruebatiles.managers.GameStateManager;
 import com.vpr.pruebatiles.managers.R;
 
@@ -14,9 +15,11 @@ public class LoadingState extends GameState {
     private ShapeRenderer shapeRenderer;
     private float progress;
     private float acc;
+    private GameStateManager.State nextState;
 
-    public LoadingState(GameStateManager gsm) {
-        super(gsm);
+    public LoadingState(GameStateManager gsm, GameStateManager.State nextState) {
+        super(gsm, nextState);
+        this.nextState = nextState;
 
         shapeRenderer = new ShapeRenderer();
         progress = 0;
@@ -32,7 +35,7 @@ public class LoadingState extends GameState {
 
         if(R.update() && progress >= R.assets.getProgress() - .01f){
             if(acc >= 3){
-                gsm.setState(GameStateManager.State.PLAY);
+                gsm.setState(nextState);
             }
         }
     }

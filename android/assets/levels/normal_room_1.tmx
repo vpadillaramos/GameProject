@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="25" height="15" tilewidth="16" tileheight="16" infinite="0" nextlayerid="6" nextobjectid="11">
+ <tileset firstgid="1" source="tiles.tsx"/>
+ <layer id="4" name="ground" width="25" height="15">
+  <data encoding="csv">
+4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,
+4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,
+4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,
+6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,
+6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,
+6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,
+6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,
+6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,
+6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,
+11,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,9,
+6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,
+6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,
+1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,
+4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,
+4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4
+</data>
+ </layer>
+ <objectgroup id="2" name="collisions">
+  <object id="1" name="ceil" x="0" y="160">
+   <polyline points="0,0 16,0"/>
+  </object>
+  <object id="2" name="ground" x="0" y="192">
+   <polyline points="0,0 400,0"/>
+  </object>
+  <object id="3" name="wall" x="16" y="160">
+   <polyline points="0,0 -0.0222222,-11"/>
+  </object>
+  <object id="4" name="wall" x="384" y="160">
+   <polyline points="0,0 0,-11"/>
+  </object>
+  <object id="5" name="ceil" x="400" y="160">
+   <polyline points="0,0 -16,0"/>
+  </object>
+  <object id="6" name="ceil" x="15.9688" y="149.031">
+   <polyline points="0,0 368.009,-0.0534722"/>
+  </object>
+  <object id="8" name="wall" x="0" y="160">
+   <polyline points="0,0 0,32"/>
+  </object>
+  <object id="9" name="wall" x="400" y="160">
+   <polyline points="0,0 0,32"/>
+  </object>
+ </objectgroup>
+ <objectgroup id="5" name="doors">
+  <object id="10" name="next_room" x="380.636" y="166.273" width="18.1818" height="24.8182"/>
+ </objectgroup>
+ <objectgroup id="3" name="spawn">
+  <object id="7" name="player_spawn" x="12.5" y="185">
+   <point/>
+  </object>
+ </objectgroup>
+</map>

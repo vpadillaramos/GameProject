@@ -7,7 +7,6 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.Json;
 import com.vpr.pruebatiles.util.Constantes;
 
 import static com.vpr.pruebatiles.util.Constantes.ATLAS;
@@ -32,6 +31,11 @@ public class R {
 
     public static boolean update(){
         return assets.update();
+    }
+
+    public static void dispose(){
+        System.out.println("[R] - dispose");
+        assets.dispose();
     }
 
     /**

@@ -7,8 +7,6 @@ import com.badlogic.gdx.math.Vector2;
 import com.vpr.pruebatiles.entities.Player;
 import com.vpr.pruebatiles.util.CameraMethods;
 
-import static com.vpr.pruebatiles.util.Constantes.SCALE;
-
 public class CameraManager {
 
     // Attributes
@@ -19,6 +17,7 @@ public class CameraManager {
     public CameraManager(){
         // camera
         camera = new OrthographicCamera();
+        camera.zoom = .7f;
         //camera.setToOrtho(false, Gdx.graphics.getWidth() / SCALE, Gdx.graphics.getHeight() / SCALE);
         camera.position.set(0, 0, 0);
     }

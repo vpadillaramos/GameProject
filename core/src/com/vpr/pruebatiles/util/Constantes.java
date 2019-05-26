@@ -21,10 +21,10 @@ public final class Constantes {
     //////////////////////////////////////////////
     //////////////Internal folders////////////////
     //////////////////////////////////////////////
-    private static String levelsFolder = "levels/";
-    private static String fontsFolder = "fonts/";
-    private static String skinsFolder = "ui/";
-    private static String playerCharactersFolder = "player_characters/";
+    public static String levelsFolder = "levels/";
+    public static String fontsFolder = "fonts/";
+    public static String skinsFolder = "ui/";
+    public static String playerCharactersFolder = "player_characters/";
 
     //////////////////////////////////////////////
     ///////////////Skins, fonts///////////////////
@@ -45,11 +45,22 @@ public final class Constantes {
 
     // layers, names
     public static final String collisions_layer = "collisions";
-    public static final String player_spawn_layer = "player_spawn";
+    public static final String spawn_layer = "spawn";
     public static final String shops_layer = "shops";
-    public static final String dungeon_entry_layer = "dungeon_entry";
-    public static final String spawn_point = "spawn_point";
+    public static final String doors_layer = "doors";
+    public static final String player_spawn = "player_spawn";
 
+
+    //////////////////////////////////////////////
+    //////////////////Dungeon rooms////////////////
+    //////////////////////////////////////////////
+    // types of rooms
+    public enum RoomType {
+        normal, perk, easterEgg, miniBoss, finalBoss
+    }
+
+    public static final int MIN_ROOMS = 10;
+    public static final int MAX_ROOMS  = 20;
 
     //////////////////////////////////////////////
     //////////////////Player input////////////////
@@ -64,7 +75,7 @@ public final class Constantes {
 
     // Care!!! The order is important
     public enum Actions {
-        IDLE, JUMP, FALLING, WALK_LEFT, WALK_RIGHT, OPEN_WINDOW, CLOSE_WINDOW
+        IDLE, JUMP, FALLING, WALK_LEFT, WALK_RIGHT, INTERACT, CLOSE_WINDOW
     }
 
 

@@ -17,18 +17,19 @@ public class SplashState extends GameState {
     private Stage stage;
     private Image splashImage;
 
-    public SplashState(final GameStateManager gsm) {
-        super(gsm);
+    public SplashState(final GameStateManager gsm, final GameStateManager.State nextState) {
+        super(gsm, nextState);
         stage = new Stage();
 
 
         Texture splashTexture = new Texture(Gdx.files.internal("splash/splash2.png"));
         splashImage = new Image(splashTexture);
+        splashTexture.dispose();
 
         Runnable transitionRunnable = new Runnable() {
             @Override
             public void run() {
-                gsm.setState(GameStateManager.State.PLAY);
+                gsm.setState(nextState);
             }
         };
 

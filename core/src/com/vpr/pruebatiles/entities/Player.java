@@ -1,5 +1,7 @@
 package com.vpr.pruebatiles.entities;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
@@ -196,17 +198,24 @@ public class Player extends BasicEntity{
 
     // Constantes
     public float DENSITY = 1f;
-    public float FRICTION = 1f;
-    public float SPEED = 2; //mps
-    public float JUMPING_FORCE = 2000;
+    public float FRICTION = 0f;
+    public float SPEED = 4; //mps
+    public float JUMPING_FORCE = 1700;
+
+    public final float BODY_ADJUST = 8;
+    public final float bodyWidth = width - BODY_ADJUST;
+    public final float bodyHeight = height;
 
     // Attributes
     public MyGameInputProcessor inputProcessor;
+
 
     // input
     boolean isJumping = false, isFalling = false, isWalking = false;
     private boolean isShopping;
     private float startPosition, lastPosition, forceAcc;
+
+    private PolygonShape footSensor;
 
     // Animations
     public Constantes.Actions action;
@@ -219,11 +228,19 @@ public class Player extends BasicEntity{
         this.inputProcessor = inputProcessor;
         action = Constantes.Actions.IDLE;
 
-        body = BodyCreator.createBody(world, spawnPoint.x, spawnPoint.y, width, height, DENSITY, FRICTION,
+        body = BodyCreator.createBody(world, spawnPoint.x, spawnPoint.y, bodyWidth, bodyHeight, DENSITY, FRICTION,
                 true, BodyDef.BodyType.DynamicBody);
+        /*body = BodyCreator.createBody(world, spawnPoint.x, spawnPoint.y, 100, 100, DENSITY, FRICTION,
+                true, BodyDef.BodyType.DynamicBody);*/
         body.getFixtureList().get(0).setUserData("player");
 
         initFootSensor();
+    }
+
+    @Override
+    public void dispose() {
+        super.dispose();
+        footSensor.dispose();
     }
 
     public Constantes.Actions getAction(){
@@ -313,7 +330,7 @@ public class Player extends BasicEntity{
     }
 
     public boolean shopDetected(){
-        if(contactListener.isPlayerInShop() && GameKeys.isPressed(GameKeys.keyBindings.get(Constantes.Actions.OPEN_WINDOW))){
+        if(contactListener.isPlayerInShop() && GameKeys.isPressed(GameKeys.keyBindings.get(Constantes.Actions.INTERACT))){
             System.out.println("I'm in the shop");
             return true;
         }
@@ -323,9 +340,9 @@ public class Player extends BasicEntity{
 
     public boolean openShop(){
 
-        if(shopDetected() && GameKeys.isPressed(GameKeys.keyBindings.get(Constantes.Actions.OPEN_WINDOW))){
+        if(shopDetected() && GameKeys.isPressed(GameKeys.keyBindings.get(Constantes.Actions.INTERACT))){
             isShopping = true;
-            action = Constantes.Actions.OPEN_WINDOW;
+            action = Constantes.Actions.INTERACT;
             return true;
         }
 
@@ -343,6 +360,31 @@ public class Player extends BasicEntity{
         return false;
     }
 
+    public boolean isEnteringDungeon(){
+        if(contactListener.isPlayerInDungeonEntry() &&
+                GameKeys.isPressed(GameKeys.keyBindings.get(Constantes.Actions.INTERACT))) {
+            //contactListener.resetFixtures();
+            return true;
+        }
+
+
+        return false;
+    }
+
+    public boolean isPlayerInNextRoom(){
+        if(contactListener.isPlayerInNextRoom()) {
+            //System.out.println("player is in next room");
+            //if(GameKeys.isPressed(GameKeys.keyBindings.get(Constantes.Actions.INTERACT))){
+            if(Gdx.input.isKeyPressed(Input.Keys.E)){
+                System.out.println("pressing E");
+                return true;
+            }
+            return false;
+        }
+        //System.out.println("false");
+        return false;
+    }
+
     public boolean isOpeningShop(){
         if(openShop())
             return true;
@@ -354,10 +396,15 @@ public class Player extends BasicEntity{
 
     private void initFootSensor(){
         FixtureDef fdef = new FixtureDef();
-        PolygonShape shape = new PolygonShape();
-        shape.setAsBox(10 / 2 / PPM, 10 / 2 / PPM, new Vector2(0, -height / 2 / PPM), 0);
+        footSensor = new PolygonShape();
+        footSensor.setAsBox(bodyWidth / 4 / PPM, 10 / 3 / PPM, new Vector2(0, -height / 2 / PPM), 0);
         fdef.isSensor = true;
-        fdef.shape = shape;
+        fdef.shape = footSensor;
         body.createFixture(fdef).setUserData("player_foot");
     }
+
+    public void setPosition(Vector2 position){
+        body.setTransform(position.x / PPM, position.y / PPM, body.getAngle());
+    }
+
 }
