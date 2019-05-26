@@ -60,7 +60,7 @@ public class GameStateManager {
             case LOADING_DUNGEON:
                 return new LoadingDungeonState(this, State.PLAYING_DUNGEON);
             case PLAYING_DUNGEON:
-                return new DungeonState(this, Constantes.dungeonMap);
+                return new DungeonState(this);
         }
 
         return null;

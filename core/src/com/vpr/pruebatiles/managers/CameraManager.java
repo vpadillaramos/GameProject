@@ -9,22 +9,27 @@ import com.vpr.pruebatiles.util.CameraMethods;
 
 public class CameraManager {
 
+    // Constants
+    public final float zoom = .7f;
+
     // Attributes
     public OrthographicCamera camera;
-
 
     // Constructor
     public CameraManager(){
         // camera
         camera = new OrthographicCamera();
-        camera.zoom = .7f;
+        camera.zoom = zoom;
         //camera.setToOrtho(false, Gdx.graphics.getWidth() / SCALE, Gdx.graphics.getHeight() / SCALE);
         camera.position.set(0, 0, 0);
     }
 
     public void update(){
         camera.update();
-        //camera.position.set(0, 0, 0);
+    }
+
+    public void setCameraBounds(float mapStartX, float mapStarY, float mapWidth, float mapHeight){
+        CameraMethods.setCameraBounds(camera, mapStartX, mapStarY, mapWidth, mapHeight);
     }
 
     public void lockToTarget(Vector2 targetAPosition){

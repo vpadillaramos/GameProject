@@ -2,14 +2,14 @@ package com.vpr.pruebatiles.entities;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.physics.box2d.*;
-import com.vpr.pruebatiles.handlers.GameKeys;
+import com.badlogic.gdx.physics.box2d.BodyDef;
+import com.badlogic.gdx.physics.box2d.FixtureDef;
+import com.badlogic.gdx.physics.box2d.PolygonShape;
+import com.badlogic.gdx.physics.box2d.World;
+import com.vpr.pruebatiles.handlers.Keys;
 import com.vpr.pruebatiles.handlers.MyContactListener;
-import com.vpr.pruebatiles.handlers.MyGameInputProcessor;
-import com.vpr.pruebatiles.managers.R;
+import com.vpr.pruebatiles.handlers.MyInputManager;
 import com.vpr.pruebatiles.util.BodyCreator;
 import com.vpr.pruebatiles.util.Constantes;
 
@@ -200,20 +200,22 @@ public class Player extends BasicEntity{
     public float DENSITY = 1f;
     public float FRICTION = 0f;
     public float SPEED = 4; //mps
-    public float JUMPING_FORCE = 1700;
+    public float JUMPING_FORCE = 700;
+    public float GRAVITY_SCALE = 8;
 
     public final float BODY_ADJUST = 8;
     public final float bodyWidth = width - BODY_ADJUST;
     public final float bodyHeight = height;
 
     // Attributes
-    public MyGameInputProcessor inputProcessor;
+    //public MyGameInputProcessor inputProcessor;
+    public MyInputManager input;
 
 
     // input
-    boolean isJumping = false, isFalling = false, isWalking = false;
-    private boolean isShopping;
+    public boolean isJumping = false, isFalling = false, isWalking = false, isShopping;
     private float startPosition, lastPosition, forceAcc;
+    private float jumpTimeCounter, jumpTime;
 
     private PolygonShape footSensor;
 
@@ -222,7 +224,7 @@ public class Player extends BasicEntity{
 
 
     // Constructor
-    public Player(String textureName, World world, Vector2 spawnPoint, MyContactListener contactListener, MyGameInputProcessor inputProcessor) {
+    /*public Player(String textureName, World world, Vector2 spawnPoint, MyContactListener contactListener, MyGameInputProcessor inputProcessor) {
         super(textureName, world, spawnPoint, contactListener);
 
         this.inputProcessor = inputProcessor;
@@ -230,11 +232,26 @@ public class Player extends BasicEntity{
 
         body = BodyCreator.createBody(world, spawnPoint.x, spawnPoint.y, bodyWidth, bodyHeight, DENSITY, FRICTION,
                 true, BodyDef.BodyType.DynamicBody);
-        /*body = BodyCreator.createBody(world, spawnPoint.x, spawnPoint.y, 100, 100, DENSITY, FRICTION,
-                true, BodyDef.BodyType.DynamicBody);*/
+        //body = BodyCreator.createBody(world, spawnPoint.x, spawnPoint.y, 100, 100, DENSITY, FRICTION,
+        // true, BodyDef.BodyType.DynamicBody);
         body.getFixtureList().get(0).setUserData("player");
 
         initFootSensor();
+    }*/
+
+    public Player(String textureName, World world, Vector2 spawnPoint, MyContactListener contactListener, MyInputManager input) {
+        super(textureName, world, spawnPoint, contactListener);
+
+        this.input = input;
+        action = Constantes.Actions.IDLE;
+
+        body = BodyCreator.createBody(world, spawnPoint.x, spawnPoint.y, bodyWidth, bodyHeight, DENSITY, FRICTION,
+                true, BodyDef.BodyType.DynamicBody);
+        body.getFixtureList().get(0).setUserData("player");
+        body.setGravityScale(GRAVITY_SCALE);
+        initFootSensor();
+
+        jumpTime = 4f;
     }
 
     @Override
@@ -265,131 +282,83 @@ public class Player extends BasicEntity{
         return body.getFixtureList().get(0).getFriction();
     }
 
-    public void checkKeys(){
+    public void keyPlayingInput(float dt){
+        manageShop();
+        manageJump();
+        manageWalk();
+    }
 
+    public void keyPauseInput(float dt){
+        manageShop();
+    }
+
+    public void manageWalk(){
         float horizontalForce = 0;
-        float verticalForce = 0;
 
-
-        if(GameKeys.isPressed(GameKeys.keyBindings.get(Constantes.Actions.JUMP))) {
-            if(contactListener.canPlayerJump()) {
-                action = Constantes.Actions.JUMP;
-                isJumping = true;
-                isWalking = false;
-                isFalling = false;
-
-                verticalForce = JUMPING_FORCE;
-                body.applyForceToCenter(0, verticalForce, false); // apply this force tu the body, forceX, forceY, wake
-                startPosition = body.getPosition().y;
-                lastPosition = startPosition;
-            }
-        }
-
-        if(GameKeys.isDown(GameKeys.keyBindings.get(Constantes.Actions.WALK_LEFT))) {
-            action = Constantes.Actions.WALK_LEFT;
-            isJumping = false;
-            isWalking = true;
-            isFalling = false;
-
-            horizontalForce = -SPEED;
-        }
-
-        if(GameKeys.isDown(GameKeys.keyBindings.get(Constantes.Actions.WALK_RIGHT))) {
-            action = Constantes.Actions.WALK_RIGHT;
-            isJumping = false;
-            isWalking = true;
-            isFalling = false;
-
+        if(input.isKeyDown(Keys.walkRight))
             horizontalForce = SPEED;
-        }
-
-        if(isJumping){
-            if(body.getPosition().y < lastPosition){ // if body is falling
-                isJumping = false;
-                isWalking = false;
-                isFalling = true;
-
-                action = Constantes.Actions.FALLING;
-                //forceAcc -= 0.8f;
-                //body.applyForceToCenter(new Vector2(0, forceAcc), false);
-            }
-            else
-                forceAcc = 0;
-
-            lastPosition = body.getPosition().y;
-        }
-
-        if(!isWalking && isFalling && !isJumping) {
-            action = Constantes.Actions.IDLE;
-            isJumping = false;
-            isWalking = false;
-            isFalling = false;
-        }
+        if(input.isKeyDown(Keys.walkLeft))
+            horizontalForce = -SPEED;
 
         body.setLinearVelocity(horizontalForce * SPEED, body.getLinearVelocity().y);
     }
 
-    public boolean shopDetected(){
-        if(contactListener.isPlayerInShop() && GameKeys.isPressed(GameKeys.keyBindings.get(Constantes.Actions.INTERACT))){
-            System.out.println("I'm in the shop");
-            return true;
+    public void manageJump(){
+        float verticalForce = 0;
+
+        // TODO avoid bunny jump
+        if(contactListener.isPlayerOnGround() && input.isKeyDown(Keys.jump)){
+            isJumping = true;
+            jumpTimeCounter = jumpTime;
+            verticalForce = JUMPING_FORCE;
+            body.applyForceToCenter(new Vector2(body.getLinearVelocity().x, verticalForce), false);
         }
-        else
-            return false;
+
+        // player continues jumping higher if jumping key is pressed and it's in the air
+        /*if(inputManager.isKeyPressed(Input.Keys.UP) && isJumping){
+
+            if(jumpTimeCounter > 0){
+                verticalForce = JUMPING_FORCE;
+
+                body.applyForceToCenter(new Vector2(body.getLinearVelocity().x, verticalForce), false);
+                jumpTimeCounter -= dt;
+            }
+            else
+                isJumping = false; // when is falling
+        }*/
+
+        if(input.isKeyUp(Keys.jump))
+            isJumping = false;
     }
 
-    public boolean openShop(){
-
-        if(shopDetected() && GameKeys.isPressed(GameKeys.keyBindings.get(Constantes.Actions.INTERACT))){
+    public void manageShop(){
+        //  if player's not already shopping, is contacted with shop's sensor and press interact
+        if(!isShopping && contactListener.isPlayerInShop() && input.isKeyDown(Keys.interact)){
             isShopping = true;
-            action = Constantes.Actions.INTERACT;
-            return true;
         }
-
-        return false;
-    }
-
-    public boolean closeShop(){
-        System.out.println("Want to close");
-        if(isShopping && GameKeys.isPressed(GameKeys.keyBindings.get(Constantes.Actions.CLOSE_WINDOW))) {
-            System.out.println("Closing shop");
+        else if(isShopping && input.isKeyDown(Keys.escape))
             isShopping = false;
-            action = Constantes.Actions.CLOSE_WINDOW;
-            return true;
-        }
-        return false;
     }
 
     public boolean isEnteringDungeon(){
-        if(contactListener.isPlayerInDungeonEntry() &&
-                GameKeys.isPressed(GameKeys.keyBindings.get(Constantes.Actions.INTERACT))) {
+        if(contactListener.isPlayerInDungeonEntry() && input.isKeyDown(Keys.interact)) {
             //contactListener.resetFixtures();
             return true;
         }
-
-
         return false;
     }
 
     public boolean isPlayerInNextRoom(){
-        if(contactListener.isPlayerInNextRoom()) {
-            //System.out.println("player is in next room");
-            //if(GameKeys.isPressed(GameKeys.keyBindings.get(Constantes.Actions.INTERACT))){
-            if(Gdx.input.isKeyPressed(Input.Keys.E)){
-                System.out.println("pressing E");
-                return true;
-            }
-            return false;
-        }
-        //System.out.println("false");
+        if(contactListener.isPlayerInNextRoom() && input.isKeyDown(Keys.interact))
+            return true;
+
         return false;
     }
 
-    public boolean isOpeningShop(){
-        if(openShop())
+    public boolean isPlayerInPreviousRoom(){
+        if(contactListener.isPlayerInPreviousRoom() && Gdx.input.isKeyJustPressed(Input.Keys.E)){
             return true;
-        if(closeShop())
-            return false;
+        }
 
         return false;
     }

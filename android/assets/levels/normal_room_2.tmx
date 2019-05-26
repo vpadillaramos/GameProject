@@ -138,7 +138,7 @@
   <object id="44" x="416" y="48"/>
  </objectgroup>
  <objectgroup id="4" name="doors">
-  <object id="45" name="previous_room" x="3.45455" y="5.63636" width="27.6364" height="32.9091"/>
-  <object id="46" name="next_room" x="382.364" y="49.6364" width="15.0909" height="22"/>
+  <object id="45" name="previous_room" x="2.78788" y="9.63636" width="27.6364" height="32.9091"/>
+  <object id="46" name="next_room" x="384.364" y="52.9697" width="15.0909" height="22"/>
  </objectgroup>
 </map>

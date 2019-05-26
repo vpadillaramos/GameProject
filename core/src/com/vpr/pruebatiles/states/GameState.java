@@ -28,6 +28,13 @@ public abstract class GameState {
         //viewport = new FitViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), cameraManager.camera);
     }
 
+    public GameState(GameStateManager gsm){
+        this.gsm = gsm;
+        this.app = gsm.application();
+        batch = app.getSpriteBatch();
+        cameraManager = app.cameraManager;
+    }
+
     // Constructor used for loading states
     public GameState(GameStateManager gsm, GameStateManager.State nextState){
         this.gsm = gsm;

@@ -14,6 +14,7 @@ import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
+import com.vpr.pruebatiles.handlers.MyInputManager;
 import com.vpr.pruebatiles.util.Constantes;
 import com.vpr.pruebatiles.util.TiledObjectUtil;
 
@@ -50,6 +51,7 @@ public class LevelManager {
 
         loadMapLayers(initialMap);
 
+        MyInputManager manager = new MyInputManager();
     }
 
     // Methods
