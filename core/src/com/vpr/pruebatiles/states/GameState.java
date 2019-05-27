@@ -24,8 +24,6 @@ public abstract class GameState {
         this.app = gsm.application();
         batch = app.getSpriteBatch();
         cameraManager = app.cameraManager;
-        //camera = app.cameraManager.camera;
-        //viewport = new FitViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), cameraManager.camera);
     }
 
     public GameState(GameStateManager gsm){
@@ -49,7 +47,6 @@ public abstract class GameState {
         int width = thingsWidth * amountOfThings;
         int height = width * (w / h);
         cameraManager.camera.setToOrtho(false, width, height);
-        //cameraManager.camera.setToOrtho(false, w, h);
     }
 
     public abstract void update(float dt);

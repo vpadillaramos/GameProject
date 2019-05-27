@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.MathUtils;
+import com.kotcrab.vis.ui.VisUI;
 import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import com.vpr.pruebatiles.managers.GameStateManager;
 import com.vpr.pruebatiles.managers.R;
@@ -61,4 +62,6 @@ public class LoadingState extends GameState {
     public void dispose() {
         shapeRenderer.dispose();
     }
+
+
 }

@@ -1,152 +1,214 @@
 
 characters.png
-size: 64,128
+size: 256,64
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
+perks/dash1
+  rotate: false
+  xy: 2, 2
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+perks/dash2
+  rotate: false
+  xy: 36, 2
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+perks/doubleJump1
+  rotate: false
+  xy: 70, 2
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+perks/doubleJump2
+  rotate: false
+  xy: 104, 2
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+
+characters2.png
+size: 512,32
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+player_characters/ninjaFallLeft
+  rotate: false
+  xy: 2, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+player_characters/ninjaFallLeft
+  rotate: false
+  xy: 20, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
 player_characters/ninjaFallRight
   rotate: false
-  xy: 2, 110
+  xy: 38, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 1
 player_characters/ninjaFallRight
   rotate: false
-  xy: 2, 92
+  xy: 56, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 2
 player_characters/ninjaIdle
   rotate: false
-  xy: 20, 110
+  xy: 74, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 player_characters/ninjaWalkRight
   rotate: false
-  xy: 20, 110
+  xy: 74, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 3
+player_characters/ninjaJumpLeft
+  rotate: false
+  xy: 92, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+player_characters/ninjaJumpLeft
+  rotate: false
+  xy: 110, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
 player_characters/ninjaJumpRight
   rotate: false
-  xy: 2, 74
+  xy: 128, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 1
 player_characters/ninjaJumpRight
   rotate: false
-  xy: 20, 92
+  xy: 146, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 2
 player_characters/ninjaWalkLeft
   rotate: false
-  xy: 38, 110
+  xy: 164, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 1
 player_characters/ninjaWalkLeft
   rotate: false
-  xy: 2, 56
+  xy: 182, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 2
 player_characters/ninjaWalkLeft
   rotate: false
-  xy: 2, 56
+  xy: 182, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 8
 player_characters/ninjaWalkLeft
   rotate: false
-  xy: 20, 74
+  xy: 200, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 3
 player_characters/ninjaWalkLeft
   rotate: false
-  xy: 38, 92
+  xy: 218, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 4
 player_characters/ninjaWalkLeft
   rotate: false
-  xy: 2, 38
+  xy: 236, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 5
 player_characters/ninjaWalkLeft
   rotate: false
-  xy: 20, 56
+  xy: 254, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 6
 player_characters/ninjaWalkLeft
   rotate: false
-  xy: 38, 74
+  xy: 272, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 7
 player_characters/ninjaWalkRight
   rotate: false
-  xy: 2, 20
+  xy: 290, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 1
 player_characters/ninjaWalkRight
   rotate: false
-  xy: 2, 2
+  xy: 308, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 2
 player_characters/ninjaWalkRight
   rotate: false
-  xy: 2, 2
+  xy: 308, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 8
 player_characters/ninjaWalkRight
   rotate: false
-  xy: 20, 38
+  xy: 326, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 4
 player_characters/ninjaWalkRight
   rotate: false
-  xy: 38, 56
+  xy: 344, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 5
 player_characters/ninjaWalkRight
   rotate: false
-  xy: 20, 20
+  xy: 362, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 6
 player_characters/ninjaWalkRight
   rotate: false
-  xy: 20, 2
+  xy: 380, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0

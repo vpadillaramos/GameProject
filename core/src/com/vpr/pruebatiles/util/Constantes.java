@@ -19,6 +19,7 @@ public final class Constantes {
     public static String levelsFolder = "levels/";
     public static String fontsFolder = "fonts/";
     public static String skinsFolder = "ui/";
+    public static String perksFolder = "perks/";
     public static String playerCharactersFolder = "player_characters/";
 
     //////////////////////////////////////////////
@@ -50,6 +51,16 @@ public final class Constantes {
 
 
     //////////////////////////////////////////////
+    /////////////////////Shop/////////////////////
+    //////////////////////////////////////////////
+    public static final String perkShopName = "Perkadona";
+    public static final String doubleJumpPerk = perksFolder + "doubleJump";
+    public static final String doubleJumpPerkShopName = "Double Jump!";
+    public static final String dashPerk = perksFolder + "dash";
+    public static final String dashPerkShopName = "Dash!";
+    public static final String[] perks = {doubleJumpPerk, dashPerk};
+
+    //////////////////////////////////////////////
     //////////////////Dungeon rooms////////////////
     //////////////////////////////////////////////
     // types of rooms
@@ -66,15 +77,14 @@ public final class Constantes {
 
     // name references to image files for animations
     public static final String ninjaIdle = playerCharactersFolder + "ninjaIdle";
-    public static final String ninjaJump = playerCharactersFolder + "ninjaJumpRight";
-    public static final String ninjaWalkLeft = playerCharactersFolder + "ninjaWalkLeft";
+    public static final String ninjaJumpRight = playerCharactersFolder + "ninjaJumpRight";
+    public static final String ninjaJumpLeft = playerCharactersFolder + "ninjaJumpLeft";
     public static final String ninjaWalkRight = playerCharactersFolder + "ninjaWalkRight";
-    public static final String ninjaFall = playerCharactersFolder + "ninjaFallRight";
+    public static final String ninjaWalkLeft = playerCharactersFolder + "ninjaWalkLeft";
+    public static final String ninjaFallRight = playerCharactersFolder + "ninjaFallRight";
+    public static final String ninjaFallLeft = playerCharactersFolder + "ninjaFallLeft";
 
-    // Care!!! The order is important
-    public enum Actions {
-        IDLE, JUMP, FALLING, WALK_LEFT, WALK_RIGHT, INTERACT, CLOSE_WINDOW
-    }
+
 
 
 

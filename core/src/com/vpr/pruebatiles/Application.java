@@ -5,6 +5,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.vpr.pruebatiles.managers.CameraManager;
 import com.vpr.pruebatiles.managers.GameStateManager;
+import com.vpr.pruebatiles.managers.SkinManager;
 
 import static com.vpr.pruebatiles.util.Constantes.SCALE;
 
@@ -35,8 +36,9 @@ public class Application extends ApplicationAdapter {
 
     @Override
     public void render() {
-        gsm.update(Gdx.graphics.getDeltaTime());
-        gsm.render(Gdx.graphics.getDeltaTime());
+        float dt = Gdx.graphics.getDeltaTime();
+        gsm.update(dt);
+        gsm.render(dt);
     }
 
     @Override

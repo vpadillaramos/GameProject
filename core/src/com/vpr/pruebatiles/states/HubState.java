@@ -83,7 +83,7 @@ public class HubState extends GameState {
         skinManager.stage.addActor(label);
 
         // Shop test
-        shopWindow = new ShopWindow(this, skinManager, skinManager.skin, "Perkadona");
+        shopWindow = new ShopWindow(this, skinManager, cameraManager, Constantes.perkShopName);
 
         // Add input processors
         initMultiplexer();
@@ -91,10 +91,9 @@ public class HubState extends GameState {
 
     @Override
     public void update(float dt) {
-        //spriteManager.update(dt);
 
         manageInput(dt);
-
+        spriteManager.update(dt);
         if(player.isShopping){
             shopWindow.show(true);
             pause();
@@ -110,11 +109,10 @@ public class HubState extends GameState {
 
         switch (state){
             case PAUSE:
-
+                shopWindow.handleButtonClicks();
                 break;
             case PLAYING:
                 batch.setProjectionMatrix(cameraManager.camera.combined);
-
                 b2dManager.update();
                 cameraUpdate();
                 levelManager.update(cameraManager.camera);
@@ -165,7 +163,7 @@ public class HubState extends GameState {
         Gdx.input.setInputProcessor(multiplexer);
     }
 
-    public void physicsTestingInput(){
+    /*public void physicsTestingInput(){
 
         // Keys that increase values
         if(Gdx.input.isKeyJustPressed(Input.Keys.T)){
@@ -194,7 +192,7 @@ public class HubState extends GameState {
         if(Gdx.input.isKeyJustPressed(Input.Keys.K)){
             player.JUMPING_FORCE -= 10f;
         }
-    }
+    }*/
 
     public void pause(){
         state = State.PAUSE;
@@ -215,7 +213,7 @@ public class HubState extends GameState {
         switch (state){
             case PLAYING:
                 cameraManager.manageInput(player);
-                physicsTestingInput();
+                //physicsTestingInput();
                 player.keyPlayingInput(dt);
                 break;
             case PAUSE:

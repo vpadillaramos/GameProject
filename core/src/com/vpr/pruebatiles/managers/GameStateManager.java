@@ -52,9 +52,11 @@ public class GameStateManager {
     public GameState getState(State state){
         switch (state){
             case LOADING_RES:
-                return new LoadingState(this, State.PLAYING_HUB);
+                return new LoadingState(this, State.MAIN_MENU);
             case SPLASH:
                 return new SplashState(this, State.PLAYING_HUB);
+            case MAIN_MENU:
+                return new MainMenuState(this);
             case PLAYING_HUB:
                 return new HubState(this, Constantes.hubMap);
             case LOADING_DUNGEON:

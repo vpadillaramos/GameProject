@@ -1,6 +1,8 @@
 package com.vpr.pruebatiles.util;
 
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
+import com.vpr.pruebatiles.entities.Player;
 
 import static com.vpr.pruebatiles.util.Constantes.PPM;
 
@@ -43,7 +45,7 @@ public class BodyCreator {
         bDef.position.set(x / PPM, y / PPM);
 
         PolygonShape shape = new PolygonShape();
-        shape.setAsBox(width / 2 / PPM, height / 2 / PPM);
+        shape.setAsBox(width / PPM, height / PPM);
 
         FixtureDef fdef = new FixtureDef();
         fdef.shape = shape;
@@ -55,4 +57,16 @@ public class BodyCreator {
         return body;
 
     }
+
+    /*public static Body createSword(Player player){
+        FixtureDef fdef = new FixtureDef();
+        PolygonShape swordSensor;
+        swordSensor = new PolygonShape();
+        swordSensor.setAsBox(player.bodyWidth / 4 / PPM, 10 / PPM, new Vector2(player.bodyWidth / 2 / PPM, player.bodyHeight / 2 / PPM), 0);
+        fdef.isSensor = true;
+        fdef.shape = swordSensor;
+
+        Body b =
+        body.createFixture(fdef).setUserData("sword");
+    }*/
 }

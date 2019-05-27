@@ -29,19 +29,12 @@ public class SkinManager {
         fontSize = 30;
         mainFont = Gdx.files.internal(Constantes.alterebroFont);
 
+        loadVisUI();
         initFonts();
         initSkin();
-        loadVisUI();
     }
 
     // Methods
-    private void loadVisUI(){
-        if(!VisUI.isLoaded()) {
-            VisUI.load();
-            //VisUI.load(skin);
-        }
-    }
-
     public void render(float dt){
         /*System.out.println("Size:" + stage.getActors().size);
         for(Actor actor : stage.getActors()){
@@ -53,7 +46,6 @@ public class SkinManager {
     }
 
     public void dispose(){
-        System.out.println("[SKIN MANAGER] - dispose");
         font.dispose();
         stage.dispose();
         skin.dispose();
@@ -79,6 +71,12 @@ public class SkinManager {
 
     public void setFontSize(int fontSize){
         this.fontSize = fontSize;
+    }
+
+    private void loadVisUI(){
+        if(!VisUI.isLoaded()) {
+            VisUI.load();
+        }
     }
 
 }
