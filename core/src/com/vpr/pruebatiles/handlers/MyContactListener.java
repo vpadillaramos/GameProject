@@ -23,14 +23,13 @@ public class MyContactListener implements ContactListener {
 
     // Fixtures list
     private String[] fixtureNames = {udPlayer, udPlayerFoot, udGround, udWall, udCeil, udShop, udDungeonEntry,
-    udNextRoom, udPreviousRoom};
+    udNextRoom};
     private HashMap<String, Boolean> fixtures;
-    public boolean playerCanJump;
     private enum FixtureId {
         A, B, NULL
     }
 
-    private FixtureId fixtureId;
+    private boolean previousUdPlayerFoot, previousUdGround;
 
     public MyContactListener(){
         fixtures = new HashMap<String, Boolean>();
@@ -46,16 +45,17 @@ public class MyContactListener implements ContactListener {
 
         // null control
         if(areFixturesNull(c)) return;
-        //disableAllContact(c, udPlayer);
+        handlePlayerContact(c);
+        handleFootContact(c);
 
         if(c.isEnabled()){
 
             updateFixtures(c, true);
             //System.out.println("BEGIN:"+c.getFixtureA().getUserData().toString()+" - "+c.getFixtureB().getUserData().toString());
-            /*System.out.println("\nBEGIN");
+            System.out.println("\nBEGIN");
             for(String k : fixtures.keySet()){
-                System.out.println(k + " - " + fixtures.get(k));
-            }*/
+                System.out.print(k + " - " + fixtures.get(k) + "; ");
+            }
         }
     }
 
@@ -64,16 +64,41 @@ public class MyContactListener implements ContactListener {
      * @param c
      */
     public void endContact(Contact c){
-        disableAllContact(c, udPlayer);
+        if(areFixturesNull(c)) return;
+        handlePlayerContact(c);
+        handleFootContact(c);
+
         if(c.isEnabled()) {
 
             updateFixtures(c, false);
             //System.out.println("END:" + c.getFixtureA().getUserData().toString() + " - " + c.getFixtureB().getUserData().toString());
-            /*System.out.println("END");
+            System.out.println("\nEND");
             for(String k : fixtures.keySet()){
-                System.out.println(k + " - " + fixtures.get(k));
-            }*/
+                System.out.print(k + " - " + fixtures.get(k) + "; ");
+            }
         }
+    }
+
+    /**
+     * The player's foot will only be updated with ground, wall and ceil
+     * @param c
+     */
+    private void handleFootContact(Contact c){
+        disableContactBetween(c, udPlayerFoot, udShop);
+        disableContactBetween(c, udPlayerFoot, udDungeonEntry);
+        disableContactBetween(c, udPlayerFoot, udNextRoom);
+        disableContactBetween(c, udPlayerFoot, udPreviousRoom);
+        disableContactBetween(c, udPlayerFoot, udWall);
+    }
+
+    /**
+     * The player's body will only be updated with room entries
+     * @param c
+     */
+    private void handlePlayerContact(Contact c){
+        disableContactBetween(c, udPlayer, udGround);
+        disableContactBetween(c, udPlayer, udWall);
+        disableContactBetween(c, udPlayer, udCeil);
     }
 
     /**
@@ -95,28 +120,15 @@ public class MyContactListener implements ContactListener {
     }
 
     private void updateFixtures(Contact c, boolean isContactStarted){
-
-        /*if(fa.getUserData().equals("player_foot") || fb.getUserData().equals("player_foot") &&
-        fa.getUserData().equals("shop") || fb.getUserData().equals("shop")){
-            isContactStarted = fixtures.get("player_foot");
+        boolean cA = isContactStarted, cB = isContactStarted;
+        /*if(!isContactStarted && isPlayerOnGround() && fixtureDetected(c, udPlayerFoot) &&
+                !fixtureDetected(c, udGround) && !fixtureDetected(c, udShop)){
+            cA = true;
+            cB = true;
         }*/
 
-        boolean isContactA = isContactStarted;
-        boolean isContactB = isContactStarted;
-
-        if(fixturesDetected(c, udPlayerFoot, udShop)){
-            if(assignFixture(c, udPlayerFoot) == FixtureId.A)
-                isContactA = fixtures.get(udPlayerFoot);
-            else if(assignFixture(c, udPlayerFoot) == FixtureId.B)
-                isContactB = fixtures.get(udPlayerFoot);
-        }
-
-        fixtures.put(c.getFixtureA().getUserData().toString(), isContactA);
-        fixtures.put(c.getFixtureB().getUserData().toString(), isContactB);
-
-
-        /*for(String name : fixtureNames)
-            System.out.println(name + " - " + fixtures.get(name));*/
+        fixtures.put(c.getFixtureA().getUserData().toString(), cA);
+        fixtures.put(c.getFixtureB().getUserData().toString(), cB);
     }
 
     private boolean areFixturesNull(Contact c){
@@ -216,10 +228,6 @@ public class MyContactListener implements ContactListener {
 
     public boolean isPlayerInDungeonEntry(){
         return (fixtures.get(udPlayerFoot) && fixtures.get(udDungeonEntry));
-    }
-
-    public boolean isPlayerInPreviousRoom(){
-        return (fixtures.get(udPlayerFoot) && fixtures.get(udPreviousRoom));
     }
 
     public boolean isPlayerInNextRoom(){

@@ -14,44 +14,21 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/characters.atlas" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/characters.atlas" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/characters2.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/characters2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/sprites/player_characters/ninjaFallLeft_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/sprites/player_characters/warriorFallLeft_1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/sprites/player_characters/ninjaFallLeft_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/sprites/player_characters/warriorFallLeft_2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/sprites/player_characters/ninjaFallRight_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/sprites/player_characters/warriorFallRight_1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/sprites/player_characters/ninjaFallRight_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/sprites/player_characters/warriorFallRight_2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/sprites/player_characters/ninjaIdle.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/sprites/player_characters/warriorIdle.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/sprites/player_characters/ninjaJumpLeft_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/sprites/player_characters/warriorJumpLeft_1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/sprites/player_characters/ninjaJumpLeft_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/sprites/player_characters/warriorJumpLeft_2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/sprites/player_characters/ninjaJumpRight_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/sprites/player_characters/warriorJumpRight_1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/sprites/player_characters/ninjaJumpRight_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/sprites/player_characters/warriorJumpRight_2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/sprites/player_characters/ninjaWalkLeft_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/sprites/player_characters/warriorWalkLeft_1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/sprites/player_characters/ninjaWalkLeft_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/sprites/player_characters/warriorWalkLeft_2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/sprites/player_characters/ninjaWalkLeft_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/sprites/player_characters/warriorWalkLeft_3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/sprites/player_characters/ninjaWalkLeft_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/sprites/player_characters/warriorWalkLeft_4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/sprites/player_characters/ninjaWalkLeft_5.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/sprites/player_characters/warriorWalkLeft_5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/sprites/player_characters/ninjaWalkLeft_6.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/sprites/player_characters/warriorWalkLeft_6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/sprites/player_characters/ninjaWalkLeft_7.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/sprites/player_characters/warriorWalkLeft_7.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/sprites/player_characters/ninjaWalkLeft_8.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/sprites/player_characters/warriorWalkLeft_8.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/sprites/player_characters/ninjaWalkRight_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/sprites/player_characters/warriorWalkRight_1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/sprites/player_characters/ninjaWalkRight_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/sprites/player_characters/warriorWalkRight_2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/sprites/player_characters/ninjaWalkRight_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/sprites/player_characters/warriorWalkRight_3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/sprites/player_characters/ninjaWalkRight_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/sprites/player_characters/warriorWalkRight_4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/sprites/player_characters/ninjaWalkRight_5.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/sprites/player_characters/warriorWalkRight_5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/sprites/player_characters/ninjaWalkRight_6.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/sprites/player_characters/warriorWalkRight_6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/sprites/player_characters/ninjaWalkRight_7.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/sprites/player_characters/warriorWalkRight_7.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/sprites/player_characters/ninjaWalkRight_8.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/sprites/player_characters/warriorWalkRight_8.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/entities/BasicEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/entities/BasicEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/assets/characters.atlas" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/assets/characters.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/assets/characters2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/assets/levels/normal_room_1.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/levels/normal_room_1.tmx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/assets/levels/normal_room_2.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/levels/normal_room_2.tmx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/entities/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/managers/GameStateManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/managers/GameStateManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/managers/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/managers/R.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/managers/SpriteManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/managers/SpriteManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/handlers/MyContactListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/handlers/MyContactListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/managers/CharacterRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/managers/CharacterRecord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/managers/LevelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/managers/LevelManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/states/DungeonState.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/states/DungeonState.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/states/HubState.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/states/HubState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/states/LoadingState.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/states/LoadingState.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/states/MainMenuState.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/states/MainMenuState.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/util/Constantes.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/util/Constantes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/windows/ShopWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/windows/ShopWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/com/vpr/pruebatiles/desktop/PacketLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/com/vpr/pruebatiles/desktop/PacketLauncher.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -86,38 +63,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/vpr/pruebatiles/states/HubState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="95" column="8" selection-start-line="95" selection-start-column="8" selection-end-line="95" selection-end-column="33" />
+            <state relative-caret-position="103">
+              <caret line="67" column="95" selection-start-line="67" selection-start-column="95" selection-end-line="67" selection-end-column="95" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/core/src/com/vpr/pruebatiles/managers/GameStateManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="28" column="52" selection-start-line="28" selection-start-column="52" selection-end-line="28" selection-end-column="52" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#739#740#0" expanded="true" />
-                <element signature="e#779#780#0" expanded="true" />
-                <element signature="e#818#819#0" expanded="true" />
-                <element signature="e#860#861#0" expanded="true" />
-                <element signature="e#1831#1832#0" expanded="true" />
-                <element signature="e#1857#1858#0" expanded="true" />
+                <element signature="e#6247#6248#0" expanded="true" />
+                <element signature="e#6301#6302#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/vpr/pruebatiles/entities/Player.java">
+        <entry file="file://$PROJECT_DIR$/core/src/com/vpr/pruebatiles/managers/LevelManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="109">
-              <caret line="55" column="25" selection-start-line="55" selection-start-column="25" selection-end-line="55" selection-end-column="25" />
+            <state relative-caret-position="112">
+              <caret line="15" column="48" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -126,19 +87,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/vpr/pruebatiles/managers/SpriteManager.java">
+        <entry file="file://$PROJECT_DIR$/core/src/com/vpr/pruebatiles/managers/CameraManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="58" column="117" selection-start-line="58" selection-start-column="117" selection-end-line="58" selection-end-column="117" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/vpr/pruebatiles/states/LoadingState.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="70" column="40" selection-start-line="70" selection-start-column="40" selection-end-line="70" selection-end-column="40" />
+            <state relative-caret-position="226">
+              <caret line="35" column="31" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -146,8 +101,91 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/vpr/pruebatiles/util/Constantes.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="78" selection-start-line="78" selection-end-line="78" />
+            <state relative-caret-position="132">
+              <caret line="56" column="61" selection-start-line="56" selection-start-column="61" selection-end-line="56" selection-end-column="61" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/vpr/pruebatiles/entities/Player.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="78">
+              <caret line="202" column="5" selection-start-line="202" selection-start-column="5" selection-end-line="202" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/vpr/pruebatiles/windows/ShopWindow.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="728">
+              <caret line="213" column="69" selection-start-line="213" selection-start-column="69" selection-end-line="213" selection-end-column="69" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#5285#6016#0" expanded="true" />
+                <element signature="e#6015#6016#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/src/com/vpr/pruebatiles/handlers/MyContactListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="234">
+              <caret line="94" column="63" selection-start-line="94" selection-start-column="63" selection-end-line="94" selection-end-column="63" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#6150#6151#0" expanded="true" />
+                <element signature="e#6227#6228#0" expanded="true" />
+                <element signature="e#6265#6266#0" expanded="true" />
+                <element signature="e#6336#6337#0" expanded="true" />
+                <element signature="e#6382#6383#0" expanded="true" />
+                <element signature="e#6465#6466#0" expanded="true" />
+                <element signature="e#6507#6508#0" expanded="true" />
+                <element signature="e#6586#6587#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/vpr/pruebatiles/managers/GameStateManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-429">
+              <caret line="28" column="52" selection-start-line="28" selection-start-column="52" selection-end-line="28" selection-end-column="52" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/vpr/pruebatiles/states/MainMenuState.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="214">
+              <caret line="71" column="15" selection-start-line="71" selection-start-column="15" selection-end-line="71" selection-end-column="15" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/vpr/pruebatiles/managers/CharacterRecord.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+              <folding>
+                <element signature="e#217#218#0" expanded="true" />
+                <element signature="e#249#250#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -163,8 +201,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>shopIn</find>
-      <find>level</find>
       <find>zoom</find>
       <find>camera.posi</find>
       <find>gravi</find>
@@ -193,6 +229,8 @@
       <find>font</find>
       <find>base</find>
       <find>ninja</find>
+      <find>udPlayer</find>
+      <find>true</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -201,7 +239,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/states/GameSatate.java" />
         <option value="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/Tiles.java" />
         <option value="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/pantallas/PantallaSplash.java" />
         <option value="$PROJECT_DIR$/desktop/src/com/vpr/pruebatiles/desktop/DesktopLauncher.java" />
@@ -219,16 +256,13 @@
         <option value="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/states/LoadingDungeonState.java" />
         <option value="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/entities/Room.java" />
         <option value="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/handlers/MyGameInputProcessor.java" />
-        <option value="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/handlers/MyContactListener.java" />
         <option value="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/handlers/GameKeys.java" />
         <option value="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/handlers/MyInputManager.java" />
         <option value="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/handlers/GameKeysConfiguration.java" />
         <option value="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/handlers/Keys.java" />
         <option value="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/util/CameraMethods.java" />
-        <option value="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/managers/LevelManager.java" />
         <option value="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/managers/CameraManager.java" />
         <option value="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/managers/Box2dManager.java" />
-        <option value="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/windows/ShopWindow.java" />
         <option value="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/util/BodyCreator.java" />
         <option value="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/managers/CharacterState.java" />
         <option value="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/db/SaveGame.java" />
@@ -241,17 +275,21 @@
         <option value="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/states/GameSavesState.java" />
         <option value="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/Application.java" />
         <option value="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/managers/R.java" />
-        <option value="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/states/MainMenuState.java" />
-        <option value="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/managers/CharacterRecord.java" />
         <option value="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/states/LoadingState.java" />
-        <option value="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/states/CharacterSelectorState.java" />
         <option value="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/entities/BasicEntity.java" />
+        <option value="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/managers/SpriteManager.java" />
+        <option value="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/managers/GameStateManager.java" />
+        <option value="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/states/CharacterSelectorState.java" />
+        <option value="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/managers/CharacterRecord.java" />
+        <option value="$PROJECT_DIR$/desktop/src/com/vpr/pruebatiles/desktop/PacketLauncher.java" />
+        <option value="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/windows/ShopWindow.java" />
         <option value="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/entities/Player.java" />
         <option value="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/util/Constantes.java" />
-        <option value="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/states/HubState.java" />
-        <option value="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/managers/SpriteManager.java" />
+        <option value="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/managers/LevelManager.java" />
         <option value="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/states/DungeonState.java" />
-        <option value="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/managers/GameStateManager.java" />
+        <option value="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/states/HubState.java" />
+        <option value="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/states/MainMenuState.java" />
+        <option value="$PROJECT_DIR$/core/src/com/vpr/pruebatiles/handlers/MyContactListener.java" />
       </list>
     </option>
   </component>
@@ -323,15 +361,7 @@
               <item name="android" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
               <item name="sprites" type="462c0819:PsiDirectoryNode" />
-              <item name="perks" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GameProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GameProject" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="android" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="sprites" type="462c0819:PsiDirectoryNode" />
-              <item name="player_characters" type="462c0819:PsiDirectoryNode" />
+              <item name="hud" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="GameProject" type="b2602c69:ProjectViewProjectNode" />
@@ -436,7 +466,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559010145892" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559031372731" />
     <property name="device.picker.selection" value="Nexus_5X_API_26" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop/clone/GameProject-clone" />
     <property name="project.structure.last.edited" value="Libraries" />
@@ -452,11 +482,11 @@
       <recent name="C:\libgdx_projects\GameProject\android\assets\fonts" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\libgdx_projects\GameProject\android\assets\sprites\hud" />
       <recent name="C:\libgdx_projects\GameProject\android\assets\sprites\player_characters" />
       <recent name="C:\libgdx_projects\GameProject\android\assets\ui" />
       <recent name="C:\libgdx_projects\GameProject\android\assets\sprites\perks" />
       <recent name="C:\libgdx_projects\GameProject\android\assets\levels" />
-      <recent name="C:\libgdx_projects\GameProject\android\assets\splash" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -607,7 +637,7 @@
     <frame x="-8" y="-8" width="1382" height="752" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25567323" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23600605" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Build Variants" order="3" side_tool="true" />
@@ -618,13 +648,13 @@
       <window_info id="UI Designer" order="8" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info active="true" anchor="bottom" id="Find" order="1" sideWeight="0.49848714" visible="true" weight="0.23909532" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.58774585" visible="true" weight="0.24717286" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.58774585" visible="true" weight="0.3796446" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49924356" weight="0.42003232" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32956383" />
       <window_info anchor="bottom" id="Android Profiler" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.41225415" side_tool="true" visible="true" weight="0.24717286" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.41225415" side_tool="true" weight="0.5024233" />
       <window_info anchor="bottom" id="Build" order="9" sideWeight="0.49546143" weight="0.42326334" />
       <window_info anchor="bottom" id="Logcat" order="10" sideWeight="0.7624811" weight="0.2714055" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.32956383" />
@@ -644,45 +674,6 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-box2d/1.9.8/1fd1df309f965e52196900b270afc2bcd0acd0a2/gdx-box2d-1.9.8-sources.jar!/com/badlogic/gdx/physics/box2d/Body.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="82">
-          <caret line="644" selection-start-line="644" selection-end-line="644" />
-          <folding>
-            <element signature="e#26497#26498#0" expanded="true" />
-            <element signature="e#26528#26529#0" expanded="true" />
-            <element signature="e#27328#27329#0" expanded="true" />
-            <element signature="e#27350#27351#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-box2d/1.9.8/1fd1df309f965e52196900b270afc2bcd0acd0a2/gdx-box2d-1.9.8-sources.jar!/com/badlogic/gdx/physics/box2d/Fixture.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="90" selection-start-line="90" selection-end-line="90" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/lang/ClassLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="1961" selection-start-line="1961" selection-end-line="1961" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/Vector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="736" selection-start-line="736" selection-end-line="736" />
-          <folding>
-            <element signature="e#11798#11799#0" expanded="true" />
-            <element signature="e#11833#11834#0" expanded="true" />
-            <element signature="e#28083#28084#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-box2d/1.9.8/1fd1df309f965e52196900b270afc2bcd0acd0a2/gdx-box2d-1.9.8-sources.jar!/com/badlogic/gdx/physics/box2d/Box2DDebugRenderer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
@@ -763,47 +754,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/desktop/src/com/vpr/pruebatiles/desktop/DesktopLauncher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="9" column="27" lean-forward="true" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/vpr/pruebatiles/managers/LevelManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="101" column="5" selection-start-line="101" selection-start-column="5" selection-end-line="101" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/vpr/pruebatiles/managers/CameraManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="28" column="48" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#804#805#0" expanded="true" />
-            <element signature="e#871#872#0" expanded="true" />
-            <element signature="e#926#927#0" expanded="true" />
-            <element signature="e#992#993#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/vpr/pruebatiles/util/CameraMethods.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="95" column="40" selection-start-line="95" selection-start-column="40" selection-end-line="95" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/vpr/pruebatiles/managers/Box2dManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-459">
@@ -822,26 +772,6 @@
           <caret line="71" column="1" selection-start-line="71" selection-start-column="1" selection-end-line="71" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/vpr/pruebatiles/handlers/MyContactListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1798">
-          <caret line="24" column="109" selection-start-line="24" selection-start-column="95" selection-end-line="24" selection-end-column="109" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#6342#6343#0" expanded="true" />
-            <element signature="e#6419#6420#0" expanded="true" />
-            <element signature="e#6457#6458#0" expanded="true" />
-            <element signature="e#6528#6529#0" expanded="true" />
-            <element signature="e#6574#6575#0" expanded="true" />
-            <element signature="e#6657#6658#0" expanded="true" />
-            <element signature="e#6703#6704#0" expanded="true" />
-            <element signature="e#6786#6787#0" expanded="true" />
-            <element signature="e#6828#6829#0" expanded="true" />
-            <element signature="e#6907#6908#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -932,16 +862,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/vpr/pruebatiles/windows/ShopWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="151" column="69" selection-start-line="151" selection-start-column="69" selection-end-line="151" selection-end-column="69" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/vpr/pruebatiles/states/LoadingDungeonState.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -953,46 +873,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/vpr/pruebatiles/managers/R.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/android/assets/sprites/player_characters/lancerIdle.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/android/assets/sprites/player_characters/ninjaIdle.png">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/android/assets/characters2.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/vpr/pruebatiles/states/CharacterSelectorState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="43" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1618#2646#0" expanded="true" />
-            <element signature="e#2645#2646#0" expanded="true" />
-            <element signature="e#2681#3713#0" expanded="true" />
-            <element signature="e#3712#3713#0" expanded="true" />
-            <element signature="e#2832#3016#0" expanded="true" />
-            <element signature="e#3015#3016#0" expanded="true" />
-            <element signature="e#2861#2862#0" expanded="true" />
-            <element signature="e#2892#2893#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/vpr/pruebatiles/managers/CharacterRecord.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/vpr/pruebatiles/entities/BasicEntity.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1008,32 +893,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/vpr/pruebatiles/states/MainMenuState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="80" column="71" selection-start-line="80" selection-start-column="33" selection-end-line="80" selection-end-column="71" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1391#1586#0" expanded="true" />
-            <element signature="e#1585#1586#0" expanded="true" />
-            <element signature="e#2763#2764#0" expanded="true" />
-            <element signature="e#2794#2795#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/android/assets/sprites/player_characters/warriorIdle.png">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/vpr/pruebatiles/entities/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="55" column="25" selection-start-line="55" selection-start-column="25" selection-end-line="55" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/vpr/pruebatiles/states/GameState.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1042,33 +903,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/vpr/pruebatiles/states/HubState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="95" column="8" selection-start-line="95" selection-start-column="8" selection-end-line="95" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/vpr/pruebatiles/states/DungeonState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="76" column="33" selection-start-line="76" selection-start-column="33" selection-end-line="76" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/vpr/pruebatiles/util/Constantes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="78" selection-start-line="78" selection-end-line="78" />
         </state>
       </provider>
     </entry>
@@ -1086,18 +920,179 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/android/assets/characters2.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/assets/characters.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/assets/characters3.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/vpr/pruebatiles/states/CharacterSelectorState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="34" column="61" selection-start-line="34" selection-start-column="61" selection-end-line="34" selection-end-column="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/assets/characters.atlas">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/desktop/src/com/vpr/pruebatiles/desktop/PacketLauncher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="14" column="82" selection-start-line="14" selection-start-column="82" selection-end-line="14" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/vpr/pruebatiles/managers/R.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="25" column="22" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/desktop/src/com/vpr/pruebatiles/desktop/DesktopLauncher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/vpr/pruebatiles/managers/CharacterRecord.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+          <folding>
+            <element signature="e#217#218#0" expanded="true" />
+            <element signature="e#249#250#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/vpr/pruebatiles/util/CameraMethods.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="87" column="23" selection-start-line="87" selection-start-column="23" selection-end-line="87" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/vpr/pruebatiles/managers/CameraManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="35" column="31" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/vpr/pruebatiles/windows/ShopWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="728">
+          <caret line="213" column="69" selection-start-line="213" selection-start-column="69" selection-end-line="213" selection-end-column="69" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5285#6016#0" expanded="true" />
+            <element signature="e#6015#6016#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/vpr/pruebatiles/entities/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="202" column="5" selection-start-line="202" selection-start-column="5" selection-end-line="202" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/vpr/pruebatiles/util/Constantes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="56" column="61" selection-start-line="56" selection-start-column="61" selection-end-line="56" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/vpr/pruebatiles/managers/LevelManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="15" column="48" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/vpr/pruebatiles/states/DungeonState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="74" column="95" selection-start-line="74" selection-start-column="95" selection-end-line="74" selection-end-column="95" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/vpr/pruebatiles/states/HubState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="103">
+          <caret line="67" column="95" selection-start-line="67" selection-start-column="95" selection-end-line="67" selection-end-column="95" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#6247#6248#0" expanded="true" />
+            <element signature="e#6301#6302#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/vpr/pruebatiles/managers/GameStateManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
+        <state relative-caret-position="-429">
           <caret line="28" column="52" selection-start-line="28" selection-start-column="52" selection-end-line="28" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#739#740#0" expanded="true" />
-            <element signature="e#779#780#0" expanded="true" />
-            <element signature="e#818#819#0" expanded="true" />
-            <element signature="e#860#861#0" expanded="true" />
-            <element signature="e#1831#1832#0" expanded="true" />
-            <element signature="e#1857#1858#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/vpr/pruebatiles/states/MainMenuState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="71" column="15" selection-start-line="71" selection-start-column="15" selection-end-line="71" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/vpr/pruebatiles/handlers/MyContactListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="94" column="63" selection-start-line="94" selection-start-column="63" selection-end-line="94" selection-end-column="63" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#6150#6151#0" expanded="true" />
+            <element signature="e#6227#6228#0" expanded="true" />
+            <element signature="e#6265#6266#0" expanded="true" />
+            <element signature="e#6336#6337#0" expanded="true" />
+            <element signature="e#6382#6383#0" expanded="true" />
+            <element signature="e#6465#6466#0" expanded="true" />
+            <element signature="e#6507#6508#0" expanded="true" />
+            <element signature="e#6586#6587#0" expanded="true" />
           </folding>
         </state>
       </provider>

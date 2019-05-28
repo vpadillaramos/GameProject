@@ -2,7 +2,11 @@ package com.vpr.pruebatiles.states;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.vpr.pruebatiles.entities.Player;
 import com.vpr.pruebatiles.entities.Room;
 import com.vpr.pruebatiles.handlers.MyContactListener;
@@ -35,6 +39,10 @@ public class DungeonState extends GameState {
     private InputMultiplexer multiplexer;
     private MyContactListener contactListener;
 
+    // HUD
+    private Image healthBar;
+    private Label coinsLabel;
+
     // Constructor
     public DungeonState(GameStateManager gsm) {
         super(gsm);
@@ -64,10 +72,12 @@ public class DungeonState extends GameState {
 
         // load the first room
         levelManager = new LevelManager(b2dManager.world, dungeonRooms[currentRoom].mapName);
-        //player = new Player(Constantes.ninjaIdle, b2dManager.world, levelManager.getPlayerSpawnPoint(), contactListener, inputProcessor);
         player = new Player(gsm.playerType, b2dManager.world, levelManager.getPlayerSpawnPoint(), contactListener, inputManager);
         spriteManager = new SpriteManager(player);
 
+
+        // HUD
+        initHud();
     }
 
     @Override
@@ -78,6 +88,8 @@ public class DungeonState extends GameState {
         b2dManager.update();
         cameraUpdate();
         levelManager.update(cameraManager.camera);
+
+        updateHud();
     }
 
     @Override
@@ -88,11 +100,29 @@ public class DungeonState extends GameState {
         levelManager.render();
         b2dManager.render(cameraManager.camera);
 
+
         batch.begin();
         player.draw(batch);
         batch.end();
 
         skinManager.render(dt);
+    }
+
+    private void updateHud(){
+        healthBar.setWidth(cameraManager.camera.viewportWidth * player.health);
+        coinsLabel.setText(player.coins + "$");
+    }
+
+    private void initHud(){
+        healthBar = new Image(new TextureRegion(R.getRegion(Constantes.healthBar)));
+        healthBar.setPosition(0, 0);
+        healthBar.setHeight(16);
+        skinManager.stage.addActor(healthBar);
+
+        coinsLabel = new Label(player.coins + "$", skinManager.skin);
+        coinsLabel.setPosition(0 + 20, cameraManager.camera.viewportHeight * 1.7f);
+        coinsLabel.setColor(new Color(.83f, .62f, .21f, 1));
+        skinManager.stage.addActor(coinsLabel);
     }
 
     @Override
@@ -133,24 +163,14 @@ public class DungeonState extends GameState {
     }
 
     private void manageRoomsInteraction(){
-
-        boolean roomChanged = false;
         if(player.isPlayerInNextRoom()){
-            currentRoom++; // TODO control limit
-            roomChanged = true;
-        }
-        else if(player.isPlayerInPreviousRoom()){
-            currentRoom--; // TODO control limit
-            roomChanged = true;
-        }
+            currentRoom++;
 
-        if(roomChanged){
             b2dManager.prepareForNewMap();
             levelManager.loadMap(Constantes.levelsFolder + "normal_room_"+(currentRoom+1)+".tmx");
             contactListener.resetFixtures();
             player.setPosition(levelManager.getPlayerSpawnPoint());
         }
-
     }
 
     private void generateRandomDungeon(){

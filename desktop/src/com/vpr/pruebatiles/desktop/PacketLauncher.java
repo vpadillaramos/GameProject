@@ -12,6 +12,6 @@ public class PacketLauncher {
         settings.filterMag = Texture.TextureFilter.Linear;
         settings.filterMin = Texture.TextureFilter.Linear;
 
-        TexturePacker.process("android/assets/sprites", "android/assets", "characters");
+        TexturePacker.process("android/assets/sprites", "android/assets", "sprites");
     }
 }

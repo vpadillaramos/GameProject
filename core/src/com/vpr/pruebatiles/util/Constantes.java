@@ -5,7 +5,7 @@ import java.io.File;
 public final class Constantes {
 
     // Resource Manager (R)
-    public static final String ATLAS = "characters.atlas";
+    public static final String ATLAS = "sprites.atlas";
 
     // Camera
     public static final float SCALE = 2.0f;
@@ -21,6 +21,13 @@ public final class Constantes {
     public static String skinsFolder = "ui/";
     public static String perksFolder = "perks/";
     public static String playerCharactersFolder = "player_characters/";
+    public static String hudFolder = "hud/";
+
+
+    //////////////////////////////////////////////
+    /////////////////////HUD//////////////////////
+    //////////////////////////////////////////////
+    public static String healthBar = hudFolder + "healthBar";
 
     //////////////////////////////////////////////
     ///////////////Skins, fonts///////////////////
@@ -59,6 +66,8 @@ public final class Constantes {
     public static final String dashPerk = perksFolder + "dash";
     public static final String dashPerkShopName = "Dash!";
     public static final String[] perks = {doubleJumpPerk, dashPerk};
+    public static final int doubleJumpPrice = 20;
+    public static final int dashPrice = 40;
 
     //////////////////////////////////////////////
     //////////////////Dungeon rooms////////////////

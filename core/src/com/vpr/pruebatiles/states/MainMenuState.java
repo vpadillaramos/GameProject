@@ -63,7 +63,6 @@ public class MainMenuState extends GameState {
         });
 
         // TITULO
-        VisLabel lbTitulo = new VisLabel("Juego");
 
         // Creditos
         VisLabel lbCreditos = new VisLabel("Victor Padilla");
@@ -72,13 +71,11 @@ public class MainMenuState extends GameState {
 
         // MENU
         menu.row();
-        menu.add(lbTitulo).center().width(200).height(100).pad(5);
-        menu.row();
         menu.add(btJugar).center().width(200).height(80).pad(5);
         menu.row();
-        menu.add(btSalir).center().width(200).height(80).pad(5);
-        menu.row();
         menu.add(btConfiguracion).center().width(200).height(80).pad(5);
+        menu.row();
+        menu.add(btSalir).center().width(200).height(80).pad(5);
 
         Gdx.input.setInputProcessor(stage);
     }

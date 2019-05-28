@@ -10,7 +10,6 @@ public class CharacterRecord {
     // Constructor
     public CharacterRecord(String name){
         this.name = name;
-        System.out.println(name);
     }
 
     public static CharacterRecord[] characters = {

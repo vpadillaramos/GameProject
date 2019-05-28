@@ -1,8 +1,8 @@
 package com.vpr.pruebatiles.states;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputMultiplexer;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.rafaskoberg.gdx.typinglabel.TypingLabel;
@@ -10,7 +10,6 @@ import com.vpr.pruebatiles.entities.Player;
 import com.vpr.pruebatiles.handlers.MyContactListener;
 import com.vpr.pruebatiles.handlers.MyInputManager;
 import com.vpr.pruebatiles.managers.*;
-import com.vpr.pruebatiles.util.CameraMethods;
 import com.vpr.pruebatiles.util.Constantes;
 import com.vpr.pruebatiles.windows.ShopWindow;
 
@@ -47,6 +46,7 @@ public class HubState extends GameState {
 
     // Shop Test
     private ShopWindow shopWindow;
+    private Label coinsLabel;
 
 
     public HubState(GameStateManager gsm, String map) {
@@ -80,7 +80,17 @@ public class HubState extends GameState {
 
         label = new Label("", skinManager.skin);
         label.setPosition(cameraManager.camera.position.x - 100, cameraManager.camera.position.y + 280);
-        skinManager.stage.addActor(label);
+        //skinManager.stage.addActor(label);
+
+        /*coinsLabel = new Label(player.coins + "$", skinManager.skin);
+        //coinsLabel.setPosition(0, cameraManager.camera.viewportHeight / 2 / Constantes.SCALE);
+        coinsLabel.setPosition(cameraManager.camera.position.x - 100, cameraManager.camera.position.y + 280);
+        skinManager.stage.addActor(coinsLabel);*/
+
+        initHud();
+
+        // HUD
+        //initHud();
 
         // Shop test
         shopWindow = new ShopWindow(this, skinManager, cameraManager, Constantes.perkShopName);
@@ -122,6 +132,7 @@ public class HubState extends GameState {
                 break;
         }
 
+        updateHud();
         inputManager.update();
     }
 
@@ -163,37 +174,6 @@ public class HubState extends GameState {
         Gdx.input.setInputProcessor(multiplexer);
     }
 
-    /*public void physicsTestingInput(){
-
-        // Keys that increase values
-        if(Gdx.input.isKeyJustPressed(Input.Keys.T)){
-            player.setDensity(player.getDensity() + 0.2f);
-        }
-        if(Gdx.input.isKeyJustPressed(Input.Keys.Y)){
-            player.setFriction(player.getFriction() + 0.2f);
-        }
-        if(Gdx.input.isKeyJustPressed(Input.Keys.U)){
-            player.SPEED += 0.5f;
-        }
-        if(Gdx.input.isKeyJustPressed(Input.Keys.I)){
-            player.JUMPING_FORCE += 10f;
-        }
-
-        // Keys that decease values
-        if(Gdx.input.isKeyJustPressed(Input.Keys.G)){
-            player.setDensity(player.getDensity() - 0.2f);
-        }
-        if(Gdx.input.isKeyJustPressed(Input.Keys.H)){
-            player.setFriction(player.getFriction() - 0.2f);
-        }
-        if(Gdx.input.isKeyJustPressed(Input.Keys.J)){
-            player.SPEED -= 0.5f;
-        }
-        if(Gdx.input.isKeyJustPressed(Input.Keys.K)){
-            player.JUMPING_FORCE -= 10f;
-        }
-    }*/
-
     public void pause(){
         state = State.PAUSE;
     }
@@ -220,5 +200,16 @@ public class HubState extends GameState {
                 player.keyPauseInput(dt);
                 break;
         }
+    }
+
+    private void updateHud(){
+        coinsLabel.setText(player.coins + "$");
+    }
+
+    private void initHud(){
+        coinsLabel = new Label(player.coins + "$", skinManager.skin);
+        coinsLabel.setPosition(0 + 20, cameraManager.camera.viewportHeight * 1.7f);
+        coinsLabel.setColor(new Color(.83f, .62f, .21f, 1));
+        skinManager.stage.addActor(coinsLabel);
     }
 }

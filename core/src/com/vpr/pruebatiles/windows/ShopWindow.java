@@ -1,5 +1,6 @@
 package com.vpr.pruebatiles.windows;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
@@ -28,9 +29,13 @@ public class ShopWindow {
 
     // Components
     private Stack layout;
-    private HashMap<String, ImageButton> perkButtons;
-    public Label coinsLabel;
+    public Label priceLabel;
     public Label perkLabel;
+    public TextButton buyButton;
+    private HashMap<String, ImageButton> perkButtons;
+
+
+    public static HashMap<String, Boolean> perkList; // false for not owned, true for owned
 
     // Constructor
     public ShopWindow(HubState hubState, SkinManager skinManager, CameraManager cameraManager, String title){
@@ -40,14 +45,11 @@ public class ShopWindow {
         this.title = title;
         action = new MoveToAction();
 
+
         initWindow();
     }
 
     // Methods
-
-    public void setCoinsLabel(String coins){
-        coinsLabel.setText(coins);
-    }
 
     private void initWindow(){
         windowSetUp();
@@ -57,10 +59,13 @@ public class ShopWindow {
 
         // Add buy button and price label
         HorizontalGroup group = new HorizontalGroup();
-        group.addActor(new TextButton("Comprar", skinManager.skin));
+        buyButton = new TextButton("Comprar", skinManager.skin);
+        buyButton.setVisible(false);
+        group.addActor(buyButton);
 
-        coinsLabel = new Label(String.valueOf(hubState.player.coins) + "$", skinManager.skin);
-        group.addActor(coinsLabel);
+        priceLabel = new Label("$", skinManager.skin);
+        priceLabel.setVisible(false);
+        group.addActor(priceLabel);
         group.space(20);
         group.align(Align.bottom);
         group.padBottom(10);
@@ -121,6 +126,10 @@ public class ShopWindow {
 
     public HorizontalGroup initPerks(){
 
+        perkList = new HashMap<String, Boolean>();
+        perkList.put(Constantes.doubleJumpPerkShopName, false);
+        perkList.put(Constantes.dashPerkShopName, false);
+
         ButtonGroup<ImageButton> buttonGroup = new ButtonGroup<ImageButton>();
         HorizontalGroup perkGroup = new HorizontalGroup();
         buttonGroup.setMinCheckCount(0);
@@ -149,15 +158,64 @@ public class ShopWindow {
         perkButtons.get(Constantes.doubleJumpPerk).addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                perkLabel.setText(Constantes.doubleJumpPerkShopName);
+                showBuyComponents(perkList.get(Constantes.doubleJumpPerkShopName), Constantes.doubleJumpPerkShopName, Constantes.doubleJumpPrice);
             }
         });
 
         perkButtons.get(Constantes.dashPerk).addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                perkLabel.setText(Constantes.dashPerkShopName);
+                // if double jump is bought
+                showBuyComponents(perkList.get(Constantes.dashPerkShopName), Constantes.dashPerkShopName, Constantes.dashPrice);
             }
         });
+
+        buyButton.addListener(new ClickListener(){
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+
+                // checks which button perk is selected
+                if(perkButtons.get(Constantes.doubleJumpPerk).isChecked()){
+
+                    setPurchaseSuccess(hubState.player.coins >= Constantes.doubleJumpPrice,
+                            Constantes.doubleJumpPerkShopName, Constantes.doubleJumpPrice);
+
+                }
+                else if(perkButtons.get(Constantes.dashPerk).isChecked()){
+                    setPurchaseSuccess(hubState.player.coins >= Constantes.dashPrice,
+                            Constantes.dashPerkShopName, Constantes.dashPrice);
+                }
+            }
+        });
+    }
+
+    private void showBuyComponents(boolean b, String perkName, int perkPrice){
+
+        // if true the perk is owned by the player
+        if(b){
+            buyButton.setVisible(false);
+            priceLabel.setVisible(false);
+            perkLabel.setText(perkName + "(owned)");
+        }
+        else{
+            buyButton.setVisible(true);
+            priceLabel.setText(perkPrice + "$");
+            priceLabel.setColor(Color.WHITE);
+            priceLabel.setVisible(true);
+            perkLabel.setText(perkName);
+        }
+    }
+
+    private void setPurchaseSuccess(boolean b, String perkName, int perkPrice){
+
+        if(b){
+            perkList.put(Constantes.doubleJumpPerkShopName, b);
+            perkLabel.setText("Good purchase");
+            hubState.player.coins = hubState.player.coins - perkPrice;
+            showBuyComponents(!b, perkName, 0);
+        }
+        else{
+            priceLabel.setColor(Color.RED);
+        }
     }
 }

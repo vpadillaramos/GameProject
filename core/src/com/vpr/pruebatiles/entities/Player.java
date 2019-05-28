@@ -22,10 +22,10 @@ public class Player extends BasicEntity{
     public final float DENSITY = 1f;
     public final float FRICTION = 0f;
     public final float SPEED = 4; //mps
-    public final float JUMPING_FORCE = 700;
+    public final float JUMPING_FORCE = 900;
     public final float GRAVITY_SCALE = 8;
 
-    public final int MAX_HEALT = 100;
+    public final int MAX_HEALT = 1; // from 0 to 1
 
     public final float BODY_ADJUST = 8;
     public final float bodyWidth = width - BODY_ADJUST;
@@ -198,14 +198,6 @@ public class Player extends BasicEntity{
     public boolean isPlayerInNextRoom(){
         if(contactListener.isPlayerInNextRoom() && input.isKeyDown(Keys.interact))
             return true;
-
-        return false;
-    }
-
-    public boolean isPlayerInPreviousRoom(){
-        if(contactListener.isPlayerInPreviousRoom() && Gdx.input.isKeyJustPressed(Input.Keys.E)){
-            return true;
-        }
 
         return false;
     }
