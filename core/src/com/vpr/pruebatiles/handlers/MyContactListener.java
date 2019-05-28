@@ -18,6 +18,7 @@ public class MyContactListener implements ContactListener {
     public final String udDungeonEntry = "dungeon_entry";
     public final String udNextRoom = "next_room";
     public final String udPreviousRoom = "previous_room";
+    public final String udDemonBat ="demon_bat";
 
     // Attributes
 
@@ -89,6 +90,7 @@ public class MyContactListener implements ContactListener {
         disableContactBetween(c, udPlayerFoot, udNextRoom);
         disableContactBetween(c, udPlayerFoot, udPreviousRoom);
         disableContactBetween(c, udPlayerFoot, udWall);
+        disableContactBetween(c, udPlayerFoot, udDemonBat);
     }
 
     /**

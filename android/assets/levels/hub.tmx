@@ -30,13 +30,13 @@
 13,13,9,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,11,4,4,4,4,4,4,4,4,4,4,11
 </data>
  </layer>
- <objectgroup id="5" name="doors">
+ <objectgroup id="5" name="doors" visible="0">
   <object id="17" name="dungeon_entry" x="284" y="293.333" width="20" height="41.3333"/>
  </objectgroup>
- <objectgroup id="4" name="shops">
+ <objectgroup id="4" name="shops" visible="0">
   <object id="19" name="shop" x="80" y="304" width="64" height="32"/>
  </objectgroup>
- <objectgroup id="2" name="collisions">
+ <objectgroup id="2" name="collisions" visible="0">
   <object id="7" name="ground" x="32" y="336">
    <polyline points="0,0 272,0"/>
   </object>
@@ -47,7 +47,7 @@
    <polyline points="0,0 0,48"/>
   </object>
  </objectgroup>
- <objectgroup id="3" name="spawn">
+ <objectgroup id="3" name="spawn" visible="0">
   <object id="5" name="player_spawn" x="52.75" y="325.5">
    <point/>
   </object>

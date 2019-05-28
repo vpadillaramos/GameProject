@@ -209,7 +209,7 @@ public class ShopWindow {
     private void setPurchaseSuccess(boolean b, String perkName, int perkPrice){
 
         if(b){
-            perkList.put(Constantes.doubleJumpPerkShopName, b);
+            perkList.put(perkName, b);
             perkLabel.setText("Good purchase");
             hubState.player.coins = hubState.player.coins - perkPrice;
             showBuyComponents(!b, perkName, 0);

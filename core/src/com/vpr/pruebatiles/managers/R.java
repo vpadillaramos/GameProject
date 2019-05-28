@@ -9,6 +9,8 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.Array;
 import com.vpr.pruebatiles.util.Constantes;
 
+import java.io.File;
+
 import static com.vpr.pruebatiles.util.Constantes.ATLAS;
 
 public class R {
@@ -27,8 +29,9 @@ public class R {
         assets.load(Constantes.skinAtlas, TextureAtlas.class);
 
         // Cargo sonidos y musica
-        /*assets.load("sounds" + File.separator + "nombre", Sound.class);
-        assets.load("sounds" + File.separator + "nombre", Music.class);*/
+        assets.load(Constantes.MUSIC + "track1.mp3", Music.class);
+        assets.load(Constantes.MUSIC + "track2.mp3", Music.class);
+        assets.load(Constantes.MUSIC + "track3.mp3", Music.class);
     }
 
     public static boolean update(){

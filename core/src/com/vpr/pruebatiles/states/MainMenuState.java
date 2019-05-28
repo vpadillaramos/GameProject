@@ -58,7 +58,7 @@ public class MainMenuState extends GameState {
         btConfiguracion.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
-
+                gsm.setState(GameStateManager.State.CONFIGURATION_MENU);
             }
         });
 

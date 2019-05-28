@@ -13,6 +13,14 @@ public final class Constantes {
     // Box2D
     public static final float PPM = 8; // pixels per meter
 
+
+    //////////////////////////////////////////////
+    //////////////Internal folders////////////////
+    //////////////////////////////////////////////
+    public static final String CONFIGURATION = "configuration_crawl";
+    public static final String MUSIC = "music/";
+    public static final String SOUND = "sound/";
+
     //////////////////////////////////////////////
     //////////////Internal folders////////////////
     //////////////////////////////////////////////
@@ -22,6 +30,7 @@ public final class Constantes {
     public static String perksFolder = "perks/";
     public static String playerCharactersFolder = "player_characters/";
     public static String hudFolder = "hud/";
+    public static String enemiesFolder = "enemies/";
 
 
     //////////////////////////////////////////////
@@ -55,7 +64,13 @@ public final class Constantes {
     public static final String shops_layer = "shops";
     public static final String doors_layer = "doors";
     public static final String player_spawn = "player_spawn";
+    public static final String bat_spawn = "bat_spawn";
 
+
+    //////////////////////////////////////////////
+    ///////////////////Enemies////////////////////
+    //////////////////////////////////////////////
+    public static final String demonBat = enemiesFolder + "demonBat";
 
     //////////////////////////////////////////////
     /////////////////////Shop/////////////////////

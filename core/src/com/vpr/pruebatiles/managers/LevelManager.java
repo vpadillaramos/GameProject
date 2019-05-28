@@ -108,6 +108,14 @@ public class LevelManager {
         return spawnPoint;
     }
 
+    public Vector2 getBatSpawnPoint(){
+        Rectangle spawnRectangle = ((RectangleMapObject)map.getLayers().get(Constantes.spawn_layer)
+                .getObjects().get(Constantes.bat_spawn)).getRectangle();
+
+        Vector2 spawnPoint = new Vector2(spawnRectangle.x, spawnRectangle.y);
+        return spawnPoint;
+    }
+
     public void setWorld(World world){
         this.world = world;
     }

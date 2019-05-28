@@ -12,6 +12,7 @@ import com.vpr.pruebatiles.managers.GameStateManager;
 import com.vpr.pruebatiles.managers.R;
 import com.vpr.pruebatiles.util.Constantes;
 
+import java.io.File;
 import java.util.HashMap;
 
 public class LoadingState extends GameState {
@@ -41,6 +42,7 @@ public class LoadingState extends GameState {
         if(R.update() && progress >= R.assets.getProgress() - .01f){
             if(acc >= 3){
                 initCharactersRegion();
+                initHubMusic();
                 gsm.setState(nextState);
             }
         }
@@ -72,6 +74,10 @@ public class LoadingState extends GameState {
         gsm.charactersRegion.put(Constantes.CharacterType.ninja.name(), R.getRegion(Constantes.ninjaCharacter));
         gsm.charactersRegion.put(Constantes.CharacterType.warrior.name(), R.getRegion(Constantes.warriorCharacter));
         gsm.charactersRegion.put(Constantes.CharacterType.lancer.name(), R.getRegion(Constantes.lancerCharacter));
+    }
+
+    private void initHubMusic(){
+        gsm.music = R.getMusica(Constantes.MUSIC + "track3.mp3");
     }
 
 

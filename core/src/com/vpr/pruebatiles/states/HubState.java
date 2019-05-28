@@ -2,11 +2,13 @@ package com.vpr.pruebatiles.states;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.rafaskoberg.gdx.typinglabel.TypingLabel;
 import com.vpr.pruebatiles.entities.Player;
+import com.vpr.pruebatiles.handlers.Configuration;
 import com.vpr.pruebatiles.handlers.MyContactListener;
 import com.vpr.pruebatiles.handlers.MyInputManager;
 import com.vpr.pruebatiles.managers.*;
@@ -24,6 +26,7 @@ public class HubState extends GameState {
         PLAYING, PAUSE
     }
     public State state;
+    public Music music;
 
     // Player
     public Player player;
@@ -49,8 +52,9 @@ public class HubState extends GameState {
     private Label coinsLabel;
 
 
-    public HubState(GameStateManager gsm, String map) {
+    public HubState(GameStateManager gsm, String map, Music music) {
         super(gsm, map);
+        this.music = music;
 
         // Initial state
         state = State.PLAYING;
@@ -68,35 +72,16 @@ public class HubState extends GameState {
         player = new Player(gsm.playerType, b2dManager.world, levelManager.getPlayerSpawnPoint(), contactListener, inputManager);
         spriteManager = new SpriteManager(player);
 
-        // Text test
-        String text = "{SPEED=0.5}Hola, que tal, {COLOR=RED}esto{WAIT} es una prueba de {SHAKE}Typing label";
-        typingLabel = new TypingLabel(text, skinManager.skin);
-        //typingLabel.setWrap(true);
-        //typingLabel.setWidth(100);
-        //typingLabel.setPosition((cameraManager.camera.viewportWidth / 2), (cameraManager.camera.viewportHeight / 2));
-        typingLabel.setPosition(cameraManager.camera.position.x - 100, cameraManager.camera.position.y + 280);
-
-        //skinManager.stage.addActor(typingLabel);
-
-        label = new Label("", skinManager.skin);
-        label.setPosition(cameraManager.camera.position.x - 100, cameraManager.camera.position.y + 280);
-        //skinManager.stage.addActor(label);
-
-        /*coinsLabel = new Label(player.coins + "$", skinManager.skin);
-        //coinsLabel.setPosition(0, cameraManager.camera.viewportHeight / 2 / Constantes.SCALE);
-        coinsLabel.setPosition(cameraManager.camera.position.x - 100, cameraManager.camera.position.y + 280);
-        skinManager.stage.addActor(coinsLabel);*/
 
         initHud();
-
-        // HUD
-        //initHud();
 
         // Shop test
         shopWindow = new ShopWindow(this, skinManager, cameraManager, Constantes.perkShopName);
 
         // Add input processors
         initMultiplexer();
+
+        checkMusicConfig();
     }
 
     @Override
@@ -113,8 +98,10 @@ public class HubState extends GameState {
             resume();
         }
 
-        if(player.isEnteringDungeon())
+        if(player.isEnteringDungeon()) {
+            music.stop();
             gsm.setState(GameStateManager.State.LOADING_DUNGEON);
+        }
 
 
         switch (state){
@@ -148,13 +135,6 @@ public class HubState extends GameState {
         player.draw(batch);
         batch.end();
 
-        DecimalFormat f = new DecimalFormat("##.00");
-
-        label.setText("(T-G)Density: "+f.format(player.getDensity())+
-                "\n(Y-H)Friction: "+f.format(player.getFriction())+
-                "\n(U-J)Speed: "+f.format(player.SPEED)+
-                "\n(I-K)JumpingForce: "+f.format(player.JUMPING_FORCE));
-
         skinManager.render(dt);
     }
 
@@ -164,11 +144,11 @@ public class HubState extends GameState {
         levelManager.dispose();
         skinManager.dispose();
         player.dispose();*/
+        music.dispose();
     }
 
     private void initMultiplexer(){
         multiplexer = new InputMultiplexer();
-        //multiplexer.addProcessor(inputProcessor);
         multiplexer.addProcessor(inputManager);
         multiplexer.addProcessor(skinManager.stage);
         Gdx.input.setInputProcessor(multiplexer);
@@ -192,8 +172,6 @@ public class HubState extends GameState {
 
         switch (state){
             case PLAYING:
-                cameraManager.manageInput(player);
-                //physicsTestingInput();
                 player.keyPlayingInput(dt);
                 break;
             case PAUSE:
@@ -211,5 +189,13 @@ public class HubState extends GameState {
         coinsLabel.setPosition(0 + 20, cameraManager.camera.viewportHeight * 1.7f);
         coinsLabel.setColor(new Color(.83f, .62f, .21f, 1));
         skinManager.stage.addActor(coinsLabel);
+    }
+
+    private void checkMusicConfig(){
+        if(Configuration.isMusicEnabled()){
+            music.setLooping(true);
+            music.setVolume(1f);
+            music.play();
+        }
     }
 }

@@ -1,5 +1,6 @@
 package com.vpr.pruebatiles.managers;
 
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.vpr.pruebatiles.Application;
 import com.vpr.pruebatiles.states.*;
@@ -14,11 +15,12 @@ public class GameStateManager {
     private final Application app;
     private Stack<GameState> states;
     public enum State {
-        LOADING_RES, SPLASH, MAIN_MENU, CHARACTER_SELECTOR, PLAYING_HUB, LOADING_DUNGEON, PLAYING_DUNGEON,
+        LOADING_RES, SPLASH, MAIN_MENU, CONFIGURATION_MENU, CHARACTER_SELECTOR, PLAYING_HUB, LOADING_DUNGEON, PLAYING_DUNGEON,
     }
     public HashMap<String, TextureRegion> charactersRegion;
     public int currentCharacter;
     public Constantes.CharacterType playerType;
+    public Music music;
 
     // Constructor
     public GameStateManager(final Application app){
@@ -60,19 +62,22 @@ public class GameStateManager {
     public GameState getState(State state){
         switch (state){
             case LOADING_RES:
-                return new LoadingState(this, State.MAIN_MENU);
+                return new LoadingState(this, State.SPLASH);
             case SPLASH:
-                return new SplashState(this, State.PLAYING_HUB);
+                return new SplashState(this, State.MAIN_MENU);
             case MAIN_MENU:
                 return new MainMenuState(this);
+            case CONFIGURATION_MENU:
+                return new ConfigurationState(this, State.MAIN_MENU);
             case CHARACTER_SELECTOR:
                 return new CharacterSelectorState(this);
             case PLAYING_HUB:
-                return new HubState(this, Constantes.hubMap);
+                return new HubState(this, Constantes.hubMap, music);
             case LOADING_DUNGEON:
                 return new LoadingDungeonState(this, State.PLAYING_DUNGEON);
             case PLAYING_DUNGEON:
-                return new DungeonState(this);
+                music = R.getMusica(Constantes.MUSIC + "track1.mp3");
+                return new DungeonState(this, music);
         }
 
         return null;
