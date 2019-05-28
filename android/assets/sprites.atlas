@@ -1,14 +1,28 @@
 
 sprites.png
-size: 16,32
+size: 128,64
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
 hud/healthBar
   rotate: false
-  xy: 2, 2
+  xy: 68, 36
   size: 1, 16
   orig: 1, 16
+  offset: 0, 0
+  index: -1
+hud/interactButton
+  rotate: false
+  xy: 2, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+hud/shop
+  rotate: false
+  xy: 2, 20
+  size: 64, 32
+  orig: 64, 32
   offset: 0, 0
   index: -1
 

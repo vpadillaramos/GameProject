@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="25" height="24" tilewidth="16" tileheight="16" infinite="0" nextlayerid="2" nextobjectid="1">
+ <tileset firstgid="1" source="tiles.tsx"/>
+ <layer id="1" name="ground" width="25" height="24">
+  <data encoding="csv">
+1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
+5,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,
+9,10,10,6,6,6,10,10,10,10,6,6,6,10,10,10,10,6,6,6,10,10,10,10,10,
+5,6,7,6,6,6,5,6,6,7,6,6,6,5,6,6,7,6,6,6,5,6,6,6,6,
+9,10,11,6,6,6,5,6,6,7,6,6,6,5,6,6,7,6,6,6,5,6,6,6,6,
+5,6,6,6,6,6,5,6,6,7,6,6,6,5,6,6,7,6,6,6,5,6,6,6,6,
+5,6,6,6,6,6,5,6,6,7,6,6,6,5,6,6,7,6,6,6,5,6,6,6,6,
+5,6,6,10,10,10,9,10,10,11,6,6,6,5,6,6,7,6,6,6,5,6,6,6,6,
+5,6,6,6,6,6,7,6,6,6,6,6,6,5,6,6,7,6,6,6,5,6,6,6,6,
+5,6,6,6,6,6,7,6,6,6,6,6,6,5,6,6,7,6,6,6,5,6,6,6,6,
+5,6,6,6,6,6,7,6,6,10,10,10,10,9,10,10,11,6,6,6,5,6,6,6,6,
+9,10,10,10,6,6,7,6,6,6,6,6,6,6,6,6,7,6,6,6,5,6,6,6,6,
+5,6,6,6,6,6,7,6,6,6,6,6,6,6,6,6,7,6,6,6,5,6,6,6,6,
+5,6,6,6,6,6,7,6,6,6,6,6,6,6,6,6,7,6,6,6,5,6,6,6,6,
+5,6,6,10,10,10,11,10,10,10,10,10,10,10,6,6,7,6,6,6,5,6,6,6,6,
+5,6,6,6,6,6,6,6,6,6,6,6,6,7,6,6,7,6,6,6,5,6,6,6,6,
+5,6,6,6,6,6,6,6,6,6,6,6,6,7,6,6,7,6,6,6,5,6,6,6,6,
+9,10,10,10,10,10,10,10,10,10,6,6,6,7,6,6,7,6,6,6,5,6,6,6,6,
+5,6,6,6,6,6,6,6,6,6,6,6,6,7,6,6,7,6,6,6,5,6,6,6,6,
+5,6,6,6,6,6,6,6,6,6,6,6,6,7,6,6,7,6,6,6,5,6,6,6,6,
+5,6,10,10,10,10,10,10,10,10,10,10,10,11,6,6,7,6,6,6,9,10,10,10,10,
+5,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,
+5,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,
+9,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10
+</data>
+ </layer>
+ <objectgroup id="4" name="doors">
+  <object id="2" name="nest_room" x="367.333" y="338" width="30.6667" height="39.3333"/>
+ </objectgroup>
+ <objectgroup id="2" name="collisions">
+  <object id="4" name="wall" x="400" y="5.45455">
+   <polyline points="0,0 0.181818,36.9091"/>
+  </object>
+  <object id="5" name="wall" x="400.182" y="336.545">
+   <polyline points="0,0 -0.363636,42.3636"/>
+  </object>
+  <object id="6" name="wall" x="319.455" y="335.273">
+   <polyline points="0,0 0.545455,-292"/>
+  </object>
+  <object id="7" name="wall" x="272.182" y="335.636">
+   <polyline points="0,0 0.181818,-292.909"/>
+  </object>
+  <object id="8" name="wall" x="266.545" y="335.636">
+   <polyline points="0,0 0.545455,-161.273"/>
+  </object>
+  <object id="9" name="wall" x="207.818" y="42.9091">
+   <polyline points="0,0 0,129.273"/>
+  </object>
+  <object id="10" name="wall" x="160.545" y="42.9091">
+   <polyline points="0,0 -0.181818,84.3636"/>
+  </object>
+  <object id="11" name="wall" x="95.2727" y="42.7273">
+   <polyline points="0,0 0.545455,80.1818"/>
+  </object>
+  <object id="12" name="wall" x="48.1818" y="42.9091">
+   <polyline points="0,0 0,36.7273"/>
+  </object>
+  <object id="13" name="wall" x="6" y="42.3636">
+   <polyline points="0,0 0.181818,-37.0909"/>
+  </object>
+  <object id="14" name="wall" x="5.63636" y="80">
+   <polyline points="0,0 0.181818,106.545"/>
+  </object>
+  <object id="15" name="wall" x="48" y="122.182">
+   <polyline points="0,0 0,6.18182"/>
+  </object>
+  <object id="16" name="wall" x="64" y="186.545">
+   <polyline points="0,0 -0.181818,5.27273"/>
+  </object>
+  <object id="17" name="wall" x="105.818" y="128">
+   <polyline points="0,0 0.727273,106.727"/>
+  </object>
+  <object id="19" name="wall" x="112.545" y="128.182">
+   <polyline points="0,0 -0.363636,107.091"/>
+  </object>
+  <object id="20" name="wall" x="48" y="234.727">
+   <polyline points="0,0 -0.181818,5.81818"/>
+  </object>
+  <object id="21" name="wall" x="5.63636" y="191.818">
+   <polyline points="0,0 0,91.0909"/>
+  </object>
+  <object id="22" name="wall" x="6" y="287.636">
+   <polyline points="0,0 -0.363636,91.4545"/>
+  </object>
+  <object id="23" name="wall" x="160.364" y="282.364">
+   <polyline points="0,0 -0.181818,5.45455"/>
+  </object>
+  <object id="24" name="wall" x="31.8182" y="330.727">
+   <polyline points="0,0 0,6.18182"/>
+  </object>
+  <object id="25" name="wall" x="224.364" y="335.273">
+   <polyline points="0,0 -0.363636,-100.545"/>
+  </object>
+  <object id="26" name="wall" x="143.636" y="176.182">
+   <polyline points="0,0 0.181818,-5.27273"/>
+  </object>
+  <object id="27" name="ground" x="5.75" y="379">
+   <polyline points="0,0 394.5,-0.25"/>
+  </object>
+  <object id="28" name="ground" x="31.5" y="330.25">
+   <polyline points="0,0 186,-0.25"/>
+  </object>
+  <object id="29" name="ground" x="6.25" y="282.75">
+   <polyline points="0,0 153.25,-0.25"/>
+  </object>
+  <object id="30" name="wall" x="218.5" y="240">
+   <polyline points="0,0 0.5,89.5"/>
+  </object>
+  <object id="31" name="ground" x="224.25" y="234.25">
+   <polyline points="0,0 -111.5,0.25"/>
+  </object>
+  <object id="32" name="ground" x="143.75" y="169.75">
+   <polyline points="0,0 64,0.5"/>
+  </object>
+  <object id="33" name="ground" x="47.25" y="234.25">
+   <polyline points="0,0 58.5,0"/>
+  </object>
+  <object id="34" name="ground" x="5.5" y="186.5">
+   <polyline points="0,0 58.25,0.5"/>
+  </object>
+  <object id="35" name="ground" x="48.75" y="122.5">
+   <polyline points="0,0 46.75,0.25"/>
+  </object>
+  <object id="36" name="ground" x="5.5" y="43">
+   <polyline points="0,0 42.5,-0.5"/>
+  </object>
+  <object id="37" name="ground" x="95.25" y="42.5">
+   <polyline points="0,0 65.25,0.25"/>
+  </object>
+  <object id="38" name="ground" x="207.5" y="42.25">
+   <polyline points="0,0 65.75,0.25"/>
+  </object>
+  <object id="39" name="ground" x="319.5" y="42">
+   <polyline points="0,0 80.5,0.5"/>
+  </object>
+  <object id="40" name="ceil" x="5.75" y="80">
+   <polyline points="0,0 42.5,-0.25"/>
+  </object>
+  <object id="41" name="ceil" x="47.75" y="128">
+   <polyline points="0,0 58,-0.25"/>
+  </object>
+  <object id="42" name="ceil" x="112.5" y="128.5">
+   <polyline points="0,0 48.25,-0.75"/>
+  </object>
+  <object id="43" name="ceil" x="143.75" y="176">
+   <polyline points="0,0 123.75,-0.5"/>
+  </object>
+  <object id="44" name="ceil" x="48" y="240.5">
+   <polyline points="0,0 170,-0.5"/>
+  </object>
+  <object id="45" name="ceil" x="6.5" y="192.25">
+   <polyline points="0,0 57.75,0"/>
+  </object>
+  <object id="46" name="ceil" x="5.75" y="288.5">
+   <polyline points="0,0 154.5,-0.25"/>
+  </object>
+  <object id="47" name="ceil" x="31.75" y="336.5">
+   <polyline points="0,0 192.5,-1"/>
+  </object>
+  <object id="48" name="ceil" x="266" y="335.75">
+   <polyline points="0,0 6.75,0"/>
+  </object>
+  <object id="49" name="ceil" x="319.25" y="336">
+   <polyline points="0,0 80.75,0.75"/>
+  </object>
+  <object id="50" name="ceil" x="400" y="4.75">
+   <polyline points="0,0 -393.5,0.5"/>
+  </object>
+ </objectgroup>
+ <objectgroup id="3" name="spawn">
+  <object id="3" name="player_spawn" x="386" y="38">
+   <point/>
+  </object>
+ </objectgroup>
+</map>

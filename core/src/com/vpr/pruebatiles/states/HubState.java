@@ -138,7 +138,7 @@ public class HubState extends GameState {
 
     @Override
     public void render(float dt) {
-        Gdx.gl.glClearColor(1, 0, 1, 0);
+        Gdx.gl.glClearColor(0, 0, 0, 0);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         levelManager.render();

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="30" height="24" tilewidth="16" tileheight="16" infinite="0" nextlayerid="9" nextobjectid="19">
+<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="30" height="24" tilewidth="16" tileheight="16" infinite="0" nextlayerid="9" nextobjectid="20">
  <tileset firstgid="1" source="tiles.tsx"/>
+ <tileset firstgid="17" source="shop.tsx"/>
  <layer id="8" name="ground" width="30" height="24">
   <data encoding="csv">
 12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,
@@ -22,8 +23,8 @@
 4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,
 4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,
 4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,
-4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,
-4,4,4,4,4,4,4,4,4,6,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,
+4,4,4,4,4,17,18,19,20,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,
+4,4,4,4,4,21,22,23,24,6,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,
 13,13,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,4,4,4,4,4,4,4,4,4,4,4,
 13,13,5,4,4,4,4,4,4,4,6,4,4,4,4,4,4,4,7,4,4,4,4,4,4,4,4,4,4,4,
 13,13,9,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,11,4,4,4,4,4,4,4,4,4,4,11
@@ -33,7 +34,7 @@
   <object id="17" name="dungeon_entry" x="284" y="293.333" width="20" height="41.3333"/>
  </objectgroup>
  <objectgroup id="4" name="shops">
-  <object id="16" name="shop" x="78.3333" y="300.333" width="38.6667" height="34"/>
+  <object id="19" name="shop" x="80" y="304" width="64" height="32"/>
  </objectgroup>
  <objectgroup id="2" name="collisions">
   <object id="7" name="ground" x="32" y="336">
@@ -44,9 +45,6 @@
   </object>
   <object id="12" name="wall" x="304" y="336">
    <polyline points="0,0 0,48"/>
-  </object>
-  <object id="18" name="ceil" x="160" y="288">
-   <polyline points="0,0 80,0"/>
   </object>
  </objectgroup>
  <objectgroup id="3" name="spawn">

@@ -14,6 +14,10 @@ import com.vpr.pruebatiles.handlers.MyInputManager;
 import com.vpr.pruebatiles.managers.*;
 import com.vpr.pruebatiles.util.Constantes;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class DungeonState extends GameState {
 
     // Attributes
@@ -47,7 +51,7 @@ public class DungeonState extends GameState {
     public DungeonState(GameStateManager gsm) {
         super(gsm);
 
-        dungeonRooms = new Room[2];
+        dungeonRooms = new Room[Constantes.TOTAL_ROOMS];
         //GameKeys.resetKeysStatus();
 
         // Initial state
@@ -94,7 +98,7 @@ public class DungeonState extends GameState {
 
     @Override
     public void render(float dt) {
-        Gdx.gl.glClearColor(1, 0, 1, 0);
+        Gdx.gl.glClearColor(0, 0, 0, 0);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         levelManager.render();
@@ -167,14 +171,25 @@ public class DungeonState extends GameState {
             currentRoom++;
 
             b2dManager.prepareForNewMap();
-            levelManager.loadMap(Constantes.levelsFolder + "normal_room_"+(currentRoom+1)+".tmx");
+            levelManager.loadMap(Constantes.normal_room+(currentRoom+1)+".tmx");
             contactListener.resetFixtures();
             player.setPosition(levelManager.getPlayerSpawnPoint());
         }
     }
 
     private void generateRandomDungeon(){
-        dungeonRooms[0] = new Room(Constantes.levelsFolder + "normal_room_1.tmx", Constantes.RoomType.normal);
-        dungeonRooms[1] = new Room(Constantes.levelsFolder + "normal_room_2.tmx", Constantes.RoomType.normal);
+        // the last 2 rooms are for boss rooms
+        List<Integer> randoms = new ArrayList<Integer>(Constantes.TOTAL_ROOMS - 5);
+        for(int i = 1; i <= Constantes.TOTAL_ROOMS - 2; i++)
+            randoms.add(i);
+        Collections.shuffle(randoms);
+
+        for(int i = 0; i < dungeonRooms.length -3; i++){
+            dungeonRooms[i] = new Room(Constantes.normal_room + randoms.get(i) + ".tmx", Constantes.RoomType.normal);
+        }
+        /*dungeonRooms[0] = new Room(Constantes.levelsFolder + "normal_room_1.tmx", Constantes.RoomType.normal);
+        dungeonRooms[1] = new Room(Constantes.levelsFolder + "normal_room_2.tmx", Constantes.RoomType.normal);*/
+        dungeonRooms[dungeonRooms.length-2] = new Room(Constantes.dropping_room, Constantes.RoomType.normal);
+        dungeonRooms[dungeonRooms.length-1] = new Room(Constantes.boss_room_1, Constantes.RoomType.finalBoss);
     }
 }

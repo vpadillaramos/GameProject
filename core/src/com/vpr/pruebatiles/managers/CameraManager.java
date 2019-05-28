@@ -28,7 +28,7 @@ public class CameraManager {
     public void update(float mapPixelWidth, float mapPixelHeight){
         float startX = camera.viewportWidth / 2;
         float startY = camera.viewportHeight / 2;
-        setCameraBounds(startX, startY, mapPixelWidth - camera.viewportWidth, mapPixelHeight + camera.viewportHeight / 2);
+        //setCameraBounds(startX, startY, mapPixelWidth - camera.viewportWidth, mapPixelHeight + camera.viewportHeight / 2);
         camera.update();
     }
 

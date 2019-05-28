@@ -52,10 +52,10 @@ public class MyContactListener implements ContactListener {
 
             updateFixtures(c, true);
             //System.out.println("BEGIN:"+c.getFixtureA().getUserData().toString()+" - "+c.getFixtureB().getUserData().toString());
-            System.out.println("\nBEGIN");
+            /*System.out.println("\nBEGIN");
             for(String k : fixtures.keySet()){
                 System.out.print(k + " - " + fixtures.get(k) + "; ");
-            }
+            }*/
         }
     }
 
@@ -72,10 +72,10 @@ public class MyContactListener implements ContactListener {
 
             updateFixtures(c, false);
             //System.out.println("END:" + c.getFixtureA().getUserData().toString() + " - " + c.getFixtureB().getUserData().toString());
-            System.out.println("\nEND");
+            /*System.out.println("\nEND");
             for(String k : fixtures.keySet()){
                 System.out.print(k + " - " + fixtures.get(k) + "; ");
-            }
+            }*/
         }
     }
 

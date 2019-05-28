@@ -77,8 +77,10 @@ public final class Constantes {
         normal, perk, easterEgg, miniBoss, finalBoss
     }
 
-    public static final int MIN_ROOMS = 10;
-    public static final int MAX_ROOMS  = 20;
+    public static final int TOTAL_ROOMS = 7;
+    public static final String normal_room = levelsFolder + "normal_room_";
+    public static final String dropping_room = levelsFolder + "dropping_room.tmx";
+    public static final String boss_room_1 = levelsFolder + "boss_room_1.tmx";
 
     //////////////////////////////////////////////
     //////////////////Player input////////////////
