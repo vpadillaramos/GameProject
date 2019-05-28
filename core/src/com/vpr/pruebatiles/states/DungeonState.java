@@ -184,6 +184,8 @@ public class DungeonState extends GameState {
 
     private void manageRoomsInteraction(){
         if(player.isPlayerInNextRoom()){
+            if(currentRoom == Constantes.TOTAL_ROOMS-1)
+                gsm.setState(GameStateManager.State.MAIN_MENU);
             currentRoom++;
             bats.clear();
             b2dManager.prepareForNewMap();

@@ -24,7 +24,6 @@ public class SplashState extends GameState {
 
         Texture splashTexture = new Texture(Gdx.files.internal("splash/splash2.png"));
         splashImage = new Image(splashTexture);
-        splashTexture.dispose();
 
         Runnable transitionRunnable = new Runnable() {
             @Override

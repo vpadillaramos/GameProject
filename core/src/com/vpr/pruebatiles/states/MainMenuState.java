@@ -3,8 +3,10 @@ package com.vpr.pruebatiles.states;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
@@ -69,7 +71,11 @@ public class MainMenuState extends GameState {
         stage.addActor(lbCreditos);
 
 
+        Image titleImage = new Image(new Texture(Gdx.files.internal("splash/crawlTitle.png")));
+
         // MENU
+        menu.row();
+        menu.add(titleImage).center();
         menu.row();
         menu.add(btJugar).center().width(200).height(80).pad(5);
         menu.row();
