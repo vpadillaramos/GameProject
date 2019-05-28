@@ -3,12 +3,16 @@ package com.vpr.pruebatiles.states;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.MathUtils;
 import com.kotcrab.vis.ui.VisUI;
 import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import com.vpr.pruebatiles.managers.GameStateManager;
 import com.vpr.pruebatiles.managers.R;
+import com.vpr.pruebatiles.util.Constantes;
+
+import java.util.HashMap;
 
 public class LoadingState extends GameState {
 
@@ -36,6 +40,7 @@ public class LoadingState extends GameState {
 
         if(R.update() && progress >= R.assets.getProgress() - .01f){
             if(acc >= 3){
+                initCharactersRegion();
                 gsm.setState(nextState);
             }
         }
@@ -61,6 +66,12 @@ public class LoadingState extends GameState {
     @Override
     public void dispose() {
         shapeRenderer.dispose();
+    }
+
+    private void initCharactersRegion(){
+        gsm.charactersRegion.put(Constantes.CharacterType.ninja.name(), R.getRegion(Constantes.ninjaCharacter));
+        gsm.charactersRegion.put(Constantes.CharacterType.warrior.name(), R.getRegion(Constantes.warriorCharacter));
+        gsm.charactersRegion.put(Constantes.CharacterType.lancer.name(), R.getRegion(Constantes.lancerCharacter));
     }
 
 

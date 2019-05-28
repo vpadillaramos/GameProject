@@ -7,6 +7,7 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.vpr.pruebatiles.handlers.MyContactListener;
 import com.vpr.pruebatiles.managers.R;
+import com.vpr.pruebatiles.util.Constantes;
 
 import static com.vpr.pruebatiles.util.Constantes.PPM;
 
@@ -23,6 +24,27 @@ public class BasicEntity {
     // Constructor
     public BasicEntity(String textureName, World world, Vector2 spawnPoint, MyContactListener contactListener){
         this.texture = R.getRegion(textureName);
+        this.spawnPoint = new Vector2(spawnPoint);
+        this.contactListener = contactListener;
+
+        width = texture.getRegionWidth();
+        height = texture.getRegionHeight();
+    }
+
+    public BasicEntity(Constantes.CharacterType type , World world, Vector2 spawnPoint, MyContactListener contactListener){
+
+        switch (type){
+            case ninja:
+                this.texture = R.getRegion(Constantes.ninjaIdle);
+                break;
+            case warrior:
+                this.texture = R.getRegion(Constantes.warriorIdle);
+                break;
+            case lancer:
+                this.texture = R.getRegion(Constantes.lancerIdle);
+                break;
+        }
+
         this.spawnPoint = new Vector2(spawnPoint);
         this.contactListener = contactListener;
 

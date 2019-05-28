@@ -19,6 +19,10 @@ public class MainMenuState extends GameState {
     private Stage stage;
     private SkinManager skinManager;
 
+    private TextButton btJugar;
+    private TextButton btSalir;
+    private TextButton btConfiguracion;
+
     // Constructor
     public MainMenuState(final GameStateManager gsm) {
         super(gsm);
@@ -31,16 +35,16 @@ public class MainMenuState extends GameState {
         stage.addActor(menu);
 
         // BOTON JUGAR
-        TextButton btJugar = new TextButton("Jugar", skinManager.skin);
+        btJugar = new TextButton("Jugar", skinManager.skin);
         btJugar.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                gsm.setState(GameStateManager.State.PLAYING_HUB);
+                gsm.setState(GameStateManager.State.CHARACTER_SELECTOR);
             }
         });
 
         // BOTON SALIR
-        TextButton btSalir = new TextButton("Salir", skinManager.skin);
+        btSalir = new TextButton("Salir", skinManager.skin);
         btSalir.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -50,7 +54,7 @@ public class MainMenuState extends GameState {
         });
 
         // BOTON CONFIGURACION
-        TextButton btConfiguracion = new TextButton("Configuracion", skinManager.skin);
+        btConfiguracion = new TextButton("Configuracion", skinManager.skin);
         btConfiguracion.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {

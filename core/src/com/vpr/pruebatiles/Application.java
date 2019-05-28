@@ -5,7 +5,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.vpr.pruebatiles.managers.CameraManager;
 import com.vpr.pruebatiles.managers.GameStateManager;
-import com.vpr.pruebatiles.managers.SkinManager;
 
 import static com.vpr.pruebatiles.util.Constantes.SCALE;
 

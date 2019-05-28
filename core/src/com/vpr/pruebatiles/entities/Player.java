@@ -12,8 +12,7 @@ import com.vpr.pruebatiles.handlers.MyContactListener;
 import com.vpr.pruebatiles.handlers.MyInputManager;
 import com.vpr.pruebatiles.managers.CharacterState;
 import com.vpr.pruebatiles.util.BodyCreator;
-
-import java.util.Calendar;
+import com.vpr.pruebatiles.util.Constantes;
 
 import static com.vpr.pruebatiles.util.Constantes.PPM;
 
@@ -33,7 +32,7 @@ public class Player extends BasicEntity{
     public final float bodyHeight = height;
 
     // Attributes
-
+    public Constantes.CharacterType type;
     public int coins;
     public int health;
 
@@ -51,9 +50,10 @@ public class Player extends BasicEntity{
     // Animations
     public CharacterState.State state;
 
-    public Player(String textureName, World world, Vector2 spawnPoint, MyContactListener contactListener, MyInputManager input) {
-        super(textureName, world, spawnPoint, contactListener);
+    public Player(Constantes.CharacterType type, World world, Vector2 spawnPoint, MyContactListener contactListener, MyInputManager input) {
+        super(type, world, spawnPoint, contactListener);
 
+        this.type = type;
         // Attributes
         coins = 50;
         health = MAX_HEALT;

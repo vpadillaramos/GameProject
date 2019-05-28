@@ -75,7 +75,34 @@ public final class Constantes {
     //////////////////Player input////////////////
     //////////////////////////////////////////////
 
+    // characters
+    public enum CharacterType {
+        warrior, ninja, lancer
+    }
+
+    public static final String ninjaCharacter = playerCharactersFolder + "ninjaCharacter";
+    public static final String warriorCharacter = playerCharactersFolder + "warriorCharacter";
+    public static final String lancerCharacter = playerCharactersFolder + "lancerCharacter";
+
+
     // name references to image files for animations
+
+    public static final String idle = "Idle";
+    public static final String jumpRight = "JumpRight";
+    public static final String jumpLeft = "JumpLeft";
+    public static final String walkRight = "WalkRight";
+    public static final String walkLeft = "WalkLeft";
+    public static final String fallRight = "FallRight";
+    public static final String fallLeft = "FallLeft";
+
+    public static final String warriorIdle = playerCharactersFolder + "warriorIdle";
+    public static final String warriorJumpRight = playerCharactersFolder + "warriorJumpRight";
+    public static final String warriorJumpLeft = playerCharactersFolder + "warriorJumpLeft";
+    public static final String warriorWalkRight = playerCharactersFolder + "warriorWalkRight";
+    public static final String warriorWalkLeft = playerCharactersFolder + "warriorWalkLeft";
+    public static final String warriorFallRight = playerCharactersFolder + "warriorFallRight";
+    public static final String warriorFallLeft = playerCharactersFolder + "warriorFallLeft";
+
     public static final String ninjaIdle = playerCharactersFolder + "ninjaIdle";
     public static final String ninjaJumpRight = playerCharactersFolder + "ninjaJumpRight";
     public static final String ninjaJumpLeft = playerCharactersFolder + "ninjaJumpLeft";
@@ -83,6 +110,14 @@ public final class Constantes {
     public static final String ninjaWalkLeft = playerCharactersFolder + "ninjaWalkLeft";
     public static final String ninjaFallRight = playerCharactersFolder + "ninjaFallRight";
     public static final String ninjaFallLeft = playerCharactersFolder + "ninjaFallLeft";
+
+    public static final String lancerIdle = playerCharactersFolder + "lancerIdle";
+    public static final String lancerJumpRight = playerCharactersFolder + "lancerJumpRight";
+    public static final String lancerJumpLeft = playerCharactersFolder + "lancerJumpLeft";
+    public static final String lancerWalkRight = playerCharactersFolder + "lancerWalkRight";
+    public static final String lancerWalkLeft = playerCharactersFolder + "lancerWalkLeft";
+    public static final String lancerFallRight = playerCharactersFolder + "lancerFallRight";
+    public static final String lancerFallLeft = playerCharactersFolder + "lancerFallLeft";
 
 
 

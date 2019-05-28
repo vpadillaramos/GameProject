@@ -56,7 +56,7 @@ public class SpriteManager {
                 currentTexture = playerFallLeft.getKeyFrame(time, false);
                 break;
             case IDLE:
-                currentTexture = R.getRegion(Constantes.ninjaIdle);
+                currentTexture = R.getRegion(Constantes.playerCharactersFolder + player.type.name() + Constantes.idle);
                 break;
             default:
 
@@ -67,11 +67,12 @@ public class SpriteManager {
     }
 
     private void initPlayerAnimations(){
-        playerJumpRight = new Animation(1.15f, R.getAnimacion(Constantes.ninjaJumpRight), Animation.PlayMode.NORMAL);
-        playerJumpLeft = new Animation(1.15f, R.getAnimacion(Constantes.ninjaJumpLeft), Animation.PlayMode.NORMAL);
-        playerFallRight = new Animation(0.1f, R.getAnimacion(Constantes.ninjaFallRight), Animation.PlayMode.NORMAL);
-        playerFallLeft = new Animation(0.1f, R.getAnimacion(Constantes.ninjaFallLeft), Animation.PlayMode.NORMAL);
-        playerWalkRight = new Animation(0.05f, R.getAnimacion(Constantes.ninjaWalkRight), Animation.PlayMode.LOOP);
-        playerWalkLeft = new Animation(0.05f, R.getAnimacion(Constantes.ninjaWalkLeft), Animation.PlayMode.LOOP);
+        String character = Constantes.playerCharactersFolder + player.type.name();
+        playerJumpRight = new Animation(1.15f, R.getAnimacion(character + Constantes.jumpRight), Animation.PlayMode.NORMAL);
+        playerJumpLeft = new Animation(1.15f, R.getAnimacion(character + Constantes.jumpLeft), Animation.PlayMode.NORMAL);
+        playerFallRight = new Animation(0.1f, R.getAnimacion(character + Constantes.fallRight), Animation.PlayMode.NORMAL);
+        playerFallLeft = new Animation(0.1f, R.getAnimacion(character + Constantes.fallLeft), Animation.PlayMode.NORMAL);
+        playerWalkRight = new Animation(0.05f, R.getAnimacion(character + Constantes.walkRight), Animation.PlayMode.LOOP);
+        playerWalkLeft = new Animation(0.05f, R.getAnimacion(character + Constantes.walkLeft), Animation.PlayMode.LOOP);
     }
 }

@@ -13,8 +13,10 @@ import static com.vpr.pruebatiles.util.Constantes.ATLAS;
 
 public class R {
 
-    // Variables
+    // Attributes
     public static AssetManager assets = new AssetManager();
+
+
 
     /**
      * Carga todos los recursos, tanto sprites como sonidos y musica

@@ -65,7 +65,7 @@ public class DungeonState extends GameState {
         // load the first room
         levelManager = new LevelManager(b2dManager.world, dungeonRooms[currentRoom].mapName);
         //player = new Player(Constantes.ninjaIdle, b2dManager.world, levelManager.getPlayerSpawnPoint(), contactListener, inputProcessor);
-        player = new Player(Constantes.ninjaIdle, b2dManager.world, levelManager.getPlayerSpawnPoint(), contactListener, inputManager);
+        player = new Player(gsm.playerType, b2dManager.world, levelManager.getPlayerSpawnPoint(), contactListener, inputManager);
         spriteManager = new SpriteManager(player);
 
     }
@@ -74,7 +74,7 @@ public class DungeonState extends GameState {
     public void update(float dt) {
         batch.setProjectionMatrix(cameraManager.camera.combined);
         manageInput(dt);
-
+        spriteManager.update(dt);
         b2dManager.update();
         cameraUpdate();
         levelManager.update(cameraManager.camera);
